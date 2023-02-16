@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar/Navbar";
 import CardCar from "../components/CardCar/CardCar";
 import Footer from "../components/Footer/Footer";
 import Empty from "../components/Empty/Empty";
-import SearchBar from "../components/SearchBar/SearchBar";
+import LockSearchBar from "../components/SearchBar/LockSearchBar";
 
 const ResultCar = () => {
   return (
@@ -13,7 +13,7 @@ const ResultCar = () => {
         <Empty />
       </header>
       <main>
-        <SearchBar />
+        <LockSearchBar />
         <CardCar />
       </main>
       <Footer />
