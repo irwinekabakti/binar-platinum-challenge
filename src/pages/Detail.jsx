@@ -3,8 +3,7 @@ import Navbar from "../components/Navbar/Navbar";
 import CardDetail from "../components/CardDetail/CardDetail";
 import Empty from "../components/Empty/Empty";
 import Footer from "../components/Footer/Footer";
-
-import SearchBar from "../components/SearchBar/SearchBar";
+import LockSearchBar from "../components/SearchBar/LockSearchBar";
 
 const Detail = () => {
   return (
@@ -14,7 +13,7 @@ const Detail = () => {
         <Empty />
       </header>
       <main>
-        <SearchBar />
+        <LockSearchBar />
         <CardDetail />
       </main>
       <Footer />

@@ -9,9 +9,13 @@ import SearchCar from "../pages/SearchCar";
 import ResultCar from "../pages/ResultCar";
 import Detail from "../pages/Detail";
 import NotFound from "../pages/NotFound";
+import SignIn from "../components/SignIn/SignIn";
+import SignUp from "../components/SignUp/SignUp";
 
 const Routes = () => {
   return [
+    { path: "/signIn", element: <SignIn /> },
+    // { path: "/signUp", element: <SignUp /> },
     { path: "/", element: <Home /> },
     { path: "searchCars", element: <SearchCar /> },
     { path: "resultCar", element: <ResultCar /> },
