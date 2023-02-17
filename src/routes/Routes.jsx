@@ -15,7 +15,7 @@ import SignUp from "../components/SignUp/SignUp";
 const Routes = () => {
   return [
     { path: "/signIn", element: <SignIn /> },
-    // { path: "/signUp", element: <SignUp /> },
+    { path: "/signUp", element: <SignUp /> },
     { path: "/", element: <Home /> },
     { path: "searchCars", element: <SearchCar /> },
     { path: "resultCar", element: <ResultCar /> },
