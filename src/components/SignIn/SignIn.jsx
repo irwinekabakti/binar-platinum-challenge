@@ -1,11 +1,20 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import classes from "./SignIn.module.css";
 import logoLogin from "../Images/Logo-login.svg";
 import landingPage from "../Images/Landing-page.svg";
-import { Button, Form, Nav } from "react-bootstrap";
+import { Button, Form, Nav, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignIn = () => {
+  const [passwordShown, setPasswordShown] = useState(false);
+  const [icon, setIcon] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordShown(!passwordShown);
+    setIcon(!icon);
+  };
+
   return (
     <Fragment>
       <div className="d-flex bg-light">
@@ -25,10 +34,22 @@ const SignIn = () => {
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="6+ character" />
-                </Form.Group>
+                {/* <Form.Group className="mb-3" controlId="formBasicPassword"> */}
+                <Form.Label>Password</Form.Label>
+                <InputGroup className="mb-3">
+                  <Form.Control
+                    type={passwordShown ? "text" : "password"}
+                    placeholder="6+ character"
+                  />
+                  <Button
+                    variant="outline-primary"
+                    id="button-addon2"
+                    onClick={togglePasswordVisibility}>
+                    {icon ? <FaEye /> : <FaEyeSlash />}
+                  </Button>
+                </InputGroup>
+                {/* <Form.Control type="password" placeholder="6+ character" />
+                </Form.Group> */}
                 <Button
                   variant="primary"
                   type="submit"

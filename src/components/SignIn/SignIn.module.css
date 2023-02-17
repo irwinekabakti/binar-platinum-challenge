@@ -3,14 +3,8 @@
 }
 
 .formControl {
-  /* width: 60%;
-  margin-top: 15%;
-  margin-left: 120px;
-  box-sizing: border-box; */
-  /*  */
   width: 60%;
   margin-top: 15%;
-  justify-content: center;
   margin-left: 20%;
   box-sizing: border-box;
 }
@@ -30,17 +24,49 @@
   background: #0d28b0;
 }
 
+.buttonSignUp:hover {
+  /* background: #0d1a8d; */
+  color: rgb(244, 243, 241);
+}
+
 .linkA {
   color: #0d28b0;
 }
+
 @media (max-width: 992px) {
   .background2 {
     display: none;
   }
   .formControl {
-    margin-top: 15%;
     width: 100%;
     margin-left: 5%;
-    box-sizing: border-box;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .formControl {
+    width: 100%;
+    margin-left: 55%;
+  }
+}
+
+@media (max-width: 360px) {
+  .formControl {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 366px) and (max-width: 376px) {
+  .formControl {
+    width: 100%;
+    margin-left: 2%;
+  }
+}
+
+@media (min-width: 490px) and (max-width: 540px) {
+  .formControl {
+    width: 100%;
+    margin-left: 25%;
   }
 }
