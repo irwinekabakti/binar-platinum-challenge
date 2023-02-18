@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import classes from "./CardPayment.module.css";
 // import Button from "react-bootstrap/Button";
 // import ButtonGroup from "react-bootstrap/ButtonGroup";
@@ -18,12 +18,12 @@ const CardPayment = () => {
                 Kamu bisa membayar dengan transfer melalui ATM, Internet Banking
                 atau Mobile Banking
               </p>
-              <form>
+
+              {/* <form>
                 <ul className="list-group list-group-flush mt-4">
                   <li className="list-group-item ms-3 me-3 d-flex">
                     <button
-                      className="rounded bg-white text-dark btn btn-outline-secondary text-center mb-3"
-                      style={{ width: "15%" }}>
+                      className={`rounded bg-white text-dark btn btn-outline-secondary text-center mb-3 ${classes.btnBank}`}>
                       BCA
                     </button>
                     <a
@@ -34,8 +34,7 @@ const CardPayment = () => {
                   </li>
                   <li className="list-group-item mt-3 ms-3 me-3 d-flex">
                     <button
-                      className="rounded bg-white text-dark btn btn-outline-secondary text-center mb-3"
-                      style={{ width: "15%" }}>
+                      className={`rounded bg-white text-dark btn btn-outline-secondary text-center mb-3 ${classes.btnBank}`}>
                       BNI
                     </button>
                     <a
@@ -46,8 +45,7 @@ const CardPayment = () => {
                   </li>
                   <li className="list-group-item mt-3 ms-3 me-3 d-flex">
                     <button
-                      className="rounded bg-white text-dark btn btn-outline-secondary text-center mb-3"
-                      style={{ width: "15%" }}>
+                      className={`rounded bg-white text-dark btn btn-outline-secondary text-center mb-3 ${classes.btnBank}`}>
                       Mandiri
                     </button>
                     <a
@@ -57,6 +55,28 @@ const CardPayment = () => {
                     </a>
                   </li>
                   <li className="list-group-item ms-3 mt-3 me-3 d-flex"></li>
+                </ul>
+              </form> */}
+
+              <form>
+                <ul className="list-group list-group-flush mt-4">
+                  <li className="list-group-item mx-3 d-flex">
+                    <div className="card fs-5 py-2 px-4 mb-3 text-center">
+                      BCA
+                    </div>
+                    <h5 className="ms-5 mt-3">BCA Transfer</h5>
+                  </li>
+                  <li className="list-group-item mx-3 mt-3 d-flex">
+                    <div className="card fs-5 py-2 px-4 mb-3 text">BNI</div>
+                    <h5 className="ms-5 mt-3">BNI Transfer</h5>
+                  </li>
+                  <li className="list-group-item mx-3 mt-3 d-flex">
+                    <div className="card py-2 px-2 fs-5  mb-3 text">
+                      Mandiri
+                    </div>
+                    <h5 className="ms-5 mt-3">Mandiri Transfer</h5>
+                  </li>
+                  <li className="list-group-item mb-3 d-flex"></li>
                 </ul>
               </form>
             </div>
