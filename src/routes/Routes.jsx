@@ -11,6 +11,7 @@ import Detail from "../pages/Detail";
 import NotFound from "../pages/NotFound";
 import SignIn from "../components/SignIn/SignIn";
 import SignUp from "../components/SignUp/SignUp";
+import Payment from "../pages/Payment";
 
 const Routes = () => {
   return [
@@ -20,6 +21,7 @@ const Routes = () => {
     { path: "searchCars", element: <SearchCar /> },
     { path: "resultCar", element: <ResultCar /> },
     { path: "/detailCar/:id", element: <Detail /> },
+    { path: "pembayaran", element: <Payment /> },
     { path: "/*", element: <NotFound /> },
   ];
 };
