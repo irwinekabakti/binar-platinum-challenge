@@ -19,14 +19,32 @@
   color: #0d1a8d !important;
 }
 
+.navbarRegister {
+  width: 150px;
+  height: 25px;
+  justify-content: center;
+  margin-top: 20px;
+  text-align: center;
+  padding: 8px 15px;
+  border-radius: 2px;
+  display: unset;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  background: #5cb85f;
+  color: #fff;
+}
+
+.navbarRegister:hover {
+  font-weight: bold;
+  background: #5cb85f;
+  color: #f1efef;
+}
+
 @media (max-width: 992px) {
   .navbarBrand1 {
     margin-left: 0px;
   }
-  /* .navItem {
-    margin-top: 0 !important;
-    margin: 10px 0;
-  } */
   .navbarNavLink:hover {
     color: #0d1a8d !important;
   }

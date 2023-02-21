@@ -16,7 +16,9 @@ const Empty2 = () => {
         <div className={`d-flex justify-content-around ${classes.miniPhone}`}>
           <div className={`col-lg col-md col-sm ${classes.marginEmpty}`}>
             {/* <a href="/detailCar/:id" className="text-decoration-none text-dark"> */}
-            <span className="backToDetail" onClick={toDetail}>
+            <span
+              className={`backToDetail ${classes.backToDetail}`}
+              onClick={toDetail}>
               <FaArrowLeft className="me-3" />
               Pembayaran
             </span>
