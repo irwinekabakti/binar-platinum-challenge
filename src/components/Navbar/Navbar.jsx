@@ -52,6 +52,13 @@ const Navbar = () => {
                     </a>
                   </li>
                 ))}
+                <li className="nav-item mt-2" key="register">
+                  <a
+                    className={`nav-link me-4 ${classes.navbarRegister}`}
+                    href="/signup">
+                    Register
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

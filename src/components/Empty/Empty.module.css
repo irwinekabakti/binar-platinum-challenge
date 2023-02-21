@@ -8,6 +8,10 @@
   color: black;
 }
 
+.backToDetail:hover {
+  color: black;
+}
+
 @media (min-width: 992px) {
   .marginEmpty {
     margin-top: 8%;

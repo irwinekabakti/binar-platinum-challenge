@@ -12,12 +12,19 @@ import NotFound from "../pages/NotFound";
 import SignIn from "../components/SignIn/SignIn";
 import SignUp from "../components/SignUp/SignUp";
 import Payment from "../pages/Payment";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router";
 
 const Routes = () => {
+  const { isAuthenticated } = useSelector((state) => state.authStore);
+
   return [
     { path: "/signIn", element: <SignIn /> },
     { path: "/signUp", element: <SignUp /> },
-    { path: "/", element: <Home /> },
+    {
+      path: "/",
+      element: isAuthenticated ? <Home /> : <Navigate to="/signIn" />,
+    },
     { path: "searchCars", element: <SearchCar /> },
     { path: "resultCar", element: <ResultCar /> },
     { path: "/detailCar/:id", element: <Detail /> },
