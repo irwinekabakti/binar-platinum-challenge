@@ -1,0 +1,92 @@
+.TiketHeaderContainter {
+    
+    background-color: #f1f3ff;
+}
+
+.eTiketHeader {
+    padding-top: 5rem;
+   
+}
+
+p { 
+    font-weight: bold;
+}
+
+#tiketButton ul {
+    list-style-type: none;
+    overflow: hidden;
+    margin-bottom: 0px;
+    padding-left: 18rem;
+}
+
+#tiketButton li {
+    list-style-type: none;
+    overflow: hidden;
+    float: left;
+    display: block;
+    padding-right: 1rem;
+}
+
+.orderID {
+    display: flex;
+    padding-left: 20rem
+    
+}
+
+.progressBar ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+
+.progressBar li {
+    float: left;
+    display: block;
+    padding-right: 10px;
+  }
+
+.eTiketBody {
+    padding-top: 2rem;
+    
+    padding-bottom: 150px;
+    
+}
+
+    
+
+.Tiket_Success img  {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1rem;
+    
+}
+
+.Tiket_Success h5, p  {
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 1rem;
+}
+
+.Tiket_Card {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1rem;
+}
+
+.Tiket_Card P {
+    text-align: left;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 12px;
+    margin-top: 5px;
+
+}

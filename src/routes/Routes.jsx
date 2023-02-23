@@ -14,6 +14,8 @@ import SignUp from "../components/SignUp/SignUp";
 import Payment from "../pages/Payment";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router";
+import ETiket from "../pages/ETiket";
+
 
 const Routes = () => {
   const { isAuthenticated } = useSelector((state) => state.authStore);
@@ -30,6 +32,7 @@ const Routes = () => {
     { path: "/detailCar/:id", element: <Detail /> },
     { path: "pembayaran", element: <Payment /> },
     { path: "/*", element: <NotFound /> },
+    { path: "/ETiket", element: <ETiket /> },
   ];
 };
 
