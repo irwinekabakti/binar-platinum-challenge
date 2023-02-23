@@ -1,0 +1,24 @@
+.FaqMod {
+  margin-top: 100px;
+  margin-bottom: 80px;
+}
+
+.accordionItem {
+  margin-bottom: 20px;
+  border: 1px solid #d4d4d4;
+}
+
+.buttonAccordion,
+.bodyAccordion {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 0em;
+}
+
+@media (max-width: 992px) {
+  .faqHeader {
+    text-align: center;
+  }
+}

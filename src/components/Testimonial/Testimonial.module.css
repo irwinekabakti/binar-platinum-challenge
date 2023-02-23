@@ -1,0 +1,65 @@
+.testimonial {
+  margin-top: 100px;
+}
+
+.testimonialHeader {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.itemImg {
+  width: 50% !important;
+}
+
+.card {
+  background: #f1f3ff;
+  border: none;
+  padding: 80px 20px;
+  border-radius: 10px;
+}
+
+.cardReviewer {
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.cardText {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.cardTitle {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.buttonCarousel {
+  height: 32px;
+  line-height: 28px;
+  width: 32px;
+  font-size: 22px;
+  font-weight: 600;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid #c4c4c4;
+  color: #000000;
+  text-align: center;
+  cursor: pointer;
+}
+
+.buttonCarousel:hover {
+  background-color: #4caf50;
+  color: white;
+  border: 1px solid #4caf50;
+}
+
+@media (max-width: 992px) {
+  .icon {
+    text-align: center;
+  }
+}

@@ -1,0 +1,72 @@
+.background2 {
+  background: #0d28b0;
+}
+
+.formControl {
+  width: 60%;
+  margin-top: 15%;
+  margin-left: 20%;
+  box-sizing: border-box;
+}
+
+.heading {
+  margin-top: 70px;
+  color: #ffffff;
+  margin-left: 60px;
+  opacity: 0.7;
+}
+
+.imagesLandingPage {
+  width: 90%;
+}
+
+.buttonSignUp {
+  background: #0d28b0;
+}
+
+.buttonSignUp:hover {
+  /* background: #0d1a8d; */
+  color: rgb(244, 243, 241);
+}
+
+.linkA {
+  color: #0d28b0;
+}
+
+@media (max-width: 992px) {
+  .background2 {
+    display: none;
+  }
+  .formControl {
+    width: 100%;
+    margin-left: 5%;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 991px) {
+  .formControl {
+    width: 100%;
+    margin-left: 55%;
+  }
+}
+
+@media (max-width: 360px) {
+  .formControl {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 366px) and (max-width: 376px) {
+  .formControl {
+    width: 100%;
+    margin-left: 2%;
+  }
+}
+
+@media (min-width: 490px) and (max-width: 540px) {
+  .formControl {
+    width: 100%;
+    margin-left: 25%;
+  }
+}

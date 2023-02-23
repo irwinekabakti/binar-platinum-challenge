@@ -1,0 +1,14 @@
+.cardPayment {
+  margin-bottom: 70px;
+  margin-top: -40px;
+}
+
+.btnBank {
+  width: 15%;
+}
+
+@media (max-width: 992px) {
+  .btnBank {
+    width: 40%;
+  }
+}
