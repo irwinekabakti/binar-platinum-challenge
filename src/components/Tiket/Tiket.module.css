@@ -1,25 +1,24 @@
-.TiketHeaderContainter {
+.tiketHeaderContainter {
     
     background-color: #f1f3ff;
 }
 
 .eTiketHeader {
     padding-top: 5rem;
-   
 }
 
 p { 
     font-weight: bold;
 }
 
-#tiketButton ul {
+.ulTiket {
     list-style-type: none;
     overflow: hidden;
     margin-bottom: 0px;
     padding-left: 18rem;
 }
 
-#tiketButton li {
+.liTiket {
     list-style-type: none;
     overflow: hidden;
     float: left;
@@ -33,13 +32,13 @@ p {
     
 }
 
-.progressBar ul {
+.ulProgressBar {
     list-style-type: none;
     overflow: hidden;
 }
 
 
-.progressBar li {
+.liProgressBar {
     float: left;
     display: block;
     padding-right: 10px;
@@ -47,14 +46,13 @@ p {
 
 .eTiketBody {
     padding-top: 2rem;
-    
     padding-bottom: 150px;
     
 }
 
     
 
-.Tiket_Success img  {
+.tiketSuccesImg  {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -62,13 +60,13 @@ p {
     
 }
 
-.Tiket_Success h5, p  {
+.tiketSuccessH5 , .tiketSuccessP  {
     text-align: center;
     font-weight: bold;
     padding-bottom: 1rem;
 }
 
-.Tiket_Card {
+.tiketCard {
     width: 50%;
     display: block;
     margin-left: auto;
@@ -76,13 +74,13 @@ p {
     padding-bottom: 1rem;
 }
 
-.Tiket_Card P {
+.tiketCard P {
     text-align: left;
     padding-bottom: 0px;
     margin-bottom: 10px;
 }
 
-.btn {
+.btnEtiket {
     position: absolute;
     right: 0;
     top: 0;

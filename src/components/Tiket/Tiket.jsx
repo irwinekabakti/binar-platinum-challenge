@@ -1,62 +1,61 @@
 import React from 'react'
 import { Row, Col, Container, Image, Button,  Card } from 'react-bootstrap'
-import "./Tiket.css"
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { FiDownload } from 'react-icons/fi';
-
+import classes from "./Tiket.module.css"
 
 
 const Tiket = () => {
   return (
     <div>
-        <div className='TiketHeaderContainter'> 
-          <Row className='eTiketHeader'>
+        <div className={classes.tiketHeaderContainter}> 
+          <Row className= {classes.eTiketHeader}>
               <Col className='col-8' id='tiketButton'>
-                <ul>
-                  <li> 
+                <ul className={classes.ulTiket} >
+                  <li className={classes.liTiket}> 
                     <a>
                       <AiOutlineArrowLeft/>
                     </a>
                   </li>
-                  <li>
+                  <li className={classes.liTiket}> 
                     <p>Tiket</p>
                   </li>
                 </ul>
-                  <p className='orderID'>
+                  <p className={classes.orderID}>
                       Order ID: xxxx
                   </p>
               </Col>
               <Col className='col-4'>
                   <Row className='progressBar'>
-                    <ul>
-                      <li>
+                    <ul className={classes.ulProgressBar}>
+                      <li className={classes.liProgressBar}>
                         <img src='assets\images\png\Tiket_checklist.png'>
                         </img>
                       </li>
-                      <li>
+                      <li className={classes.liProgressBar}>
                         <p>Pilih Metode
                         </p>
                       </li>
-                      <li>
+                      <li className={classes.liProgressBar}>
                         <img src='assets\images\png\Tiket_strip.png'>
                         </img>
                       </li>
-                      <li>
+                      <li className={classes.liProgressBar}>
                         <img src='assets\images\png\Tiket_checklist.png'>
                           </img>
                       </li>
-                      <li>
+                      <li className={classes.liProgressBar}>
                         <p>Bayar</p>
                       </li>
-                      <li> 
+                      <li className={classes.liProgressBar}>
                         <img src='assets\images\png\Tiket_strip.png'>
                         </img>
                       </li>
-                      <li>
+                      <li className={classes.liProgressBar}>
                         <img src='assets\images\png\Tiket_checklist.png'>
                           </img>
                       </li>
-                      <li>
+                      <li className={classes.liProgressBar}>
                         <p>Tiket</p>
                       </li>
                     </ul>
@@ -66,17 +65,17 @@ const Tiket = () => {
           
         </div>
         <Container>
-          <Row className='eTiketBody'>
-                <div className='Tiket_Success'>
-                  <img src='assets\images\png\Tiket_Success.png' className='Tiket_Succes_Img'>
+          <Row className={classes.eTiketBody}>
+                <div className={classes.Tiket_Success}>
+                  <img src='assets\images\png\Tiket_Success.png' className={classes.tiketSuccesImg}>
                   </img>
-                  <h5>
+                  <h5 className={classes.tiketSuccessH5}>
                     Pembayaran Berhasil ! 
                   </h5>
-                  <p>
+                  <p className={classes.tiketSuccessP}>
                      Tunjukan invoice ini ke petugas BCR di titik temu.
                   </p>
-                  <Card className='Tiket_Card'>
+                  <Card className={classes.tiketCard}>
                     <Container>
                       <Row>
                         <Col className='col-6'>
@@ -88,7 +87,7 @@ const Tiket = () => {
                           </p>
                         </Col>
                         <Col className='col-6'>
-                          <button type="button" class="btn btn-outline-primary">
+                          <button type="button" class={`btn btn-outline-primary ${classes.btnEtiket}`}>
                             <FiDownload/>
                             Unduh
                             </button>
