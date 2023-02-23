@@ -27,9 +27,18 @@ const Routes = () => {
       path: "/",
       element: isAuthenticated ? <Home /> : <Navigate to="/signIn" />,
     },
-    { path: "searchCars", element: <SearchCar /> },
-    { path: "resultCar", element: <ResultCar /> },
-    { path: "/detailCar/:id", element: <Detail /> },
+    {
+      path: "searchCars",
+      element: isAuthenticated ? <SearchCar /> : <Navigate to="/signIn" />,
+    },
+    {
+      path: "resultCar",
+      element: isAuthenticated ? <ResultCar /> : <Navigate to="/signIn" />,
+    },
+    {
+      path: "/detailCar/:id",
+      element: isAuthenticated ? <Detail /> : <Navigate to="/signIn" />,
+    },
     { path: "pembayaran", element: <Payment /> },
     { path: "/*", element: <NotFound /> },
     { path: "/ETiket", element: <ETiket /> },
