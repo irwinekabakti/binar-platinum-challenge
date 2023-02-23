@@ -98,7 +98,6 @@ const SignIn = () => {
                     className={`w-100 mt-4 fw-bold ${classes.buttonSignUp}`}>
                     Sign In
                   </Button>
-
                   <div className="d-flex mt-3 justify-content-center">
                     <p className="text-dark fs-6 me-4">
                       Don't have an account ?
