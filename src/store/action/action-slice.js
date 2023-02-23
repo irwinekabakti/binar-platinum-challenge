@@ -15,6 +15,16 @@ const loginCustomer = createAsyncThunk(
   }
 );
 
+const loginAdmin = createAsyncThunk("authentication/login", async (payload) => {
+  try {
+    const get = await axios.post(`${BASE_API}/admin/auth/login`, payload);
+
+    return get.data.access_token;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const initialState = { isAuthenticated: !!localStorage.getItem("token") };
 
 const authSlice = createSlice({
@@ -25,6 +35,7 @@ const authSlice = createSlice({
       state.isAuthenticated = action.payload;
     },
     logout(state, action) {
+      localStorage.removeItem("token");
       state.isAuthenticated = action.payload;
     },
   },
@@ -41,6 +52,6 @@ const authSlice = createSlice({
 
 export const { login, logout } = authSlice.actions;
 
-export { loginCustomer };
+export { loginCustomer, loginAdmin };
 
 export default authSlice;

@@ -19,9 +19,13 @@
   color: #0d1a8d !important;
 }
 
-.navbarRegister {
-  width: 150px;
-  height: 25px;
+.navItemLogout {
+  margin-top: -14px;
+}
+
+.navbarLogout {
+  width: 80px;
+  height: 35px;
   justify-content: center;
   margin-top: 20px;
   text-align: center;
@@ -35,7 +39,7 @@
   color: #fff;
 }
 
-.navbarRegister:hover {
+.navbarLogout:hover {
   font-weight: bold;
   background: #5cb85f;
   color: #f1efef;

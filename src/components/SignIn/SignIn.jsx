@@ -5,10 +5,12 @@ import landingPage from "../Images/Landing-page.svg";
 import { Button, Form, Nav, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { loginCustomer } from "../../store/action/action-slice";
+import { loginCustomer, loginAdmin } from "../../store/action/action-slice";
+
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Loading from "../Loading/Loading";
+// import ExampleModal from "../Modal/Modal";
 
 const SignIn = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -40,7 +42,8 @@ const SignIn = () => {
     setLoading(true);
     e.preventDefault();
     console.log(`login is here`);
-    dispatch(loginCustomer({ email: inputEmail, password: inputPassword }))
+    dispatch(loginCustomer({ email: inputEmail, password: inputPassword }));
+    dispatch(loginAdmin({ email: inputEmail, password: inputPassword }))
       .unwrap()
       .then(() => {
         setLoading(false);
