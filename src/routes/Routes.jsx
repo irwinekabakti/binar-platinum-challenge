@@ -24,10 +24,12 @@ const Routes = () => {
     { path: "/signIn", element: <SignIn /> },
     { path: "/signUp", element: <SignUp /> },
     // { path: "/signInAdmin", element: <SignInAdmin /> },
-    {
-      path: "/",
-      element: isAuthenticated ? <Home /> : <Navigate to="/signIn" />,
-    },
+    { path: "/", element: <Home /> },
+    { path: "/", element: <SignIn /> },
+    // {
+    //   path: "/",
+    //   element: isAuthenticated ? <Home /> : <Navigate to="/signIn" />,
+    // },
     {
       path: "searchCars",
       element: isAuthenticated ? <SearchCar /> : <Navigate to="/signIn" />,
