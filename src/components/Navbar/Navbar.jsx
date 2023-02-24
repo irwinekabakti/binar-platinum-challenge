@@ -13,6 +13,7 @@ const Navbar = () => {
   const [loading, setLoading] = useState();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const isTokenAdd = localStorage.getItem("token");
 
   const handleLogout = () => {
     setLoading(true);
@@ -72,16 +73,29 @@ const Navbar = () => {
                       </a>
                     </li>
                   ))}
-                  <li
-                    className={`nav-item ${classes.navItemLogout}`}
-                    key="logout">
-                    <button
-                      style={{ border: "none", outline: "none" }}
-                      className={`nav-link me-4 ${classes.navbarLogout}`}
-                      onClick={handleLogout}>
-                      Logout
-                    </button>
-                  </li>
+                  {isTokenAdd ? (
+                    <li
+                      className={`nav-item ${classes.navItemLogout}`}
+                      key="logout">
+                      <button
+                        style={{ border: "none", outline: "none" }}
+                        className={`nav-link me-4 ${classes.navbarLogout}`}
+                        onClick={handleLogout}>
+                        Logout
+                      </button>
+                    </li>
+                  ) : (
+                    <li
+                      className={`nav-item ${classes.navItemLogout}`}
+                      key="logout">
+                      <button
+                        style={{ border: "none", outline: "none" }}
+                        className={`nav-link me-4 ${classes.navbarRegister}`}
+                        onClick={handleLogout}>
+                        Register
+                      </button>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>
