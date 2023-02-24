@@ -15,7 +15,7 @@ import Payment from "../pages/Payment";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router";
 import ETiket from "../pages/ETiket";
-
+// import SignInAdmin from "../components/SignIn/SignInAdmin";
 
 const Routes = () => {
   const { isAuthenticated } = useSelector((state) => state.authStore);
@@ -23,6 +23,7 @@ const Routes = () => {
   return [
     { path: "/signIn", element: <SignIn /> },
     { path: "/signUp", element: <SignUp /> },
+    // { path: "/signInAdmin", element: <SignInAdmin /> },
     {
       path: "/",
       element: isAuthenticated ? <Home /> : <Navigate to="/signIn" />,
