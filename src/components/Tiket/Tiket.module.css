@@ -1,90 +1,84 @@
-.tiketHeaderContainter {
-    
-    background-color: #f1f3ff;
+.TiketHeaderContainter {
+  background-color: #f1f3ff;
 }
 
 .eTiketHeader {
-    padding-top: 5rem;
+  padding-top: 5rem;
 }
 
-p { 
-    font-weight: bold;
+p {
+  font-weight: bold;
 }
 
-.ulTiket {
-    list-style-type: none;
-    overflow: hidden;
-    margin-bottom: 0px;
-    padding-left: 18rem;
+#tiketButton ul {
+  list-style-type: none;
+  overflow: hidden;
+  margin-bottom: 0px;
+  padding-left: 18rem;
 }
 
-.liTiket {
-    list-style-type: none;
-    overflow: hidden;
-    float: left;
-    display: block;
-    padding-right: 1rem;
+#tiketButton li {
+  list-style-type: none;
+  overflow: hidden;
+  float: left;
+  display: block;
+  padding-right: 1rem;
 }
 
 .orderID {
-    display: flex;
-    padding-left: 20rem
-    
+  display: flex;
+  padding-left: 20rem;
 }
 
-.ulProgressBar {
-    list-style-type: none;
-    overflow: hidden;
+.progressBar ul {
+  list-style-type: none;
+  overflow: hidden;
 }
 
-
-.liProgressBar {
-    float: left;
-    display: block;
-    padding-right: 10px;
-  }
+.progressBar li {
+  float: left;
+  display: block;
+  padding-right: 10px;
+}
 
 .eTiketBody {
-    padding-top: 2rem;
-    padding-bottom: 150px;
-    
+  padding-top: 2rem;
+
+  padding-bottom: 150px;
 }
 
-    
-
-.tiketSuccesImg  {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 1rem;
-    
+.Tiket_Success img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 1rem;
 }
 
-.tiketSuccessH5 , .tiketSuccessP  {
-    text-align: center;
-    font-weight: bold;
-    padding-bottom: 1rem;
+.Tiket_Success h5,
+p {
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 1rem;
 }
 
-.tiketCard {
-    width: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 1rem;
+.Tiket_Card {
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 1rem;
 }
 
-.tiketCard P {
-    text-align: left;
-    padding-bottom: 0px;
-    margin-bottom: 10px;
+.Tiket_Card P {
+  text-align: left;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
 }
 
-.btnEtiket {
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin-right: 12px;
-    margin-top: 5px;
-
+.btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 12px;
+  margin-top: 5px;
 }
