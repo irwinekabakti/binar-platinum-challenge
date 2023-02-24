@@ -1,4 +1,4 @@
-.TiketHeaderContainter {
+.tiketHeaderContainter {
   background-color: #f1f3ff;
 }
 
@@ -6,36 +6,40 @@
   padding-top: 5rem;
 }
 
-p {
+.paragraphTiket {
   font-weight: bold;
 }
 
-#tiketButton ul {
+.ulTiket {
   list-style-type: none;
   overflow: hidden;
   margin-bottom: 0px;
   padding-left: 18rem;
+  margin-left: -50px;
 }
 
-#tiketButton li {
+.liTiket {
   list-style-type: none;
   overflow: hidden;
   float: left;
   display: block;
   padding-right: 1rem;
+  cursor: pointer;
 }
 
 .orderID {
   display: flex;
   padding-left: 20rem;
+  margin-left: -50px;
 }
 
-.progressBar ul {
+.ulProgressBar {
   list-style-type: none;
   overflow: hidden;
 }
 
-.progressBar li {
+.liProgressBar,
+.liProgressBarStrip {
   float: left;
   display: block;
   padding-right: 10px;
@@ -43,25 +47,24 @@ p {
 
 .eTiketBody {
   padding-top: 2rem;
-
-  padding-bottom: 150px;
+  padding-bottom: 135px;
 }
 
-.Tiket_Success img {
+.tiketSuccesImg {
   display: block;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 1rem;
 }
 
-.Tiket_Success h5,
-p {
+.tiketSuccessH5,
+.tiketSuccessP {
   text-align: center;
   font-weight: bold;
   padding-bottom: 1rem;
 }
 
-.Tiket_Card {
+.tiketCard {
   width: 50%;
   display: block;
   margin-left: auto;
@@ -69,16 +72,74 @@ p {
   padding-bottom: 1rem;
 }
 
-.Tiket_Card P {
+.tiketCardParagraph {
   text-align: left;
   padding-bottom: 0px;
   margin-bottom: 10px;
 }
 
-.btn {
+.btnEtiket {
   position: absolute;
   right: 0;
   top: 0;
   margin-right: 12px;
   margin-top: 5px;
+}
+
+@media (max-width: 992px) and (min-width: 577px) {
+  .tiketCard {
+    width: 100%;
+  }
+  .eTiketBody {
+    padding-bottom: 60px;
+  }
+  .ulTiket {
+    margin-left: -200px;
+  }
+
+  .orderID {
+    margin-left: -200px;
+  }
+  .ulProgressBar {
+    margin-left: -100px;
+  }
+
+  .liProgressBar {
+    display: block;
+  }
+}
+
+@media (max-width: 576px) {
+  .tiketCard {
+    width: 100%;
+  }
+  .eTiketBody {
+    padding-bottom: 60px;
+  }
+  .ulTiket {
+    margin-left: -260px;
+  }
+  .orderID {
+    margin-left: -260px;
+  }
+  .ulProgressBar {
+    margin-left: -10px;
+  }
+
+  .liProgressBar {
+    display: block;
+    margin-right: 0px;
+  }
+
+  .liProgressBar:nth-child(7) {
+    display: block;
+    margin-right: 30px;
+  }
+  .liProgressBar:nth-child(8) {
+    display: block;
+    margin-left: -30px;
+  }
+  .liProgressBarStrip {
+    display: none;
+  }
 }
