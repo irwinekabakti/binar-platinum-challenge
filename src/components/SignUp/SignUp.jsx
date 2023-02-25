@@ -3,8 +3,10 @@ import classes from "./SignUp.module.css";
 import logoLogin from "../Images/Logo-login.svg";
 import landingPage from "../Images/Landing-page.svg";
 import { Button, Form, Nav, InputGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { registerCustomer } from "../../store/action/register-slice";
+import { useDispatch } from "react-redux";
 
 const SignUp = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -15,9 +17,46 @@ const SignUp = () => {
     setIcon(!icon);
   };
 
-  // const toggleIcon = () => {
-  //   setIcon(!icon);
-  // };
+  const [inputName, setName] = useState();
+  const [inputEmail, setInputEmail] = useState();
+  const [inputPassword, setInputPassword] = useState();
+  const [loading, setLoading] = useState();
+
+  const handlingName = (e) => {
+    e.preventDefault();
+    setName(e.target.value);
+  };
+
+  const handlingEmail = (e) => {
+    e.preventDefault();
+    setInputEmail(e.target.value);
+  };
+
+  const handlingPassword = (e) => {
+    e.preventDefault();
+    setInputPassword(e.target.value);
+  };
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleRegister = (e) => {
+    setLoading(true);
+    e.preventDefault();
+    console.log(`login is here`);
+    dispatch(
+      registerCustomer({
+        name: inputName,
+        email: inputEmail,
+        password: inputPassword,
+      })
+    )
+      .unwrap()
+      .then(() => {
+        setLoading(false);
+        navigate("/signIn");
+      });
+  };
 
   return (
     <Fragment>
@@ -29,29 +68,30 @@ const SignUp = () => {
                 <img src={logoLogin} alt="Sign In BCR" />
               </Nav.Link>
               <h1 className="mb-5 fw-bold text-black">Sign Up</h1>
-              <Form>
+              <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3" controlId="formName">
                   <Form.Label>Full Name*</Form.Label>
-                  <Form.Control type="text" placeholder="Cristiano Penaldo" />
+                  <Form.Control
+                    type="text"
+                    placeholder="Cristiano Penaldo"
+                    onChange={handlingName}
+                  />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email*</Form.Label>
                   <Form.Control
                     type="email"
                     placeholder="example: emyunihbos@gmail.co.uk"
+                    onChange={handlingEmail}
                   />
                 </Form.Group>
-                {/*
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Create Password*</Form.Label>
-                  <Form.Control type="password" placeholder="6+ character" />
-                </Form.Group> */}
 
                 <Form.Label>Create Password*</Form.Label>
                 <InputGroup className="mb-3">
                   <Form.Control
                     type={passwordShown ? "text" : "password"}
                     placeholder="6+ character"
+                    onChange={handlingPassword}
                   />
                   <Button
                     variant="outline-primary"

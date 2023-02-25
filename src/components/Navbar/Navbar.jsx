@@ -14,6 +14,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isTokenAdd = localStorage.getItem("token");
+  const isTokenReg = localStorage.getItem("tokenRegister");
 
   const handleLogout = () => {
     setLoading(true);
@@ -73,7 +74,7 @@ const Navbar = () => {
                       </a>
                     </li>
                   ))}
-                  {isTokenAdd ? (
+                  {isTokenAdd || isTokenReg ? (
                     <li
                       className={`nav-item ${classes.navItemLogout}`}
                       key="logout">

@@ -18,6 +18,8 @@ const SignIn = () => {
   const [inputEmail, setInputEmail] = useState();
   const [inputPassword, setInputPassword] = useState();
   const [loading, setLoading] = useState();
+  const [checkEmail, setCheckEmail] = useState();
+  const [checkPassword, setCheckPassword] = useState();
 
   const handlingEmail = (e) => {
     e.preventDefault();
@@ -42,8 +44,8 @@ const SignIn = () => {
     setLoading(true);
     e.preventDefault();
     console.log(`login is here`);
-    dispatch(loginCustomer({ email: inputEmail, password: inputPassword }));
-    dispatch(loginAdmin({ email: inputEmail, password: inputPassword }))
+    dispatch(loginCustomer({ email: inputEmail, password: inputPassword }))
+      // dispatch(loginAdmin({ email: inputEmail, password: inputPassword }))
       .unwrap()
       .then(() => {
         setLoading(false);

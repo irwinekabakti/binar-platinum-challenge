@@ -16,9 +16,12 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router";
 import ETiket from "../pages/ETiket";
 // import SignInAdmin from "../components/SignIn/SignInAdmin";
+import Dashboard from "../Admin/pages/Dashboard";
+import LoginAdmin from "../Admin/pages/LoginAdmin";
 
 const Routes = () => {
   const { isAuthenticated } = useSelector((state) => state.authStore);
+  // const { isRegister } = useSelector((state) => state.regStore);
 
   return [
     { path: "/signIn", element: <SignIn /> },
@@ -26,9 +29,13 @@ const Routes = () => {
     // { path: "/signInAdmin", element: <SignInAdmin /> },
     { path: "/", element: <Home /> },
     { path: "/", element: <SignIn /> },
+    {
+      path: "/",
+      element: isAuthenticated ? <Home /> : <Navigate to="/signIn" />,
+    },
     // {
-    //   path: "/",
-    //   element: isAuthenticated ? <Home /> : <Navigate to="/signIn" />,
+    //   path: "searchCars",
+    //   element: isAuthenticated ? <SearchCar /> : <Navigate to="/signIn" />,
     // },
     {
       path: "searchCars",
@@ -44,7 +51,9 @@ const Routes = () => {
     },
     { path: "pembayaran", element: <Payment /> },
     { path: "/*", element: <NotFound /> },
-    { path: "/ETiket", element: <ETiket /> },
+    { path: "ETiket", element: <ETiket /> },
+    { path: "dashboard", element: <Dashboard /> },
+    { path: "loginAdmin", element: <LoginAdmin /> },
   ];
 };
 
