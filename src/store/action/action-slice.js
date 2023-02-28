@@ -13,6 +13,7 @@ const loginCustomer = createAsyncThunk(
       return get.data.access_token;
     } catch (error) {
       console.log(error);
+      throw error
     }
   }
 );
@@ -36,6 +37,12 @@ const authSlice = createSlice({
         payload: !!action.payload,
         type: loginCustomer.typePrefix,
       });
+    })
+    builder.addCase(loginCustomer.rejected, (state) => {
+      authSlice.caseReducers.login(state, {
+        payload: false ,
+        type: loginCustomer.typePrefix,
+      })
     });
   },
 });

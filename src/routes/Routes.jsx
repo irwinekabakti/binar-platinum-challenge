@@ -18,6 +18,7 @@ import ETiket from "../pages/ETiket";
 // import SignInAdmin from "../components/SignIn/SignInAdmin";
 import Dashboard from "../Admin/pages/Dashboard";
 import LoginAdmin from "../Admin/pages/LoginAdmin";
+import ViewerPDF from "../pages/ViewerPDF";
 
 const Routes = () => {
   const { isAuthenticated } = useSelector((state) => state.authStore);
@@ -53,6 +54,7 @@ const Routes = () => {
     { path: "pembayaran", element: <Payment /> },
     { path: "/*", element: <NotFound /> },
     { path: "ETiket", element: <ETiket /> },
+    { path: "viewerPdf", element: <ViewerPDF /> },
 
     // ======= ADMIN PAGE =======
     { path: "loginAdmin", element: <LoginAdmin /> },

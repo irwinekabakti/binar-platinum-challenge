@@ -15,6 +15,7 @@ const loginAdmin = createAsyncThunk(
       return get.data.access_token;
     } catch (error) {
       console.log(error);
+      throw error;
     }
   }
 );
@@ -39,6 +40,12 @@ const authAdminSlice = createSlice({
         type: loginAdmin.typePrefix,
       });
     });
+    builder.addCase(loginAdmin.rejected, (state) => {
+      authAdminSlice.caseReducers.login(state, {
+        payload: false ,
+        type: loginAdmin.typePrefix,
+      })
+    })
   },
 });
 

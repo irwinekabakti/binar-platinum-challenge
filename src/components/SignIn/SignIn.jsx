@@ -20,6 +20,7 @@ const SignIn = () => {
   const [checkEmail, setCheckEmail] = useState();
   const [checkPassword, setCheckPassword] = useState();
   const [isValidate, setIsValidate] = useState();
+  const [isError, setIsError] = useState(false);
 
   const handlingEmail = (e) => {
     e.preventDefault();
@@ -55,15 +56,21 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
-    setLoading(true);
+    setLoading(true)
     e.preventDefault();
     console.log(`login is here`);
     dispatch(loginCustomer({ email: inputEmail, password: inputPassword }))
       .unwrap()
       .then(() => {
-        setLoading(false);
         navigate("/");
-      });
+        setLoading(false);
+      })
+      .catch ((error) => {
+        setIsError (true)
+        setLoading(false)
+        console.log(error)
+      }
+      );
   };
 
   return (
@@ -82,6 +89,25 @@ const SignIn = () => {
                   <img src={logoLogin} alt="Sign In BCR" />
                 </Nav.Link>
                 <h1 className="mb-5 fw-bold text-black">Welcome Back!</h1>
+                {
+                  isError ?     
+                <div
+                    style={{
+                      padding: "12px 25px",
+                      background: "rgba(208, 12, 26, 0.1)",
+                      borderRadius: "5px",
+                      fontFamily: "Arial, sans-serif",
+                      fontSize: "0.75rem",
+                      lineHeight: 1.5,
+                      marginBottom: "2rem",
+                      color: "#D00C1A",
+                    }}
+                    >
+                      Masukkan username dan password yang benar. Perhatikan penggunaan
+                      huruf kapital.
+                </div> : 
+                  null
+                }
                 <Form onSubmit={handleLogin}>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>

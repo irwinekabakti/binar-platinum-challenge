@@ -15,6 +15,8 @@ import iconDropdown from "../../assets/chevron-down.svg";
 import iconDashboard from "../../assets/fi_home.svg";
 import iconCars from "../../assets/fi_truck.svg";
 import "./Navbar.css";
+import { useDispatch } from "react-redux";
+import { logout } from "../../../store/action/admin-slice";
 
 const NavbarComp = ({ currentPage }) => {
   const navbarRef = useRef();
@@ -22,7 +24,17 @@ const NavbarComp = ({ currentPage }) => {
   const [isSidebarActive, setIsSidebarActive] = useState(false);
   const [navPanelClass, setNavPanelClass] = useState("");
   const [navMenuClass, setNavMenuClass] = useState("");
+  
+  // const isTokenAdminExist = localStorage.getItem ("token_Admin")
   const navigate = useNavigate();
+  const dispatch = useDispatch ()
+  const handleLogoutAdmin = () => {
+    dispatch (logout () ) 
+    navigate ("/loginAdmin")
+  }
+
+  
+
 
   const handleSidebar = () => {
     if (!isSidebarActive) {
@@ -305,7 +317,7 @@ const NavbarComp = ({ currentPage }) => {
                     <Dropdown.Item disabled>Options</Dropdown.Item>
                     <Dropdown.Item disabled>Something else</Dropdown.Item>
                     <Dropdown.Divider />
-                    <Dropdown.Item onClick="Logout">Log out</Dropdown.Item>
+                    <Dropdown.Item onClick={handleLogoutAdmin}>Log out</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </div>
