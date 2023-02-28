@@ -5,10 +5,14 @@ import { loginAdmin } from "../../store/action/admin-slice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import { error } from "jquery";
 
 const LogInPage = () => {
   const [emailAdmin, setEmailAdmin] = useState();
   const [passwordAdmin, setPasswordAdmin] = useState();
+  const [isError, setIsError] = useState(false);
+  console.log(isError,"cek error default")
+  
 
   const handleEmailAdmin = (e) => {
     e.preventDefault();
@@ -19,6 +23,7 @@ const LogInPage = () => {
     e.preventDefault();
     setPasswordAdmin(e.target.value);
   };
+
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -31,8 +36,13 @@ const LogInPage = () => {
       .unwrap()
       .then(() => {
         // setLoading(false);
-        navigate("/dashboard");
-      });
+          navigate("/dashboard");
+      })
+      .catch ((error) => {
+        setIsError(true)
+        console.log(error) 
+      }
+      );
   };
 
   return (
@@ -66,7 +76,9 @@ const LogInPage = () => {
             }}>
             Welcome, Admin BCR
           </h1>
-          <div
+          {
+            isError ?     
+            <div
             style={{
               padding: "12px 25px",
               background: "rgba(208, 12, 26, 0.1)",
@@ -76,10 +88,13 @@ const LogInPage = () => {
               lineHeight: 1.5,
               marginBottom: "2rem",
               color: "#D00C1A",
-            }}>
+            }}
+            >
             Masukkan username dan password yang benar. Perhatikan penggunaan
             huruf kapital.
-          </div>
+          </div> : 
+            null
+           }
           <Form onSubmit={handleAdminLogin}>
             <fieldset>
               <Form.Group controlId="email">

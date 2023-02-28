@@ -3,6 +3,7 @@ import instagram from "../Images/icon_instagram.svg";
 import twitter from "../Images/icon_twitter.svg";
 import gmail from "../Images/icon_mail.svg";
 import twitch from "../Images/icon_twitch.svg";
+import pdfviewer from "../PDFViewer/Pdfviewer";
 
 const contact_Footer = [
   { id: 1, data: "Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000" },
@@ -15,6 +16,7 @@ const paths_Footer = [
   { id: 2, path: "/#WhyUs", name: "Why Us" },
   { id: 3, path: "/#testimonial", name: "Testimonial" },
   { id: 4, path: "/#faq", name: "FAQ" },
+  { id: 5, path: "/viewerPdf", name: "Term of Service" },
 ];
 
 const social_Media = [
