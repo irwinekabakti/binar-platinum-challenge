@@ -13,15 +13,23 @@ import { useDispatch } from "react-redux";
 const SignUp = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const [icon, setIcon] = useState(false);
+  const [icon2, setIcon2] = useState(false);
   const [inputName, setName] = useState();
   const [inputEmail, setInputEmail] = useState();
   const [inputPassword, setInputPassword] = useState();
   const [loading, setLoading] = useState();
+  const [confirmPassword, setConfirmPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setPasswordShown(!passwordShown);
     setIcon(!icon);
   };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setConfirmPassword(!confirmPassword);
+    setIcon2(!icon2);
+  };
+
 
   const handlingName = (e) => {
     e.preventDefault();
@@ -109,15 +117,15 @@ const SignUp = () => {
                   className="mb-3 confirm-password"
                   id="confirm-password">
                   <Form.Control
-                    type={passwordShown ? "text" : "password"}
+                    type={confirmPassword ? "text" : "password"}
                     placeholder="6+ character"
                     onChange={handlingPassword}
                   />
                   <Button
                     variant="outline-primary"
                     id="button-addon3"
-                    onClick={togglePasswordVisibility}>
-                    {icon ? <FaEye /> : <FaEyeSlash />}
+                    onClick={toggleConfirmPasswordVisibility}>
+                    {icon2 ? <FaEye /> : <FaEyeSlash />}
                   </Button>
                 </InputGroup>
                 <Button
