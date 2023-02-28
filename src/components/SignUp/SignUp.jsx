@@ -5,22 +5,23 @@ import landingPage from "../Images/Landing-page.svg";
 import { Button, Form, Nav, InputGroup } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+// import { registerCustomer } from "../../store/action/action-slice";
+// import { signupCustomer } from "../../store/action/action-slice";
 import { registerCustomer } from "../../store/action/register-slice";
 import { useDispatch } from "react-redux";
 
 const SignUp = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const [icon, setIcon] = useState(false);
+  const [inputName, setName] = useState();
+  const [inputEmail, setInputEmail] = useState();
+  const [inputPassword, setInputPassword] = useState();
+  const [loading, setLoading] = useState();
 
   const togglePasswordVisibility = () => {
     setPasswordShown(!passwordShown);
     setIcon(!icon);
   };
-
-  const [inputName, setName] = useState();
-  const [inputEmail, setInputEmail] = useState();
-  const [inputPassword, setInputPassword] = useState();
-  const [loading, setLoading] = useState();
 
   const handlingName = (e) => {
     e.preventDefault();
@@ -43,7 +44,7 @@ const SignUp = () => {
   const handleRegister = (e) => {
     setLoading(true);
     e.preventDefault();
-    console.log(`login is here`);
+    console.log(`register is here`);
     dispatch(
       registerCustomer({
         name: inputName,
@@ -55,6 +56,7 @@ const SignUp = () => {
       .then(() => {
         setLoading(false);
         navigate("/signIn");
+        alert("berhasil daftar !");
       });
   };
 
@@ -87,7 +89,9 @@ const SignUp = () => {
                 </Form.Group>
 
                 <Form.Label>Create Password*</Form.Label>
-                <InputGroup className="mb-3">
+                <InputGroup
+                  className="mb-3 create-password"
+                  id="create-password">
                   <Form.Control
                     type={passwordShown ? "text" : "password"}
                     placeholder="6+ character"
@@ -96,6 +100,22 @@ const SignUp = () => {
                   <Button
                     variant="outline-primary"
                     id="button-addon2"
+                    onClick={togglePasswordVisibility}>
+                    {icon ? <FaEye /> : <FaEyeSlash />}
+                  </Button>
+                </InputGroup>
+                <Form.Label>Confirm Password*</Form.Label>
+                <InputGroup
+                  className="mb-3 confirm-password"
+                  id="confirm-password">
+                  <Form.Control
+                    type={passwordShown ? "text" : "password"}
+                    placeholder="6+ character"
+                    onChange={handlingPassword}
+                  />
+                  <Button
+                    variant="outline-primary"
+                    id="button-addon3"
                     onClick={togglePasswordVisibility}>
                     {icon ? <FaEye /> : <FaEyeSlash />}
                   </Button>
