@@ -5,8 +5,7 @@ import landingPage from "../Images/Landing-page.svg";
 import { Button, Form, Nav, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { loginCustomer, loginAdmin } from "../../store/action/action-slice";
-
+import { loginCustomer } from "../../store/action/action-slice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Loading from "../Loading/Loading";
@@ -20,6 +19,7 @@ const SignIn = () => {
   const [loading, setLoading] = useState();
   const [checkEmail, setCheckEmail] = useState();
   const [checkPassword, setCheckPassword] = useState();
+  const [isValidate, setIsValidate] = useState();
 
   const handlingEmail = (e) => {
     e.preventDefault();
@@ -30,6 +30,20 @@ const SignIn = () => {
     e.preventDefault();
     setInputPassword(e.target.value);
   };
+
+  /*
+  const checkInputEmail = () => {
+    if (!handlingEmail()) {
+      alert("Email salah !");
+    }
+  };
+
+  const checkInputPassword = () => {
+    if (!handlingPassword()) {
+      alert("Password salah !");
+    }
+  };
+*/
 
   const dispatch = useDispatch();
 
@@ -45,7 +59,6 @@ const SignIn = () => {
     e.preventDefault();
     console.log(`login is here`);
     dispatch(loginCustomer({ email: inputEmail, password: inputPassword }))
-      // dispatch(loginAdmin({ email: inputEmail, password: inputPassword }))
       .unwrap()
       .then(() => {
         setLoading(false);

@@ -22,6 +22,7 @@ import LoginAdmin from "../Admin/pages/LoginAdmin";
 const Routes = () => {
   const { isAuthenticated } = useSelector((state) => state.authStore);
   // const { isRegister } = useSelector((state) => state.regStore);
+  const { isAdminAuthenticated } = useSelector((state) => state.adminStore);
 
   return [
     { path: "/signIn", element: <SignIn /> },
@@ -52,8 +53,17 @@ const Routes = () => {
     { path: "pembayaran", element: <Payment /> },
     { path: "/*", element: <NotFound /> },
     { path: "ETiket", element: <ETiket /> },
-    { path: "dashboard", element: <Dashboard /> },
+
+    // ======= ADMIN PAGE =======
     { path: "loginAdmin", element: <LoginAdmin /> },
+    {
+      path: "dashboard",
+      element: isAdminAuthenticated ? (
+        <Dashboard />
+      ) : (
+        <Navigate to="/loginAdmin" />
+      ),
+    },
   ];
 };
 
