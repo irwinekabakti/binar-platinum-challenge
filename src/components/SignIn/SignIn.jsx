@@ -32,20 +32,6 @@ const SignIn = () => {
     setInputPassword(e.target.value);
   };
 
-  /*
-  const checkInputEmail = () => {
-    if (!handlingEmail()) {
-      alert("Email salah !");
-    }
-  };
-
-  const checkInputPassword = () => {
-    if (!handlingPassword()) {
-      alert("Password salah !");
-    }
-  };
-*/
-
   const dispatch = useDispatch();
 
   const togglePasswordVisibility = () => {
@@ -56,7 +42,7 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
-    setLoading(true)
+    setLoading(true);
     e.preventDefault();
     console.log(`login is here`);
     dispatch(loginCustomer({ email: inputEmail, password: inputPassword }))
@@ -65,12 +51,11 @@ const SignIn = () => {
         navigate("/");
         setLoading(false);
       })
-      .catch ((error) => {
-        setIsError (true)
-        setLoading(false)
-        console.log(error)
-      }
-      );
+      .catch((error) => {
+        setIsError(true);
+        setLoading(false);
+        console.log(error);
+      });
   };
 
   return (
@@ -89,9 +74,8 @@ const SignIn = () => {
                   <img src={logoLogin} alt="Sign In BCR" />
                 </Nav.Link>
                 <h1 className="mb-5 fw-bold text-black">Welcome Back!</h1>
-                {
-                  isError ?     
-                <div
+                {isError ? (
+                  <div
                     style={{
                       padding: "12px 25px",
                       background: "rgba(208, 12, 26, 0.1)",
@@ -101,13 +85,11 @@ const SignIn = () => {
                       lineHeight: 1.5,
                       marginBottom: "2rem",
                       color: "#D00C1A",
-                    }}
-                    >
-                      Masukkan username dan password yang benar. Perhatikan penggunaan
-                      huruf kapital.
-                </div> : 
-                  null
-                }
+                    }}>
+                    Masukkan username dan password yang benar. Perhatikan
+                    penggunaan huruf kapital.
+                  </div>
+                ) : null}
                 <Form onSubmit={handleLogin}>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>

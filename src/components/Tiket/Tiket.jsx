@@ -4,6 +4,11 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import { FiDownload } from "react-icons/fi";
 import classes from "./Tiket.module.css";
 import { useNavigate } from "react-router";
+import checklist from "../Images/centang.svg";
+import stripPayment from "../Images/strip-pembayaran.svg";
+import threeBlue from "../Images/3-blue.svg";
+import ticketSuccess from "../Images/ticketSuccess.svg";
+import ticketInvoice from "../Images/ticketInvoice.png";
 
 const Tiket = () => {
   const navigate = useNavigate();
@@ -24,9 +29,6 @@ const Tiket = () => {
                   <AiOutlineArrowLeft className="me-2" /> Tiket
                 </span>
               </li>
-              {/* <li className={classes.liTiket}>
-                <p className={classes.paragraphTiket}>Tiket</p>
-              </li> */}
             </ul>
             <p className={classes.orderID}>Order ID: xxxx</p>
           </Col>
@@ -34,40 +36,25 @@ const Tiket = () => {
             <Row className="progressBar">
               <ul className={classes.ulProgressBar}>
                 <li className={classes.liProgressBar}>
-                  <img
-                    src="assets\images\png\Tiket_checklist.png"
-                    alt="checklist1-img"
-                  />
+                  <img src={checklist} alt="checklist1-img" />
                 </li>
                 <li className={classes.liProgressBar}>
                   <p>Pilih Metode</p>
                 </li>
                 <li className={classes.liProgressBarStrip}>
-                  <img
-                    src="assets\images\png\Tiket_strip.png"
-                    alt="strip-img"
-                  />
+                  <img src={stripPayment} alt="strip-img" />
                 </li>
                 <li className={classes.liProgressBar}>
-                  <img
-                    src="assets\images\png\Tiket_checklist.png"
-                    alt="checklist2-img"
-                  />
+                  <img src={checklist} alt="checklist2-img" />
                 </li>
                 <li className={classes.liProgressBar}>
                   <p>Bayar</p>
                 </li>
                 <li className={classes.liProgressBarStrip}>
-                  <img
-                    src="assets\images\png\Tiket_strip.png"
-                    alt="strip-img"
-                  />
+                  <img src={stripPayment} alt="strip-img" />
                 </li>
                 <li className={classes.liProgressBar}>
-                  <img
-                    src="assets\images\png\Tiket_checklist.png"
-                    alt="checklist3-img"
-                  />
+                  <img src={threeBlue} alt="checklist3-img" />
                 </li>
                 <li className={classes.liProgressBar}>
                   <p>Tiket</p>
@@ -81,7 +68,7 @@ const Tiket = () => {
         <Row className={classes.eTiketBody}>
           <div className={classes.Tiket_Success}>
             <img
-              src="assets\images\png\Tiket_Success.png"
+              src={ticketSuccess}
               className={classes.tiketSuccesImg}
               alt="tiket-success"
             />
@@ -108,10 +95,7 @@ const Tiket = () => {
                   </Col>
                 </Row>
                 <Row>
-                  <img
-                    src="assets\images\png\Tiket_Invoice.png"
-                    alt="tiket-invoice"
-                  />
+                  <img src={ticketInvoice} alt="tiket-invoice" />
                 </Row>
               </Container>
             </Card>

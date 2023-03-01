@@ -5,8 +5,6 @@ import landingPage from "../Images/Landing-page.svg";
 import { Button, Form, Nav, InputGroup } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-// import { registerCustomer } from "../../store/action/action-slice";
-// import { signupCustomer } from "../../store/action/action-slice";
 import { registerCustomer } from "../../store/action/register-slice";
 import { useDispatch } from "react-redux";
 
@@ -29,7 +27,6 @@ const SignUp = () => {
     setConfirmPassword(!confirmPassword);
     setIcon2(!icon2);
   };
-
 
   const handlingName = (e) => {
     e.preventDefault();
@@ -64,7 +61,7 @@ const SignUp = () => {
       .then(() => {
         setLoading(false);
         navigate("/signIn");
-        alert("berhasil daftar !");
+        alert("Register success !");
       });
   };
 

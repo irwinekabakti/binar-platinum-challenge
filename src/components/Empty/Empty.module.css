@@ -1,11 +1,16 @@
 .emptySection {
   color: black;
-  height: 200px;
+  height: 230px;
   background: #f1f3ff;
 }
 
 .marginEmpty:hover {
   color: black;
+}
+
+.backToDetail {
+  margin-left: 100px;
+  cursor: pointer;
 }
 
 .backToDetail:hover {

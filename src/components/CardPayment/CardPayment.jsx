@@ -1,10 +1,9 @@
 import React, { Fragment, useState } from "react";
 import classes from "./CardPayment.module.css";
-// import Button from "react-bootstrap/Button";
-// import ButtonGroup from "react-bootstrap/ButtonGroup";
-// import ButtonToolbar from "react-bootstrap/ButtonToolbar";
-// import Form from "react-bootstrap/Form";
-// import InputGroup from "react-bootstrap/InputGroup";
+import { Accordion } from "react-bootstrap";
+import stripPembayaran from "../Images/strip-total-pembayaran.svg";
+import "../../Accordion.css";
+import { Button } from "react-bootstrap";
 
 const CardPayment = () => {
   return (
@@ -18,59 +17,22 @@ const CardPayment = () => {
                 Kamu bisa membayar dengan transfer melalui ATM, Internet Banking
                 atau Mobile Banking
               </p>
-
-              {/* <form>
-                <ul className="list-group list-group-flush mt-4">
-                  <li className="list-group-item ms-3 me-3 d-flex">
-                    <button
-                      className={`rounded bg-white text-dark btn btn-outline-secondary text-center mb-3 ${classes.btnBank}`}>
-                      BCA
-                    </button>
-                    <a
-                      href="/bayar"
-                      className="text-decoration-none text-dark w-100">
-                      <h5 className="ms-5 mt-2">BCA Transfer</h5>
-                    </a>
-                  </li>
-                  <li className="list-group-item mt-3 ms-3 me-3 d-flex">
-                    <button
-                      className={`rounded bg-white text-dark btn btn-outline-secondary text-center mb-3 ${classes.btnBank}`}>
-                      BNI
-                    </button>
-                    <a
-                      href="/bayar"
-                      className="text-decoration-none text-dark w-100">
-                      <h5 className="ms-5 mt-2">BNI Transfer</h5>
-                    </a>
-                  </li>
-                  <li className="list-group-item mt-3 ms-3 me-3 d-flex">
-                    <button
-                      className={`rounded bg-white text-dark btn btn-outline-secondary text-center mb-3 ${classes.btnBank}`}>
-                      Mandiri
-                    </button>
-                    <a
-                      href="/bayar"
-                      className="text-decoration-none text-dark w-100">
-                      <h5 className="ms-5 mt-2">Mandiri Transfer</h5>
-                    </a>
-                  </li>
-                  <li className="list-group-item ms-3 mt-3 me-3 d-flex"></li>
-                </ul>
-              </form> */}
-
               <form>
                 <ul className="list-group list-group-flush mt-4">
-                  <li className="list-group-item mx-3 d-flex">
+                  <li
+                    className={`list-group-item mx-3 d-flex ${classes.bankTransferPoint}`}>
                     <div className="card fs-5 py-2 px-4 mb-3 text-center">
                       BCA
                     </div>
                     <h5 className="ms-5 mt-3">BCA Transfer</h5>
                   </li>
-                  <li className="list-group-item mx-3 mt-3 d-flex">
+                  <li
+                    className={`list-group-item mx-3 mt-3 d-flex ${classes.bankTransferPoint}`}>
                     <div className="card fs-5 py-2 px-4 mb-3 text">BNI</div>
                     <h5 className="ms-5 mt-3">BNI Transfer</h5>
                   </li>
-                  <li className="list-group-item mx-3 mt-3 d-flex">
+                  <li
+                    className={`list-group-item mx-3 mt-3 d-flex ${classes.bankTransferPoint}`}>
                     <div className="card py-2 px-2 fs-5  mb-3 text">
                       Mandiri
                     </div>
@@ -82,8 +44,64 @@ const CardPayment = () => {
             </div>
           </div>
           <div className="col-lg-5 g-4">
-            <div className="card">
-              <h6 className="fw-bold mb-3 ms-4 mt-4">Yang ini belum</h6>
+            <div className="card mt-2 mb-2">
+              <h6 className="fw-bold mb-3 ms-4 mt-4">Ini Mobil</h6>
+              <i className="bi bi-people ms-4">
+                <span className="fw-bold ms-2">small</span>
+              </i>
+              <Accordion className="mt-3 mb-1" defaultActiveKey="0" flush>
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Total : Rp 2.000.000</Accordion.Header>
+                  <Accordion.Body>
+                    <form>
+                      <h6 className="fw-bold totalHarga">Harga</h6>
+                      <ul className="mt-1 mb-3">
+                        <div className="d-flex justify-content-between">
+                          <li className="sewa">
+                            Sewa Mobil Rp. 500.000 x 7 hari
+                          </li>
+                          <h6 className="totalSewa"> 3.500.000</h6>
+                        </div>
+                      </ul>
+                      <h6 className="fw-bold mt-3 biayaLainnya">
+                        Biaya Lainnya
+                      </h6>
+                      <ul className="mt-3 mb-3">
+                        <div className="d-flex justify-content-between">
+                          <li className="pajak">Pajak</li>
+                          <p className="text-success">Termasuk</p>
+                        </div>
+                        <div className="d-flex justify-content-between">
+                          <li className="makanSopir">Biaya makan sopir</li>
+                          <p className="text-success">Termasuk</p>
+                        </div>
+                      </ul>
+                      <h6 className="fw-bold mt-3 belumTermasuk">
+                        Belum Termasuk
+                      </h6>
+                      <ul className="mt-3 mb-3">
+                        <li className="bensin">Bensin</li>
+                        <li className="parkir mt-3">Tol dan parkir</li>
+                      </ul>
+                      <img
+                        src={stripPembayaran}
+                        alt="strip-pembayaran"
+                        className="w-100"
+                      />
+                      <div className="d-flex justify-content-between">
+                        <p className="fw-bold totalHarga">Total </p>
+                        <p className="fw-bold"> 5.000.000</p>
+                      </div>
+                      <Button
+                        size="md"
+                        className={`w-100 ${classes.btnBayar}`}
+                        disabled>
+                        Bayar
+                      </Button>
+                    </form>
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
             </div>
           </div>
         </div>
@@ -93,36 +111,3 @@ const CardPayment = () => {
 };
 
 export default CardPayment;
-/* <ButtonToolbar className="mb-3" aria-label="Toolbar with Button groups">
-  <ButtonGroup className="me-2 w-25" aria-label="First group">
-    <Button variant="outline-secondary" className="ms-4">
-      BCA
-    </Button>
-  </ButtonGroup>
-  <div className="card-none ">
-    <div className="card-body">
-      <div className="card-title h-75">BCA Transfer</div>
-    </div>
-  </div>
-</ButtonToolbar> */
-
-/*
-  <div className="account-bank-BCA ms-4 mt-2 d-flex text-align-center">
-    <div className="card w-25">
-      <p className="text-center">BCA</p>
-    </div>
-    <p className="ms-5">BCA Transfer</p>
-  </div>
-  <div className="account-bank-BCA ms-4 mt-4 d-flex text-align-center">
-    <div className="card w-25">
-      <p className="text-center">BCA</p>
-    </div>
-    <p className="ms-5">BCA Transfer</p>
-  </div>
-  <div className="account-bank-BCA ms-4 mt-4 mb-5 d-flex text-align-center">
-    <div className="card w-25">
-      <p className="text-center">BCA</p>
-    </div>
-    <p className="ms-5">BCA Transfer</p>
-  </div>
-*/

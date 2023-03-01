@@ -15,10 +15,10 @@ import Payment from "../pages/Payment";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router";
 import ETiket from "../pages/ETiket";
-// import SignInAdmin from "../components/SignIn/SignInAdmin";
 import Dashboard from "../Admin/pages/Dashboard";
 import LoginAdmin from "../Admin/pages/LoginAdmin";
 import ViewerPDF from "../pages/ViewerPDF";
+import Toast from "../pages/Toast";
 
 const Routes = () => {
   const { isAuthenticated } = useSelector((state) => state.authStore);
@@ -26,19 +26,15 @@ const Routes = () => {
   const { isAdminAuthenticated } = useSelector((state) => state.adminStore);
 
   return [
+    { path: "toast", element: <Toast /> },
     { path: "/signIn", element: <SignIn /> },
     { path: "/signUp", element: <SignUp /> },
-    // { path: "/signInAdmin", element: <SignInAdmin /> },
     { path: "/", element: <Home /> },
     { path: "/", element: <SignIn /> },
     {
       path: "/",
       element: isAuthenticated ? <Home /> : <Navigate to="/signIn" />,
     },
-    // {
-    //   path: "searchCars",
-    //   element: isAuthenticated ? <SearchCar /> : <Navigate to="/signIn" />,
-    // },
     {
       path: "searchCars",
       element: isAuthenticated ? <SearchCar /> : <Navigate to="/signIn" />,
@@ -56,7 +52,7 @@ const Routes = () => {
     { path: "ETiket", element: <ETiket /> },
     { path: "viewerPdf", element: <ViewerPDF /> },
 
-    // ======= ADMIN PAGE =======
+    // ======= ADMIN PAGE ======= //
     { path: "loginAdmin", element: <LoginAdmin /> },
     {
       path: "dashboard",
