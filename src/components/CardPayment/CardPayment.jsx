@@ -4,8 +4,31 @@ import { Accordion } from "react-bootstrap";
 import stripPembayaran from "../Images/strip-total-pembayaran.svg";
 import "../../Accordion.css";
 import { Button } from "react-bootstrap";
+import checklistBank from "../Images/checklistBank.svg";
 
 const CardPayment = () => {
+  const [isCheckBca, setIsCheckBca] = useState(false);
+  const [isCheckBni, setIsCheckBni] = useState(false);
+  const [isCheckMandiri, setIsCheckMandiri] = useState(false);
+  const [bca, setBca] = useState();
+  const [bni, setBni] = useState();
+  const [mandiri, setMandiri] = useState();
+
+  const handleBankBca = () => {
+    setIsCheckBca(!isCheckBca);
+    setBca(!bca);
+  };
+
+  const handleBankBni = () => {
+    setIsCheckBni(!isCheckBni);
+    setBni(!bni);
+  };
+
+  const handleBankMandiri = () => {
+    setIsCheckMandiri(!isCheckMandiri);
+    setMandiri(!mandiri);
+  };
+
   return (
     <Fragment>
       <section id="card-payment" className={`container ${classes.cardPayment}`}>
@@ -20,23 +43,53 @@ const CardPayment = () => {
               <form>
                 <ul className="list-group list-group-flush mt-4">
                   <li
-                    className={`list-group-item mx-3 d-flex ${classes.bankTransferPoint}`}>
+                    className={`list-group-item mx-3 d-flex ${classes.bankTransferPoint}`}
+                    onClick={handleBankBca}>
                     <div className="card fs-5 py-2 px-4 mb-3 text-center">
                       BCA
                     </div>
-                    <h5 className="ms-5 mt-3">BCA Transfer</h5>
+                    <h5 className={`ms-4 mt-3 ${classes.bankName}`}>
+                      BCA Transfer
+                    </h5>
+                    {isCheckBca ? (
+                      <img
+                        src={checklistBank}
+                        alt="checklist-bank"
+                        className={`${classes.checklistBank}`}
+                      />
+                    ) : null}
                   </li>
                   <li
-                    className={`list-group-item mx-3 mt-3 d-flex ${classes.bankTransferPoint}`}>
+                    className={`list-group-item mx-3 mt-3 d-flex ${classes.bankTransferPoint}`}
+                    onClick={handleBankBni}>
                     <div className="card fs-5 py-2 px-4 mb-3 text">BNI</div>
-                    <h5 className="ms-5 mt-3">BNI Transfer</h5>
+                    <h5 className={`ms-4 mt-3 ${classes.bankName}`}>
+                      BNI Transfer
+                    </h5>
+                    {isCheckBni ? (
+                      <img
+                        src={checklistBank}
+                        alt="checklist-bank"
+                        className={classes.checklistBank}
+                      />
+                    ) : null}
                   </li>
                   <li
-                    className={`list-group-item mx-3 mt-3 d-flex ${classes.bankTransferPoint}`}>
+                    className={`list-group-item mx-3 mt-3 d-flex ${classes.bankTransferPoint}`}
+                    onClick={handleBankMandiri}>
                     <div className="card py-2 px-2 fs-5  mb-3 text">
                       Mandiri
                     </div>
-                    <h5 className="ms-5 mt-3">Mandiri Transfer</h5>
+                    <h5 className={`ms-4 mt-3 ${classes.bankName}`}>
+                      Mandiri Transfer
+                    </h5>
+                    {isCheckMandiri ? (
+                      <img
+                        src={checklistBank}
+                        alt="checklist-bank"
+                        className={classes.checklistBank}
+                      />
+                    ) : null}
                   </li>
                   <li className="list-group-item mb-3 d-flex"></li>
                 </ul>
@@ -92,12 +145,20 @@ const CardPayment = () => {
                         <p className="fw-bold totalHarga">Total </p>
                         <p className="fw-bold"> 5.000.000</p>
                       </div>
-                      <Button
-                        size="md"
-                        className={`w-100 ${classes.btnBayar}`}
-                        disabled>
-                        Bayar
-                      </Button>
+                      {isCheckBca || isCheckBni || isCheckMandiri ? (
+                        <Button
+                          size="md"
+                          className={`w-100 ${classes.btnBayar}`}>
+                          Bayar
+                        </Button>
+                      ) : (
+                        <Button
+                          size="md"
+                          className={`w-100 ${classes.btnBayar}`}
+                          disabled>
+                          Bayar
+                        </Button>
+                      )}
                     </form>
                   </Accordion.Body>
                 </Accordion.Item>
