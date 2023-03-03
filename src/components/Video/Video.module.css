@@ -1,0 +1,33 @@
+.videoPlayer {
+  margin-bottom: 80px;
+}
+
+.contentVideoPlayer {
+  margin: 0 auto;
+  width: 75%;
+}
+
+.playerWrapperVideo {
+  position: relative;
+  padding-top: 56.25%;
+}
+
+.reactPlayerVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .contentVideoPlayer {
+    margin: 0 auto;
+    width: 85%;
+  }
+}
+
+@media (min-width: 250px) and (max-width: 567px) {
+  .contentVideoPlayer {
+    margin: 0 auto;
+    width: 95%;
+  }
+}
