@@ -8,6 +8,8 @@ import CtaBanner from "../components/CtaBanner/CtaBanner";
 import Footer from "../components/Footer/Footer";
 import FAQ from "../components/FAQ/FAQ";
 import Navbar from "../components/Navbar/Navbar";
+import Gallery from "../components/Gallery/Gallery";
+import Video from "../components/Video/Video";
 
 const Home = () => {
   return (
@@ -20,8 +22,10 @@ const Home = () => {
         <OurService />
         <WhyUs />
         <Testimonial />
+        <Gallery />
         <CtaBanner />
         <FAQ />
+        <Video />
       </main>
       <Footer />
     </div>
