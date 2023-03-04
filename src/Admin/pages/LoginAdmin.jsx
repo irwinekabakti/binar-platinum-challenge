@@ -7,6 +7,7 @@ import logoLogin from "../../components/Images/Logo-login.svg";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import Loading from "../../components/Loading/Loading";
+import { FaArrowRight } from "react-icons/fa";
 
 const LogInPage = () => {
   const [emailAdmin, setEmailAdmin] = useState();
@@ -26,6 +27,10 @@ const LogInPage = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const toSignInCustomer = () => {
+    navigate("/signIn");
+  };
 
   const handleAdminLogin = (e) => {
     setLoading(true);
@@ -61,7 +66,16 @@ const LogInPage = () => {
           <div
             className={`col-lg-4 ${classes.formMobile} ${classes.formMobileNest}`}>
             <div className={classes.adminForm}>
-              <img src={logoLogin} alt="Sign-In-Admin-BCR" />
+              <div className="d-flex justify-content-between">
+                <img src={logoLogin} alt="Sign-In-Admin-BCR" />
+                <span
+                  className={`toSignInCustomer mt-2 ${classes.toSignInCustomer}`}
+                  onClick={toSignInCustomer}>
+                  Back to Customer
+                  <FaArrowRight className="ms-3" />
+                </span>
+              </div>
+
               <h1 className={`fw-bold mt-5 ${classes.headingFormAdmin}`}>
                 Welcome, Admin BCR
               </h1>

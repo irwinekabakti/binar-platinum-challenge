@@ -29,6 +29,8 @@ const GrapichCar = () => {
   const [amounts, setAmounts] = useState([]);
   const [startDateRent, setStartDateRent] = useState(`2022-01-01`);
   const [finishDateRent, setFinishDateRent] = useState(`2022-01-31`);
+  // const [startDateRent, setStartDateRent] = useState(`2023-01-01`);
+  // const [finishDateRent, setFinishDateRent] = useState(`2023-01-31`);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -117,12 +119,20 @@ const GrapichCar = () => {
               let lastDay = new Date(2022, date.getMonth() + 1, 0);
               setStartDateRent(`2022-${e.target.value}-1`);
               setFinishDateRent(`2022-${e.target.value}-${lastDay.getDate()}`);
+              // let lastDay = new Date(2023, date.getMonth() + 1, 0);
+              // setStartDateRent(`2023-${e.target.value}-1`);
+              // setFinishDateRent(`2023-${e.target.value}-${lastDay.getDate()}`);
             }}>
             <option disabled>Open this select menu</option>
             {months.map((month) => (
               <option value={month.id} key={month.id}>
                 {month.name} - 2022
               </option>
+              // <option disabled>Open this select menu</option>
+              // {months.map((month) => (
+              //   <option value={month.id} key={month.id}>
+              //     {month.name} - 2023
+              //   </option>
             ))}
           </Form.Select>
           <br />

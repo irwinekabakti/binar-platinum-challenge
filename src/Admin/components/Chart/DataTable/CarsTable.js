@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import useTable from "./useTable";
-// import "./TableStyle.css";
 import TableFooter from "./TableFooter";
 import classes from "./TableStyle.module.css";
 

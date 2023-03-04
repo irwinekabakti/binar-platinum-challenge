@@ -19,6 +19,8 @@ import Dashboard from "../Admin/pages/Dashboard";
 import LoginAdmin from "../Admin/pages/LoginAdmin";
 import ViewerPDF from "../pages/ViewerPDF";
 import Toast from "../pages/Toast";
+import Cars from "../Admin/pages/Cars";
+import CarFormPage from "../Admin/pages/CarFormPage";
 
 const Routes = () => {
   const { isAuthenticated } = useSelector((state) => state.authStore);
@@ -62,6 +64,14 @@ const Routes = () => {
         <Navigate to="/loginAdmin" />
       ),
     },
+    {
+      path: "/cars",
+      element: isAdminAuthenticated ? <Cars /> : <Navigate to="/loginAdmin" />,
+    },
+    { path: "/cars/edit/:id", element: <CarFormPage currentPage="edit" /> },
+    // {path: '/cars/edit/:id', element:<CarFormPage currentPage='edit' />},
+    { path: "/cars/add-new", element: <CarFormPage currentPage="add" /> },
+    // {path:'/cars/add-new', element: <CarFormPage currentPage='add'/>}
   ];
 };
 
