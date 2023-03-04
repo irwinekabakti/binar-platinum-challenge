@@ -1,6 +1,5 @@
 import React from "react";
-import Table from "./CarsTable";
-// import "./TableStyle.css";
+import CarsTable from "./CarsTable";
 import classes from "./TableStyle.module.css";
 
 const IndexTable = () => {
@@ -9,7 +8,7 @@ const IndexTable = () => {
       <div className={classes.wrapperDataChart}>
         <h4 className="fw-bold">Dashboard</h4>
         <h6 className="fw-bold mt-3 mb-3">List Order</h6>
-        <Table rowsPerPage={5} />
+        <CarsTable rowsPerPage={5} />
       </div>
     </main>
   );

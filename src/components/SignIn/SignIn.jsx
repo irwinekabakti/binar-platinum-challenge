@@ -9,6 +9,8 @@ import { loginCustomer } from "../../store/action/action-slice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Loading from "../Loading/Loading";
+import { FaArrowLeft } from "react-icons/fa";
+
 // import ExampleModal from "../Modal/Modal";
 
 const SignIn = () => {
@@ -41,6 +43,10 @@ const SignIn = () => {
 
   const navigate = useNavigate();
 
+  const toLoginAdmin = () => {
+    navigate("/loginAdmin");
+  };
+
   const handleLogin = (e) => {
     setLoading(true);
     e.preventDefault();
@@ -67,12 +73,20 @@ const SignIn = () => {
           <div className="col-lg-6 col-md-6">
             <div className="container justify-content-center align-self-center">
               <div className={`d-block ${classes.formControl}`}>
-                <Nav.Link
-                  as={Link}
-                  to="/"
-                  className={`mb-5 w-25 Sign-In-brand`}>
-                  <img src={logoLogin} alt="Sign In BCR" />
-                </Nav.Link>
+                <div className="d-flex justify-content-between">
+                  <Nav.Link
+                    as={Link}
+                    to="/"
+                    className={`mb-5 w-25 Sign-In-brand`}>
+                    <img src={logoLogin} alt="Sign In BCR" />
+                  </Nav.Link>
+                  <span
+                    className={`toLoginAdmin mt-2 ${classes.toLoginAdmin}`}
+                    onClick={toLoginAdmin}>
+                    <FaArrowLeft className="me-3" />
+                    Admin
+                  </span>
+                </div>
                 <h1 className="mb-5 fw-bold text-black">Welcome Back!</h1>
                 {isError ? (
                   <div

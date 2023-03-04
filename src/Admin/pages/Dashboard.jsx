@@ -11,7 +11,7 @@ const Dashboard = () => {
         fluid
         className="p-0 m-0"
         style={{ minHeight: "100vh", background: "#f4f5f7" }}>
-        <NavbarAdmin currentPage="dashvoard" />
+        <NavbarAdmin currentPage="dashboard" />
         <Row className="m-0">
           <Col
             xs="auto"
