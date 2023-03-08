@@ -5,29 +5,65 @@ import Loading from "../Loading/Loading";
 import BASE_API from "../../api/BASE_API";
 import classes from "./CardDetail.module.css";
 import { text_Include, text_Exclude, text_Details } from "./data";
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css"
+import { useDispatch } from "react-redux";
+import { bankPayment } from "../../store/action/bank-slice";
+import { useSelector } from "react-redux";
+
+
 
 const CardDetail = () => {
   const [car, setCar] = useState({});
   const [loading, setLoading] = useState();
   const carId = useParams();
+  const [dateRange, setDateRange] = useState([null, null]);
+  const [startDate, endDate] = dateRange;
+  const isDatePicked = ""
+  const dispatch= useDispatch ()
+  const selector= useSelector ((state) => state.bankStore)
+  const selectedCar =  selector.getCarData
+  const [rentDay, setRentDay] = useState("")
+  const years= [2022, 2023, 2024]
+  
+  
+  
+  let day=0
+  let startingDate=new Date(startDate).getDate()
+  let endingDate=new Date(endDate).getDate()
+  let bookingMonth= new Date(startDate).getMonth()
 
-  const BASE_URL_ID = `${BASE_API}/admin/car/${carId.id}`;
+  useEffect(() => {
+  if (startDate && endDate) {
+    day=endingDate - startingDate
+    // console.log(day)
+    if (day < 0) {
+      if (bookingMonth % 2 === 1) {
+        day += 31
+      } else {
+        if (bookingMonth !== 2) {
+          day += 30
+        } else {
+          day += 28
+        }
+      } 
+    }
+    setRentDay (day+1) 
+  } else {
+    setRentDay(0)
+  }
+  },[startDate,endDate])
+  
+
+  // console.log(selectedCar)
+
+  const BASE_URL_ID = `${BASE_API}/customer/car/${carId.id}`;
 
   const cardCarDetail = async () => {
-    console.log(car);
+    // console.log(car);
     try {
       setLoading(true);
-      const config = {
-        headers: {
-          access_token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY3NTUxNjE1MH0.GWyuCrZVA5HuA3ODVAvgXj5GxoP82BnkUM_rJSuMi5A",
-        },
-      };
-
-      const { data } = await axios.get(BASE_URL_ID, config);
-      console.log(data);
-      setCar(data);
-
+      dispatch(bankPayment(carId.id) )
       // console.log(setCar);
     } catch (error) {
       // console.log(error);
@@ -38,7 +74,10 @@ const CardDetail = () => {
   useEffect(() => {
     cardCarDetail();
   }, []);
+  
+  // let rentDays= Math.ceil()
 
+  
   return (
     <Fragment>
       {loading ? (
@@ -117,12 +156,13 @@ const CardDetail = () => {
             <div className="col-lg-5 g-4">
               <div className="card">
                 <div className="col-lg ms-5 mt-3 mb-3">
-                  {car.image ? (
+                  
+                  {selectedCar.image ? (
                     <div className="align-self-center w-75 mt-5 mb-3">
                       <img
-                        src={car.image}
+                        src={selectedCar.image}
                         className="card-img rounded-1"
-                        alt={`car-images-${car.id}`}
+                        alt={`car-images-${selectedCar.id}`}
                       />
                     </div>
                   ) : (
@@ -132,13 +172,13 @@ const CardDetail = () => {
                   )}
                 </div>
                 <div className="card-body mt-2 mb-2">
-                  <h6 className="fw-bold">{car.name}</h6>
-                  {car.category ? (
+                  <h6 className="fw-bold">{selectedCar.name}</h6>
+                  {selectedCar.category ? (
                     <i className="bi bi-people">
                       <span className="fw-bold ms-2">
-                        {car.category === "small" ? "2-4 orang" : null}
-                        {car.category === "medium" ? "4-6 orang" : null}
-                        {car.category === "large" ? "6-8 orang" : null}
+                        {selectedCar.category === "small" ? "2-4 orang" : null}
+                        {selectedCar.category === "medium" ? "4-6 orang" : null}
+                        {selectedCar.category === "large" ? "6-8 orang" : null}
                       </span>
                     </i>
                   ) : (
@@ -147,16 +187,45 @@ const CardDetail = () => {
                     </h3>
                   )}
                 </div>
-                {car.price ? (
+                <div className="card-body mt-2 mb-2">
+                <h6>Tentukan lama sewa mobil - max 7hari</h6>
+                <DatePicker
+                    
+                    dateFormat="dd MMM yyyy"
+                    selectsRange={true}
+                    startDate={startDate}
+                    endDate={endDate}
+                    onChange={(update) => {
+                      setDateRange(update);
+                    }}
+                    minDate={startDate ? new Date (startDate) : new Date()}
+                    maxDate={startDate ? new Date (new Date (startDate).setDate(new Date (startDate).getDate()+6)): null}
+                    isClearable={true}
+                    placeholderText="Pilih tanggal mulai dan tanggal akhir sewa"
+                    className="w-100"
+                    // maxDate={addDays(new Date(), 5)}
+                    
+                    >
+                      <div>
+                      <button type="button" className="btn btn-success" style={{width:"100%"}}>Pilih Tanggal</button>
+                      </div>
+                  </DatePicker>
+                </div>
+                
+                {selectedCar.price ? (
                   <div className="card-body d-flex justify-content-between">
-                    <p className="fw-bold text-uppercase">Total :&nbsp;</p>
+                    <p className="fw-bold text-uppercase">Total :&nbsp;</p> 
                     <p id="totalPrice" className="fw-bold totalPrice">
-                      Rp {car.price.toLocaleString("id-ID")}
+                      Rp {(selectedCar.price * rentDay).toLocaleString("id-ID")}
                     </p>
                   </div>
                 ) : (
                   <h3 className="justify-content-center">Price Error !</h3>
                 )}
+                <div className="card-body mt-2 mb-2">
+
+                 <button type="submit" className="btn btn-success" style={{width:"100%"}} disabled={rentDay>0 ? false : true}>Lanjutkan Pembayaran</button>
+                </div>
               </div>
             </div>
           </div>

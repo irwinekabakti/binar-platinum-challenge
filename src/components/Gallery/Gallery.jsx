@@ -1,61 +1,3 @@
-// import React from "react";
-// import LightGallery from 'lightgallery/react';
-// import lgThumbnail from 'lightgallery/plugins/thumbnail';
-// import lgZoom from 'lightgallery/plugins/zoom';
-
-
-// import 'lightgallery/css/lightgallery.css';
-// import 'lightgallery/css/lg-zoom.css';
-// import 'lightgallery/css/lg-thumbnail.css';
-
-
-// import img1 from "./Image/IMG-1.jpeg"
-// import img2 from "./Image/IMG-2.jpg"
-// import img3 from "./Image/IMG-3.jpg"
-
-// const lg = document.getElementById('lg-method-demo');
-
-
-// const Gallery = () => {
-//   const onInit = () => {
-//     console.log('lightGallery has been initialized');
-
-//     const plugin = Gallery(lg);
-    
-// };
-
-
-// return (
-//     <div className="App">
-//         <LightGallery
-//             onInit={onInit}
-//             speed={500}
-//             plugins={[lgThumbnail, lgZoom]}
-//         >
-//           <div className="row" id="lg-methods-demo">
-//             <div className="col-lg-4 col-sm-6">
-              
-//                   <img alt="img1" src={img1} width="630px"/>
-              
-//             </div>
-//             <div className="col-lg-4 col-sm-6">
-              
-//                   <img alt="img2" src={img2} width="630px" />
-              
-//             </div>
-//             <div className="col-lg-4 col-sm-6">
-             
-//                   <img alt="img3" src={img3} width="630px"  />
-            
-//             </div>
-//           </div>
-//         </LightGallery>
-//     </div>
-// );
-// }
-
-// export default Gallery;
-
 import React, { useState } from "react";
 import Zoombox from "zoombox";
 import { useRef } from "react";
@@ -103,61 +45,78 @@ const Gallery = () => {
   return (
     <div ref={containerRef}>
         <div> 
-          <div className="row">
-            <div className="col-lg-3">
-              {image1.map((image) => (
-                <img 
-                data-zoombox 
-                data-caption={image.caption} 
-                key={image.src} 
-                src={image.src} 
-                alt={image.caption} 
-                height={300}
-                width={450} 
-                style={{ margin:'10px'}} />
-              ))}
+          <div className="container">
+            <div className="row g-4 ">
+              <div className="col-lg-3 col-md-6 col-12">
+                <div className={`card ${classes.cardGallery}`}>
+                    {image1.map((image) => (
+                      <img 
+                      data-zoombox 
+                      data-caption={image.caption} 
+                      key={image.src} 
+                      src={image.src} 
+                      alt={image.caption} 
+                      height={200}  
+                      width={305}
+                      className={`${classes.cardGalleryImage}`}
+                      />
+                    ))}
+                </div>
+              </div>
+              <div className="col-lg-3 col-md-6 col-12">
+                <div className={`card ${classes.cardGallery}`}>
+                  
+                    {image2.map((image) => (
+                      <img 
+                      data-zoombox 
+                      data-caption={image.caption} 
+                      key={image.src} 
+                      src={image.src} 
+                      alt={image.caption} 
+                      height={200}  
+                      width={305}
+                      className={`${classes.cardGalleryImage}`} />
+                    ))}
+                    
+                </div>
+              </div>
+              <div className="col-lg-3 col-md-6 col-12">
+                <div className={`card ${classes.cardGallery}`}>
+                  
+                    {image3.map((image) => (
+                      <img 
+                      data-zoombox 
+                      data-caption={image.caption} 
+                      key={image.src} 
+                      src={image.src} 
+                      alt={image.caption} 
+                      height={200}  
+                      width={305}
+                      className={`${classes.cardGalleryImage}`} />
+                    ))}
+                    
+                </div>
+              </div>
+              <div className="col-lg-3 col-md-6 col-12">
+                <div className={`card ${classes.cardGallery}`}>
+                  
+                    {image4.map((image) => (
+                      <img 
+                      data-zoombox 
+                      data-caption={image.caption} 
+                      key={image.src} 
+                      src={image.src} 
+                      alt={image.caption} 
+                      height={200}  
+                      width={305}
+                      className={`${classes.cardGalleryImage}`}/>
+                    ))}
+                    
+                </div>
+              </div>           
             </div>
-            <div className="col-lg-3">
-              {image2.map((image) => (
-                <img 
-                data-zoombox 
-                data-caption={image.caption} 
-                key={image.src} 
-                src={image.src} 
-                alt={image.caption} 
-                height={300} 
-                width={450} 
-                style={{ margin:'10px'}} />
-              ))}
-            </div>
-            <div className="col-lg-3">
-              {image3.map((image) => (
-                <img 
-                data-zoombox 
-                data-caption={image.caption} 
-                key={image.src} 
-                src={image.src} 
-                alt={image.caption} 
-                height={300} 
-                width={450} 
-                style={{ margin:'10px'}} />
-              ))}
-            </div>
-            <div className="col-lg-3">
-              {image4.map((image) => (
-                <img 
-                data-zoombox 
-                data-caption={image.caption} 
-                key={image.src} 
-                src={image.src} 
-                alt={image.caption} 
-                height={300} 
-                width={450} 
-                style={{ margin:'10px'}} />
-              ))}
-            </div>
-      
           </div>
+          
   
         </div>
      
@@ -170,6 +129,7 @@ const Gallery = () => {
         }}
       />
     </div>
+   
   );
 };
 export default Gallery;
