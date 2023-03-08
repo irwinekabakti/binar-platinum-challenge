@@ -1,17 +1,18 @@
 .containerGallery {
-    
-    width: 100%;
+  width: 100%;
+}
+.containerImage {
+  margin-top: 60px;
 }
 .imageGalery {
-    background-color: aquamarine;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+  background-color: aquamarine;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cardGalleryImage {
-    object-fit:cover;
-    border-radius: 5px;
-    width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  width: 100%;
 }
