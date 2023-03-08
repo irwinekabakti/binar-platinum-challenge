@@ -30,7 +30,7 @@ const Cars = () => {
     hour: "numeric",
     minute: "numeric",
     hour12: false,
-    timeZone: "America/Los_Angeles",
+    timeZone: "Asia/Jakarta",
   };
 
   let [searchParams, setSearchParams] = useSearchParams();
@@ -163,36 +163,21 @@ const Cars = () => {
         {carsToRender.map((car) => (
           <Col xs={12} md={6} lg={4} xxl={3} className="" key={car.id}>
             <Card className="mt-0">
-              <Card.Img src={car.image || PlaceholderImage} />
+              <div
+                className="wrapperImage"
+                style={{ margin: "10px auto 0", width: "90%" }}>
+                <Card.Img src={car.image || PlaceholderImage} />
+              </div>
               <Card.Body>
                 <Card.Text className="fw-bold">
                   {car.name || "Name not Exist !"}
                 </Card.Text>
-                <Card.Text className="fw-bold">Rp.{car.price}/ hari</Card.Text>
+                <Card.Text className="fw-bold">
+                  Rp. {car.price.toLocaleString("id-ID")}/Hari
+                </Card.Text>
                 <h5 className="mt-3">
                   <strong>{cars.name}</strong>
                 </h5>
-
-                {/* {cars.category === "small" ? (
-                  <p>
-                    <small>
-                      <FontAwesomeIcon icon={faUser} /> 4-6 People
-                    </small>
-                  </p>
-                ) : cars.category === "medium" ? (
-                  <p>
-                    <small>
-                      <FontAwesomeIcon icon={faUser} /> 6-8 People
-                    </small>
-                  </p>
-                ) : (
-                  <p>
-                    <small>
-                      <FontAwesomeIcon icon={faUser} /> 8-10 People
-                    </small>
-                  </p>
-                )} */}
-
                 {car.category === "small" ? (
                   <p>
                     <small>

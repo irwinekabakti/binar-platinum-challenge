@@ -45,7 +45,8 @@ const CardCar = () => {
               cars.map((item) => (
                 <div className="col-lg-4 col-md-6 col-sm-12 g-4" key={item.id}>
                   <div className={`card ${classes.cardBox}`}>
-                    <div className="align-self-center w-75 mt-5 mb-3">
+                    <div
+                      className={`align-self-center mt-4 mb-3 ${classes.wrapperImage}`}>
                       <img
                         src={item.image}
                         className="card-img rounded-1"
@@ -55,7 +56,7 @@ const CardCar = () => {
                     <div className="card-body align-self-center mt-2 mb-2">
                       <h5 className="card-title ">{item.name}</h5>
                       <h5 className="card-title fw-bold">
-                        Rp. {item.price}/Hari
+                        Rp. {item.price.toLocaleString("id-ID")}/Hari
                       </h5>
                       <p className="card-text">
                         Some quick example text to build on the card title and
