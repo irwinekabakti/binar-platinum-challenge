@@ -1,13 +1,44 @@
 import React, { Fragment } from "react";
 import classes from "./SearchBar.module.css";
-// import { useNavigate } from "react-router";
+// import { useDispatch } from "react-redux";
+// import { useParams } from "react-router";
+import { useSelector } from "react-redux";
+// import {
+//   bankPayment,
+//   getOrderCar,
+//   updateCar,
+// } from "../../store/action/bank-slice";
+import moment from "moment";
 
 const InfoBar = () => {
-  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  // const carId = useParams();
 
-  // const toSearchCars = () => {
-  //   navigate("/searchCars");
+  const selector = useSelector((state) => state.bankStore);
+  const selectedCar = selector.getCarData;
+  const updatedOrderedCar = selector.updateCar;
+
+  // const defaultInfoCar = () => {
+  //   try {
+  //     dispatch(bankPayment(carId.id));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
   // };
+
+  // const getUpdateCar = () => {
+  //   console.log(carId);
+  //   try {
+  //     dispatch(updateCar(carId.id));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   // defaultInfoCar();
+  //   // getUpdateCar();
+  // }, []);
 
   return (
     <Fragment>
@@ -24,14 +55,7 @@ const InfoBar = () => {
                   htmlFor="carName">
                   Nama Mobil
                 </label>
-                {/* <input
-                  className={`p-1 ${classes.sizeTag}`}
-                  type="text"
-                  id="carName"
-                  name="carName"
-                  disabled
-                /> */}
-                <p className={`p-1 ${classes.sizeTag}`}>Nama Mobilnya apa</p>
+                <p className={`p-1 ${classes.sizeTag}`}>{selectedCar.name}</p>
               </div>
               <div className="col-lg-3 d-flex flex-column justify-content-between">
                 <label
@@ -39,58 +63,30 @@ const InfoBar = () => {
                   htmlFor="category">
                   Kategori
                 </label>
-                {/* <select
-                  className={classes.sizeTag}
-                  id="category"
-                  name="category"
-                  disabled>
-                  <option value="" hidden>
-                    Masukkan Kapasitas Mobil
-                  </option>
-                </select> */}
                 <p className={`p-1 ${classes.sizeTag}`}>
-                  Kategori Mobilnya apa
+                  {selectedCar.category === "small" ? "2 - 4 orang" : null}
+                  {selectedCar.category === "medium" ? "4 - 6 orang" : null}
+                  {selectedCar.category === "large" ? "6 - 8 orang" : null}
                 </p>
               </div>
               <div className="col-lg-3 d-flex flex-column justify-content-between">
                 <label className={`fw-bold ${classes.label}`} htmlFor="price">
-                  Harga
+                  Tanggal Mulai Sewa
                 </label>
-                {/* <select
-                  className={classes.sizeTag}
-                  id="price"
-                  name="price"
-                  disabled>
-                  <option value="" hidden>
-                    Masukkan Harga Sewa per Hari
-                  </option>
-                </select> */}
                 <p className={`p-1 ${classes.sizeTag}`}>
-                  Harga Mobilnya berapa
+                  {moment(updatedOrderedCar.start_rent_at).format("YYYY-MM-DD")}
                 </p>
               </div>
-
               <div className="col-lg-3 d-flex flex-column justify-content-between">
                 <label className={`fw-bold ${classes.label}`} htmlFor="status">
-                  Status
+                  Tanggal Akhir Sewa
                 </label>
-                {/* <select
-                  className={`p-1 ${classes.sizeTag}`}
-                  name="status"
-                  id="status"
-                  disabled>
-                  <option value="sedia">Sedia</option>
-                </select> */}
-                <p className={`p-1 ${classes.sizeTag}`}>Status Mobilnya apa</p>
+                <p className={`p-1 ${classes.sizeTag}`}>
+                  {moment(updatedOrderedCar.finish_rent_at).format(
+                    "YYYY-MM-DD"
+                  )}
+                </p>
               </div>
-
-              {/* <div className="col-lg-1 d-flex align-items-end mt-3">
-                <button
-                  onClick={toSearchCars}
-                  className="btn btn-outline-primary w-100 col-sm-12 mt-4">
-                  Edit
-                </button>
-              </div> */}
             </div>
           </div>
         </div>

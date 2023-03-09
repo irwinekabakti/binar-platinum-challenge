@@ -36,7 +36,7 @@ const GrapichCar = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://bootcamp-rent-cars.herokuapp.com/admin/order/reports?from=${startDateRent}$&until=${finishDateRent}`,
+          `https://bootcamp-rent-cars.herokuapp.com/admin/order/reports?from=${startDateRent}&until=${finishDateRent}`,
           {
             headers: {
               access_token: localStorage.getItem("token_Admin"),
