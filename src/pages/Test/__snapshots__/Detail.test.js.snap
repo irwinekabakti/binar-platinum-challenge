@@ -1,0 +1,722 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UI detail test UI detail should match snapshot 1`] = `
+<div>
+  <header>
+    <nav
+      className="navbar navbar-expand-lg fixed-top navbarColor"
+    >
+      <div
+        className="container-fluid"
+      >
+        <a
+          className="navbar-brand navbarBrand1 nav-link"
+          disabled={false}
+          href="/"
+          onClick={[Function]}
+        >
+          <img
+            alt="Home BCR"
+            src="logo.svg"
+          />
+        </a>
+        <button
+          aria-controls="offcanvasNavbar"
+          className="navbar-toggler navTog"
+          data-bs-target="#offcanvasNavbar"
+          data-bs-toggle="offcanvas"
+          type="button"
+        >
+          <span
+            className="navbar-toggler-icon"
+          />
+        </button>
+        <div
+          aria-labelledby="offcanvasNavbarLabel"
+          className="offcanvas offcanvas-end"
+          id="offcanvasNavbar"
+          style={
+            Object {
+              "width": "50%",
+            }
+          }
+          tabIndex="-1"
+        >
+          <div
+            className="offcanvas-header"
+          >
+            <h5
+              className="offcanvas-title fw-bold"
+              id="offcanvasNavbarLabel"
+            >
+              BCR
+            </h5>
+            <button
+              aria-label="Close"
+              className="btn-close"
+              data-bs-dismiss="offcanvas"
+              type="button"
+            />
+          </div>
+          <div
+            className="offcanvas-body"
+          >
+            <ul
+              className="navbar-nav justify-content-end flex-grow-1 pe-3"
+            >
+              <li
+                className="nav-item"
+              >
+                <a
+                  className="nav-link me-4 navbarNavLink"
+                  href="/#our-services"
+                >
+                  Our Services
+                </a>
+              </li>
+              <li
+                className="nav-item"
+              >
+                <a
+                  className="nav-link me-4 navbarNavLink"
+                  href="/#WhyUs"
+                >
+                  Why Us
+                </a>
+              </li>
+              <li
+                className="nav-item"
+              >
+                <a
+                  className="nav-link me-4 navbarNavLink"
+                  href="/#testimonial"
+                >
+                  Testimonial
+                </a>
+              </li>
+              <li
+                className="nav-item"
+              >
+                <a
+                  className="nav-link me-4 navbarNavLink"
+                  href="/#faq"
+                >
+                  FAQ
+                </a>
+              </li>
+              <li
+                className="nav-item navItemLogout"
+              >
+                <button
+                  className="nav-link me-4 navbarRegister"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "border": "none",
+                      "outline": "none",
+                    }
+                  }
+                >
+                  Register
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section
+      className="emptySection"
+      id="empty-section"
+    />
+  </header>
+  <main>
+    <section
+      className="searchBar main"
+      id="searchBar"
+    >
+      <div
+        className="container mt-1 d-flex justify-content-center"
+      >
+        <div
+          className="card p-4 cardBar"
+        >
+          <div
+            className="row"
+          >
+            <p
+              className="fs-6 fw-bold"
+              style={
+                Object {
+                  "marginTop": "-20px",
+                }
+              }
+            >
+              Pencarianmu
+            </p>
+            <div
+              className="col-lg-3 d-flex flex-column justify-content-between"
+            >
+              <label
+                className="fw-bold labelCar"
+                htmlFor="carName"
+              >
+                Nama Mobil
+              </label>
+              <input
+                className="p-1 sizeTag"
+                disabled={true}
+                id="carName"
+                name="carName"
+                type="text"
+              />
+            </div>
+            <div
+              className="col-lg-3 d-flex flex-column justify-content-between"
+            >
+              <label
+                className="fw-bold label"
+                htmlFor="category"
+              >
+                Kategori
+              </label>
+              <select
+                className="sizeTag"
+                disabled={true}
+                id="category"
+                name="category"
+              >
+                <option
+                  hidden={true}
+                  value=""
+                >
+                  Masukkan Kapasitas Mobil
+                </option>
+              </select>
+            </div>
+            <div
+              className="col-lg-3 d-flex flex-column justify-content-between"
+            >
+              <label
+                className="fw-bold label"
+                htmlFor="price"
+              >
+                Harga
+              </label>
+              <select
+                className="sizeTag"
+                disabled={true}
+                id="price"
+                name="price"
+              >
+                <option
+                  hidden={true}
+                  value=""
+                >
+                  Masukkan Harga Sewa per Hari
+                </option>
+              </select>
+            </div>
+            <div
+              className="col-lg-2 d-flex flex-column justify-content-between"
+            >
+              <label
+                className="fw-bold label"
+                htmlFor="status"
+              >
+                Status
+              </label>
+              <select
+                className="p-1 sizeTag"
+                disabled={true}
+                id="status"
+                name="status"
+              >
+                <option
+                  value="sedia"
+                >
+                  Sedia
+                </option>
+              </select>
+            </div>
+            <div
+              className="col-lg-1 d-flex align-items-end mt-3"
+            >
+              <button
+                className="btn btn-outline-primary w-100 col-sm-12 mt-4"
+                onClick={[Function]}
+              >
+                Edit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      className="container cardDetail"
+      id="card-detail"
+    >
+      <div
+        className="row justify-content-center"
+      >
+        <div
+          className="col-lg-7 g-4"
+        >
+          <div
+            className="card"
+          >
+            <h6
+              className="fw-bold mb-3 ms-4 mt-4"
+            >
+              Tentang paket
+            </h6>
+            <h6
+              className="fw-bold ms-4 mt-4"
+            >
+              Include
+              <ul
+                className="mb-2 mt-3"
+              >
+                <li
+                  className="mb-4"
+                  id="include-1"
+                >
+                  Apa saja yang termasuk dalam paket misal durasi max 12 jam
+                </li>
+                <li
+                  className="mb-4"
+                  id="include-2"
+                >
+                  Sudah termasuk bensin selama 12 jam
+                </li>
+                <li
+                  className="mb-4"
+                  id="include-3"
+                >
+                  Sudah termasuk Tiket Wisata
+                </li>
+                <li
+                  className="mb-4"
+                  id="include-4"
+                >
+                  Sudah termasuk pajak
+                </li>
+              </ul>
+            </h6>
+            <h6
+              className="fw-bold ms-4 mt-4"
+            >
+              Exclude
+              <ul
+                className="mb-2 mt-3"
+              >
+                <li
+                  className="mb-4"
+                  id="exclude-1"
+                >
+                  Tidak termasuk biaya makan sopir Rp 75.000/hari
+                </li>
+                <li
+                  className="mb-4"
+                  id="exclude-2"
+                >
+                  Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam
+                </li>
+                <li
+                  className="mb-4"
+                  id="exclude-3"
+                >
+                  Tidak termasuk akomodasi penginapan
+                </li>
+              </ul>
+            </h6>
+            <h6
+              className="fw-bold ms-4 mt-4"
+            >
+              <div
+                className="accordion accordion-flush"
+                id="accordionFlushExample"
+              >
+                <div
+                  className="accordion-item"
+                >
+                  <h2
+                    className="accordion-header"
+                    id="flush-headingOne"
+                  >
+                    <button
+                      aria-controls="flush-collapseOne"
+                      aria-expanded="false"
+                      className="accordion-button collapsed fw-bold"
+                      data-bs-target="#flush-collapseOne"
+                      data-bs-toggle="collapse"
+                      type="button"
+                    >
+                      Refund, Reschedule, Overtime
+                    </button>
+                  </h2>
+                  <div
+                    aria-labelledby="flush-headingOne"
+                    className="accordion-collapse collapse"
+                    data-bs-parent="#accordionFlushExample"
+                    id="flush-collapseOne"
+                  >
+                    <div
+                      className="accordion-body"
+                    >
+                      <ul
+                        className="mb-2 mt-3"
+                      >
+                        <li
+                          className="mb-4"
+                          id="detail-1"
+                        >
+                          Tidak termasuk biaya makan sopir Rp 75.000/hari
+                        </li>
+                        <li
+                          className="mb-4"
+                          id="detail-2"
+                        >
+                          Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam
+                        </li>
+                        <li
+                          className="mb-4"
+                          id="detail-3"
+                        >
+                          Tidak termasuk akomodasi penginapan
+                        </li>
+                        <li
+                          className="mb-4"
+                          id="detail-4"
+                        >
+                          Tidak termasuk biaya makan sopir Rp 75.000/hari
+                        </li>
+                        <li
+                          className="mb-4"
+                          id="detail-5"
+                        >
+                          Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam
+                        </li>
+                        <li
+                          className="mb-4"
+                          id="detail-6"
+                        >
+                          Tidak termasuk akomodasi penginapan
+                        </li>
+                        <li
+                          className="mb-4"
+                          id="detail-7"
+                        >
+                          Tidak termasuk biaya makan sopir Rp 75.000/hari
+                        </li>
+                        <li
+                          className="mb-4"
+                          id="detail-8"
+                        >
+                          Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam
+                        </li>
+                        <li
+                          className="mb-4"
+                          id="detail-9"
+                        >
+                          Tidak termasuk akomodasi penginapan
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </h6>
+          </div>
+        </div>
+        <div
+          className="col-lg-5 g-4"
+        >
+          <div
+            className="card"
+          >
+            <div
+              className="col-lg wrapperImage"
+            >
+              <h3
+                className="justify-content-center d-flex"
+              >
+                Image Not found !
+              </h3>
+            </div>
+            <div
+              className="card-body mt-2 mb-2"
+            >
+              <h6
+                className="fw-bold"
+              />
+              <h3
+                className="justify-content-start d-flex"
+              >
+                Category Error !
+              </h3>
+            </div>
+            <div
+              className="card-body mt-2 mb-2"
+            >
+              <h6>
+                Tentukan lama sewa mobil (max. 7 hari)
+              </h6>
+              <div
+                className="react-datepicker-wrapper"
+              >
+                <div
+                  className="react-datepicker__input-container"
+                >
+                  <span
+                    aria-live="polite"
+                    className="react-datepicker__aria-live"
+                    role="alert"
+                  />
+                  <input
+                    className="w-100"
+                    disabled={false}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    placeholder="Pilih tanggal mulai dan tanggal akhir sewa"
+                    readOnly={false}
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <h3
+              className="justify-content-center"
+            >
+              Price Error !
+            </h3>
+            <div
+              className="card-body mt-2 mb-2"
+            >
+              <button
+                className="buttonToPayment fw-bold w-100 py-2 btn btn-success"
+                disabled={true}
+                onClick={[Function]}
+                type="button"
+              >
+                Lanjutkan ke Pembayaran
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer
+    className="footer"
+  >
+    <div
+      className="container py-5 pt-0"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-lg-3 mb-3"
+        >
+          <ul
+            className="list-unstyled"
+          >
+            <li
+              className="mb-2"
+            >
+              <p
+                className="fw-bold"
+              >
+                Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000
+              </p>
+            </li>
+            <li
+              className="mb-2"
+            >
+              <p
+                className="fw-bold"
+              >
+                binarcarrental@gmail.com
+              </p>
+            </li>
+            <li
+              className="mb-2"
+            >
+              <p
+                className="fw-bold"
+              >
+                081-233-334-808
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="col-lg-2 mb-3"
+        >
+          <ul
+            className="list-unstyled"
+          >
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/#services"
+              >
+                Our services
+              </a>
+            </li>
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/#WhyUs"
+              >
+                Why Us
+              </a>
+            </li>
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/#testimonial"
+              >
+                Testimonial
+              </a>
+            </li>
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/#faq"
+              >
+                FAQ
+              </a>
+            </li>
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/viewerPdf"
+              >
+                Term of Service
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="col-lg-4 mb-3"
+        >
+          <p
+            className="fw-bold mb-2 "
+          >
+            Connect with us
+          </p>
+          <div
+            className="footerSocial"
+          >
+            <a
+              className="text-decoration-none footerSocial"
+              href="https://web.facebook.com/binaracademy/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon-facebook"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_facebook.svg"
+                title="Facebook"
+              />
+            </a>
+            <a
+              className="text-decoration-none footerSocial"
+              href="https://www.instagram.com/academybinar/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon_instagram"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_instagram.svg"
+                title="Instagram"
+              />
+            </a>
+            <a
+              className="text-decoration-none footerSocial"
+              href="https://twitter.com/academybinar"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon_twitter"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_twitter.svg"
+                title="Twitter"
+              />
+            </a>
+            <a
+              className="text-decoration-none footerSocial"
+              href="mailto:service@binar.co.id"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon_gmail"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_mail.svg"
+                title="Gmail"
+              />
+            </a>
+            <a
+              className="text-decoration-none footerSocial"
+              href="https://www.binaracademy.com/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon_twitch"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_twitch.svg"
+                title="Twitch"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          className="col-lg-3 mb-3"
+        >
+          <p
+            className="fw-bold mb-2"
+          >
+            Copyright Binar 2022
+          </p>
+          <a
+            className="navbar-brand"
+            href="/"
+          >
+            <img
+              alt="Home BCR"
+              src="logo.svg"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;

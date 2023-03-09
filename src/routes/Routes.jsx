@@ -49,7 +49,7 @@ const Routes = () => {
       path: "/detailCar/:id",
       element: isAuthenticated ? <Detail /> : <Navigate to="/signIn" />,
     },
-    { path: "pembayaran", element: <Payment /> },
+    { path: "payment/:id", element: <Payment /> },
     { path: "/*", element: <NotFound /> },
     { path: "ETiket", element: <ETiket /> },
     { path: "viewerPdf", element: <ViewerPDF /> },

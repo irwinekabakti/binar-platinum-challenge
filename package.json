@@ -16,9 +16,8 @@
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
     "chart.js": "^4.0.1",
-    "date-fns": "^2.29.3",
     "jquery": "^3.6.3",
-    "lightgallery": "^2.7.1",
+    "moment": "^2.29.4",
     "owl.carousel": "^2.3.4",
     "pdfjs-dist": "^3.3.122",
     "react": "^18.2.0",
@@ -43,7 +42,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage --watchAll=false",
+    "test:update": "react-scripts test --coverage --updateSnapshot --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -63,5 +63,26 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.5.0",
+    "react-test-renderer": "^18.2.0"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!axios)"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/index.js",
+      "<rootDir>/src/reportWebVitals.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    }
   }
 }

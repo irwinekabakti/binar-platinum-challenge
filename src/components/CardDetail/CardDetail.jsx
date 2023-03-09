@@ -1,29 +1,25 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { useParams } from "react-router";
-import axios from "axios";
+import { useNavigate, useParams } from "react-router";
 import { Button } from "react-bootstrap";
 import Loading from "../Loading/Loading";
-import BASE_API from "../../api/BASE_API";
 import classes from "./CardDetail.module.css";
 import { text_Include, text_Exclude, text_Details } from "./data";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import moment from "moment";
 import { useDispatch } from "react-redux";
-import { bankPayment } from "../../store/action/bank-slice";
+import { bankPayment, createOrder } from "../../store/action/bank-slice";
 import { useSelector } from "react-redux";
 
 const CardDetail = () => {
-  const [car, setCar] = useState({});
   const [loading, setLoading] = useState();
   const carId = useParams();
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
-  const isDatePicked = "";
   const dispatch = useDispatch();
   const selector = useSelector((state) => state.bankStore);
   const selectedCar = selector.getCarData;
   const [rentDay, setRentDay] = useState("");
-  const years = [2022, 2023, 2024];
+  const navigate = useNavigate();
 
   useEffect(() => {
     let day = 0;
@@ -33,7 +29,7 @@ const CardDetail = () => {
 
     if (startDate && endDate) {
       day = endingDate - startingDate;
-      console.log(day);
+      // console.log(day);
       if (day < 0) {
         if (bookingMonth % 2 === 1) {
           day += 31;
@@ -46,38 +42,52 @@ const CardDetail = () => {
         }
       }
       setRentDay(day + 1);
+      // setRentDay(day);
     } else {
       setRentDay(0);
     }
   }, [startDate, endDate]);
-  // console.log(startDate);
-  // console.log(endDate);
 
-  // console.log(dateRange[0]);
-  // console.log(dateRange[1]);
+  console.log(dateRange);
+  // const mDate1 = moment(dateRange[0]).format("YYYY-MM-DD");
+  // const mDate2 = moment(dateRange[1]).format("YYYY-MM-DD");
+  // console.log(mDate1, "to", mDate2);
 
-  // console.log(selectedCar)
-
-  // const BASE_URL_ID = `${BASE_API}/customer/car/${carId.id}`;
+  const totalPrice = selectedCar.price * rentDay;
+  // console.log(totalPrice);
 
   const cardCarDetail = async () => {
-    // console.log(car);
     try {
       setLoading(true);
       dispatch(bankPayment(carId.id));
-      // console.log(setCar);
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
     setLoading(false);
+  };
+
+  const createOrderCar = async () => {
+    try {
+      dispatch(
+        createOrder({
+          start_rent_at: moment(dateRange[0]).format("YYYY-MM-DD"),
+          finish_rent_at: moment(dateRange[1]).format("YYYY-MM-DD"),
+          car_id: Number(carId.id),
+        })
+      )
+        .unwrap()
+        .then(() => {
+          navigate(`/payment/${selectedCar.id}`);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
     cardCarDetail();
     setDateRange(dateRange);
   }, []);
-
-  // let rentDays= Math.ceil()
 
   return (
     <Fragment>
@@ -209,16 +219,15 @@ const CardDetail = () => {
                     }
                     isClearable={true}
                     placeholderText="Pilih tanggal mulai dan tanggal akhir sewa"
-                    className="w-100"
-                    // maxDate={addDays(new Date(), 5)}
-                  ></DatePicker>
+                    className="w-100"></DatePicker>
                 </div>
 
                 {selectedCar.price ? (
                   <div className="card-body d-flex justify-content-between">
                     <p className="fw-bold text-uppercase">Total :&nbsp;</p>
                     <p id="totalPrice" className="fw-bold totalPrice">
-                      Rp {(selectedCar.price * rentDay).toLocaleString("id-ID")}
+                      {/* Rp {selectedCar.price * rentDay.toLocaleString("id-ID")} */}
+                      Rp {totalPrice.toLocaleString("id-ID")}
                     </p>
                   </div>
                 ) : (
@@ -227,6 +236,7 @@ const CardDetail = () => {
                 <div className="card-body mt-2 mb-2">
                   <Button
                     variant="success"
+                    onClick={createOrderCar}
                     className={`${classes.buttonToPayment} fw-bold w-100 py-2`}
                     disabled={rentDay > 0 ? false : true}>
                     Lanjutkan ke Pembayaran

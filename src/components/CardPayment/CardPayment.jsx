@@ -5,28 +5,28 @@ import stripPembayaran from "../Images/strip-total-pembayaran.svg";
 import "../../Accordion.css";
 import { Button } from "react-bootstrap";
 import checklistBank from "../Images/checklistBank.svg";
+import { useDispatch } from "react-redux";
+import { updateBankName } from "../../store/action/bank-slice";
+import { useSelector } from "react-redux";
+import moment from "moment";
 
 const CardPayment = () => {
-  const [isCheckBca, setIsCheckBca] = useState(false);
-  const [isCheckBni, setIsCheckBni] = useState(false);
-  const [isCheckMandiri, setIsCheckMandiri] = useState(false);
-  const [bca, setBca] = useState();
-  const [bni, setBni] = useState();
-  const [mandiri, setMandiri] = useState();
+  const [bankID, setBankID] = useState(null);
+  const dispatch = useDispatch();
+  const selector = useSelector((state) => state.bankStore);
+  const selectedCar = selector.getCarData;
+  const updatedOrderedCar = selector.updateCar;
+  const choosePayment = selector.bankName;
 
-  const handleBankBca = () => {
-    setIsCheckBca(!isCheckBca);
-    setBca(!bca);
-  };
+  const banks = [
+    { id: "BCA", name: "BCA Transfer", isChecked: false },
+    { id: "BNI", name: "BNI Transfer", isChecked: false },
+    { id: "Mandiri", name: "Mandiri Transfer", isChecked: false },
+  ];
 
-  const handleBankBni = () => {
-    setIsCheckBni(!isCheckBni);
-    setBni(!bni);
-  };
-
-  const handleBankMandiri = () => {
-    setIsCheckMandiri(!isCheckMandiri);
-    setMandiri(!mandiri);
+  const handleBankClick = (id) => {
+    dispatch(updateBankName(id));
+    setBankID(id);
   };
 
   return (
@@ -42,55 +42,26 @@ const CardPayment = () => {
               </p>
               <form>
                 <ul className="list-group list-group-flush mt-4">
-                  <li
-                    className={`list-group-item mx-3 d-flex ${classes.bankTransferPoint}`}
-                    onClick={handleBankBca}>
-                    <div className="card fs-5 py-2 px-4 mb-3 text-center">
-                      BCA
-                    </div>
-                    <h5 className={`ms-4 mt-3 ${classes.bankName}`}>
-                      BCA Transfer
-                    </h5>
-                    {isCheckBca ? (
-                      <img
-                        src={checklistBank}
-                        alt="checklist-bank"
-                        className={`${classes.checklistBank}`}
-                      />
-                    ) : null}
-                  </li>
-                  <li
-                    className={`list-group-item mx-3 mt-3 d-flex ${classes.bankTransferPoint}`}
-                    onClick={handleBankBni}>
-                    <div className="card fs-5 py-2 px-4 mb-3 text">BNI</div>
-                    <h5 className={`ms-4 mt-3 ${classes.bankName}`}>
-                      BNI Transfer
-                    </h5>
-                    {isCheckBni ? (
-                      <img
-                        src={checklistBank}
-                        alt="checklist-bank"
-                        className={classes.checklistBank}
-                      />
-                    ) : null}
-                  </li>
-                  <li
-                    className={`list-group-item mx-3 mt-3 d-flex ${classes.bankTransferPoint}`}
-                    onClick={handleBankMandiri}>
-                    <div className="card py-2 px-2 fs-5  mb-3 text">
-                      Mandiri
-                    </div>
-                    <h5 className={`ms-4 mt-3 ${classes.bankName}`}>
-                      Mandiri Transfer
-                    </h5>
-                    {isCheckMandiri ? (
-                      <img
-                        src={checklistBank}
-                        alt="checklist-bank"
-                        className={classes.checklistBank}
-                      />
-                    ) : null}
-                  </li>
+                  {banks.map((bank) => (
+                    <li
+                      className={`list-group-item mx-3 mt-3 d-flex ${classes.bankTransferPoint}`}
+                      key={bank.id}
+                      onClick={() => handleBankClick(bank.id)}>
+                      <div className="card fs-5 py-2 px-4 mb-3 text">
+                        {bank.id}
+                      </div>
+                      <h5 className={`ms-4 mt-3 ${classes.bankName}`}>
+                        {bank.name}
+                      </h5>
+                      {bank.id === bankID ? (
+                        <img
+                          src={checklistBank}
+                          alt="checklist-bank"
+                          className={classes.checklistBank}
+                        />
+                      ) : null}
+                    </li>
+                  ))}
                   <li className="list-group-item mb-3 d-flex"></li>
                 </ul>
               </form>
@@ -104,16 +75,30 @@ const CardPayment = () => {
               </i>
               <Accordion className="mt-3 mb-1" defaultActiveKey="0" flush>
                 <Accordion.Item eventKey="0">
-                  <Accordion.Header>Total : Rp 2.000.000</Accordion.Header>
+                  <Accordion.Header>
+                    Total : Rp.{" "}
+                    {updatedOrderedCar.total_price.toLocaleString("id-ID")}
+                  </Accordion.Header>
                   <Accordion.Body>
                     <form>
                       <h6 className="fw-bold totalHarga">Harga</h6>
                       <ul className="mt-1 mb-3">
                         <div className="d-flex justify-content-between">
                           <li className="sewa">
-                            Sewa Mobil Rp. 500.000 x 7 hari
+                            Sewa Mobil Rp. {selectedCar.price} x{" "}
+                            {moment(updatedOrderedCar.finish_rent_at).diff(
+                              moment(updatedOrderedCar.start_rent_at),
+                              "days"
+                            ) + 1}{" "}
+                            hari
                           </li>
-                          <h6 className="totalSewa"> 3.500.000</h6>
+                          <h6 className="totalSewa fw-bold">
+                            {" "}
+                            Rp.{" "}
+                            {updatedOrderedCar.total_price.toLocaleString(
+                              "id-ID"
+                            )}
+                          </h6>
                         </div>
                       </ul>
                       <h6 className="fw-bold mt-3 biayaLainnya">
@@ -143,22 +128,19 @@ const CardPayment = () => {
                       />
                       <div className="d-flex justify-content-between">
                         <p className="fw-bold totalHarga">Total </p>
-                        <p className="fw-bold"> 5.000.000</p>
+                        <p className="fw-bold">
+                          Rp.{" "}
+                          {updatedOrderedCar.total_price.toLocaleString(
+                            "id-ID"
+                          )}
+                        </p>
                       </div>
-                      {isCheckBca || isCheckBni || isCheckMandiri ? (
-                        <Button
-                          size="md"
-                          className={`w-100 ${classes.btnBayar}`}>
-                          Bayar
-                        </Button>
-                      ) : (
-                        <Button
-                          size="md"
-                          className={`w-100 ${classes.btnBayar}`}
-                          disabled>
-                          Bayar
-                        </Button>
-                      )}
+                      <Button
+                        size="md"
+                        className={`w-100 ${classes.btnBayar}`}
+                        disabled={!choosePayment}>
+                        Bayar
+                      </Button>
                     </form>
                   </Accordion.Body>
                 </Accordion.Item>

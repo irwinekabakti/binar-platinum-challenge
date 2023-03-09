@@ -10,7 +10,6 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import { FaArrowLeft } from "react-icons/fa";
-
 // import ExampleModal from "../Modal/Modal";
 
 const SignIn = () => {
@@ -19,9 +18,9 @@ const SignIn = () => {
   const [inputEmail, setInputEmail] = useState();
   const [inputPassword, setInputPassword] = useState();
   const [loading, setLoading] = useState();
-  const [checkEmail, setCheckEmail] = useState();
-  const [checkPassword, setCheckPassword] = useState();
-  const [isValidate, setIsValidate] = useState();
+  // const [checkEmail, setCheckEmail] = useState();
+  // const [checkPassword, setCheckPassword] = useState();
+  // const [isValidate, setIsValidate] = useState();
   const [isError, setIsError] = useState(false);
 
   const handlingEmail = (e) => {
