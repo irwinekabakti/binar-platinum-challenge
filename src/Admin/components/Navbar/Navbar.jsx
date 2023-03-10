@@ -248,7 +248,7 @@ const NavbarAdmin = ({ currentPage }) => {
             </div>
             <div className="d-flex h-100">
               <Form className="d-none d-md-flex align-items-center pe-3">
-                <fieldset disabled className="position-relative d-flex">
+                <fieldset className="position-relative d-flex">
                   <Form.Control
                     type="text"
                     placeholder="Search"

@@ -4,7 +4,7 @@ import ReactPlayer from "react-player";
 
 const Video = () => {
   return (
-    <section className={classes.videoPlayer}>
+    <section className={classes.videoPlayer} id="video-player">
       <div className={classes.contentVideoPlayer}>
         <div className={`player-wrapper ${classes.playerWrapperVideo}`}>
           <ReactPlayer

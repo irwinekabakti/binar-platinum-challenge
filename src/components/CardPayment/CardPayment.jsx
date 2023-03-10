@@ -4,11 +4,12 @@ import { Accordion } from "react-bootstrap";
 import stripPembayaran from "../Images/strip-total-pembayaran.svg";
 import "../../Accordion.css";
 import { Button } from "react-bootstrap";
-import checklistBank from "../Images/checklistBank.svg";
+import { FaCheck } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { updateBankName } from "../../store/action/bank-slice";
 import { useSelector } from "react-redux";
 import moment from "moment";
+import { banks } from "./data";
 
 const CardPayment = () => {
   const [bankID, setBankID] = useState(null);
@@ -17,12 +18,6 @@ const CardPayment = () => {
   const selectedCar = selector.getCarData;
   const updatedOrderedCar = selector.updateCar;
   const choosePayment = selector.bankName;
-
-  const banks = [
-    { id: "BCA", name: "BCA Transfer", isChecked: false },
-    { id: "BNI", name: "BNI Transfer", isChecked: false },
-    { id: "Mandiri", name: "Mandiri Transfer", isChecked: false },
-  ];
 
   const handleBankClick = (id) => {
     dispatch(updateBankName(id));
@@ -44,21 +39,19 @@ const CardPayment = () => {
                 <ul className="list-group list-group-flush mt-4">
                   {banks.map((bank) => (
                     <li
-                      className={`list-group-item mx-3 mt-3 d-flex ${classes.bankTransferPoint}`}
+                      className={`list-group-item mx-3 d-flex justify-content-between ${classes.bankTransferPoint}`}
                       key={bank.id}
                       onClick={() => handleBankClick(bank.id)}>
-                      <div className="card fs-5 py-2 px-4 mb-3 text">
-                        {bank.id}
+                      <div className="bankName d-flex my-2">
+                        <img src={bank.pathIcon} alt={`icon-${bank.id}`} />
+                        <p className={`my-auto ${classes.bankName}`}>
+                          {bank.name}
+                        </p>
                       </div>
-                      <h5 className={`ms-4 mt-3 ${classes.bankName}`}>
-                        {bank.name}
-                      </h5>
                       {bank.id === bankID ? (
-                        <img
-                          src={checklistBank}
-                          alt="checklist-bank"
-                          className={classes.checklistBank}
-                        />
+                        <div className="icon" style={{ margin: "auto 0" }}>
+                          <FaCheck style={{ color: "5CB85F" }} />
+                        </div>
                       ) : null}
                     </li>
                   ))}
@@ -69,15 +62,26 @@ const CardPayment = () => {
           </div>
           <div className="col-lg-5 g-4">
             <div className="card mt-2 mb-2">
-              <h6 className="fw-bold mb-3 ms-4 mt-4">Ini Mobil</h6>
-              <i className="bi bi-people ms-4">
-                <span className="fw-bold ms-2">small</span>
-              </i>
+              <h6 className="fw-bold mb-3 ms-4 mt-4">{selectedCar.name}</h6>
+              <div className="carInfo">
+                <i
+                  className="bi bi-people ms-4"
+                  style={{ fontStyle: "none" }}></i>
+                <span className="ms-2 text-secondary">
+                  <small>
+                    {selectedCar.category === "small" ? "2 - 4 orang" : null}{" "}
+                    {selectedCar.category === "medium" ? "4 - 6 orang" : null}{" "}
+                    {selectedCar.category === "large" ? "6 - 8 orang" : null}
+                  </small>
+                </span>
+              </div>
               <Accordion className="mt-3 mb-1" defaultActiveKey="0" flush>
                 <Accordion.Item eventKey="0">
-                  <Accordion.Header>
-                    Total : Rp.{" "}
-                    {updatedOrderedCar.total_price.toLocaleString("id-ID")}
+                  <Accordion.Header className="fw-bold">
+                    <p className="fw-bold">
+                      Total : Rp.{" "}
+                      {updatedOrderedCar.total_price.toLocaleString("id-ID")}
+                    </p>
                   </Accordion.Header>
                   <Accordion.Body>
                     <form>
@@ -85,12 +89,13 @@ const CardPayment = () => {
                       <ul className="mt-1 mb-3">
                         <div className="d-flex justify-content-between">
                           <li className="sewa">
-                            Sewa Mobil Rp. {selectedCar.price} x{" "}
+                            Sewa Mobil Rp{" "}
+                            {selectedCar.price.toLocaleString("id-ID")} x{" "}
                             {moment(updatedOrderedCar.finish_rent_at).diff(
                               moment(updatedOrderedCar.start_rent_at),
                               "days"
                             ) + 1}{" "}
-                            hari
+                            Hari
                           </li>
                           <h6 className="totalSewa fw-bold">
                             {" "}

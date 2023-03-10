@@ -1,14 +1,14 @@
-.containerGallery {
+/* .containerGallery {
   width: 100%;
-}
+} */
+
 .containerImage {
   margin-top: 60px;
 }
-.imageGalery {
-  background-color: aquamarine;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+.cardGallery {
+  border: none;
+  cursor: pointer;
 }
 
 .cardGalleryImage {

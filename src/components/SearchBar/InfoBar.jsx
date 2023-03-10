@@ -1,44 +1,12 @@
 import React, { Fragment } from "react";
 import classes from "./SearchBar.module.css";
-// import { useDispatch } from "react-redux";
-// import { useParams } from "react-router";
 import { useSelector } from "react-redux";
-// import {
-//   bankPayment,
-//   getOrderCar,
-//   updateCar,
-// } from "../../store/action/bank-slice";
 import moment from "moment";
 
 const InfoBar = () => {
-  // const dispatch = useDispatch();
-  // const carId = useParams();
-
   const selector = useSelector((state) => state.bankStore);
   const selectedCar = selector.getCarData;
   const updatedOrderedCar = selector.updateCar;
-
-  // const defaultInfoCar = () => {
-  //   try {
-  //     dispatch(bankPayment(carId.id));
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // const getUpdateCar = () => {
-  //   console.log(carId);
-  //   try {
-  //     dispatch(updateCar(carId.id));
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   // defaultInfoCar();
-  //   // getUpdateCar();
-  // }, []);
 
   return (
     <Fragment>
@@ -55,7 +23,9 @@ const InfoBar = () => {
                   htmlFor="carName">
                   Nama Mobil
                 </label>
-                <p className={`p-1 ${classes.sizeTag}`}>{selectedCar.name}</p>
+                <p className={`p-1 text-secondary ${classes.sizeTag}`}>
+                  {selectedCar.name}
+                </p>
               </div>
               <div className="col-lg-3 d-flex flex-column justify-content-between">
                 <label
@@ -63,7 +33,7 @@ const InfoBar = () => {
                   htmlFor="category">
                   Kategori
                 </label>
-                <p className={`p-1 ${classes.sizeTag}`}>
+                <p className={`p-1 text-secondary ${classes.sizeTag}`}>
                   {selectedCar.category === "small" ? "2 - 4 orang" : null}
                   {selectedCar.category === "medium" ? "4 - 6 orang" : null}
                   {selectedCar.category === "large" ? "6 - 8 orang" : null}
@@ -73,7 +43,7 @@ const InfoBar = () => {
                 <label className={`fw-bold ${classes.label}`} htmlFor="price">
                   Tanggal Mulai Sewa
                 </label>
-                <p className={`p-1 ${classes.sizeTag}`}>
+                <p className={`p-1 text-secondary ${classes.sizeTag}`}>
                   {moment(updatedOrderedCar.start_rent_at).format("YYYY-MM-DD")}
                 </p>
               </div>
@@ -81,7 +51,7 @@ const InfoBar = () => {
                 <label className={`fw-bold ${classes.label}`} htmlFor="status">
                   Tanggal Akhir Sewa
                 </label>
-                <p className={`p-1 ${classes.sizeTag}`}>
+                <p className={`p-1 text-secondary ${classes.sizeTag}`}>
                   {moment(updatedOrderedCar.finish_rent_at).format(
                     "YYYY-MM-DD"
                   )}

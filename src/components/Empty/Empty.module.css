@@ -4,51 +4,48 @@
   background: #f1f3ff;
 }
 
-.marginEmpty:hover {
-  color: black;
+.contentStep {
+  display: flex;
+  justify-content: space-between;
 }
 
-.backToDetail {
-  margin-left: 100px;
+.spaceStepMain,
+.spaceStepSecond {
+  margin-top: 100px;
+}
+.spanToDetail {
   cursor: pointer;
 }
 
-.backToDetail:hover {
-  color: black;
-}
-
-@media (min-width: 992px) {
-  .marginEmpty {
-    margin-top: 8%;
+@media (max-width: 1020px) {
+  .spaceStepMain {
+    margin-top: 60px;
+    padding-top: 20px;
   }
 }
 
-@media (max-width: 992px) {
-  .marginEmpty {
-    margin-top: 12%;
-  }
-}
-
-@media (max-width: 767px) {
-  .marginEmpty {
-    margin-top: 22%;
-  }
-}
-
-@media (max-width: 290px) {
-  .marginEmpty {
-    margin-top: 32%;
-  }
-}
-
-@media (min-width: 768px) {
-  .marginBox2 {
-    margin-left: 25%;
-  }
-}
-
-@media (max-width: 300px) {
-  .miniPhone {
+@media (max-width: 576px) {
+  .contentStep {
     display: block;
+  }
+  .spaceStepSecond {
+    margin-top: 30px;
+  }
+  .emptySection {
+    height: 180px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 767px) {
+  .contentStep {
+    display: block;
+    /* display: flex;
+    justify-content: space-between; */
+  }
+  .spaceStepSecond {
+    margin-top: 30px;
+  }
+  .emptySection {
+    height: 200px;
   }
 }
