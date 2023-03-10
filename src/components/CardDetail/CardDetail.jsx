@@ -184,13 +184,22 @@ const CardDetail = () => {
                 <div className="card-body mt-2 mb-2">
                   <h6 className="fw-bold">{selectedCar.name}</h6>
                   {selectedCar.category ? (
-                    <i className="bi bi-people">
-                      <span className="fw-bold ms-2">
-                        {selectedCar.category === "small" ? "2-4 orang" : null}
-                        {selectedCar.category === "medium" ? "4-6 orang" : null}
-                        {selectedCar.category === "large" ? "6-8 orang" : null}
+                    <div className="carInfo">
+                      <i className="bi bi-people"></i>
+                      <span className="text-secondary ms-2">
+                        <small>
+                          {selectedCar.category === "small"
+                            ? "2-4 orang"
+                            : null}
+                          {selectedCar.category === "medium"
+                            ? "4-6 orang"
+                            : null}
+                          {selectedCar.category === "large"
+                            ? "6-8 orang"
+                            : null}
+                        </small>
                       </span>
-                    </i>
+                    </div>
                   ) : (
                     <h3 className="justify-content-start d-flex">
                       Category Error !

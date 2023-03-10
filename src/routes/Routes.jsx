@@ -21,6 +21,7 @@ import ViewerPDF from "../pages/ViewerPDF";
 import Toast from "../pages/Toast";
 import Cars from "../Admin/pages/Cars";
 import CarFormPage from "../Admin/pages/CarFormPage";
+import ConfirmPayment from "../pages/ConfirmPayment";
 
 const Routes = () => {
   const { isAuthenticated } = useSelector((state) => state.authStore);
@@ -50,8 +51,9 @@ const Routes = () => {
       element: isAuthenticated ? <Detail /> : <Navigate to="/signIn" />,
     },
     { path: "payment/:id", element: <Payment /> },
-    { path: "/*", element: <NotFound /> },
+    { path: "confirmPayment/:id", element: <ConfirmPayment /> },
     { path: "ETiket", element: <ETiket /> },
+    { path: "/*", element: <NotFound /> },
     { path: "viewerPdf", element: <ViewerPDF /> },
 
     // ======= ADMIN PAGE ======= //
