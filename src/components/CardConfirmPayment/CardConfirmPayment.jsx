@@ -1,20 +1,27 @@
-import React, { useRef } from "react";
-import { Form, Button, Tab, Tabs } from "react-bootstrap";
+import React from "react";
+import { Form, Button, Tab, Tabs, InputGroup } from "react-bootstrap";
 import classes from "./CardConfirmPayment.module.css";
 import BCAIcon from "../Images/bca.svg";
+import BNIIcon from "../Images/bni.svg";
+import MandiriIcon from "../Images/mandiri.svg";
 import "./CardConfirmPayment.css";
+import moment from "moment";
+import { FaCopy } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import Countdown from "../Countdown/Countdown";
 
 const CardConfirmPayment = () => {
+  const selector = useSelector((state) => state.bankStore);
+  const selectedCar = selector.getCarData;
+  const updatedOrderedCar = selector.updateCar;
+  const choosePayment = selector.bankName;
+
   const infoPayment = [
     { id: 1, eventKey: "atmBca", title: "ATM BCA" },
     { id: 2, eventKey: "m-bca", title: "M-BCA" },
     { id: 3, eventKey: "bcaklik", title: "BCA Klik" },
     { id: 4, eventKey: "internetBanking", title: "Internet Banking" },
   ];
-
- 
-
 
   return (
     <>
@@ -29,10 +36,17 @@ const CardConfirmPayment = () => {
                   <h6 className="fw-bold mb-3 ms-4 mt-4">
                     Selesaikan Pembayaran sebelum
                   </h6>
-                  <p className="ms-4">Tangaal harinya</p>
+                  <p className="ms-4">{updatedOrderedCar.finish_rent_at}</p>
+                  {/* <p className="ms-4">
+                    {moment(updatedOrderedCar.finish_rent_at).diff(
+                      moment(updatedOrderedCar.start_rent_at),
+                      "days"
+                    ) + 1}{" "}
+                    Hari
+                  </p> */}
                 </div>
                 <div className="counterTime my-auto me-3">
-                 <Countdown timer={24 * 60 * 60 * 1000}/>
+                  <Countdown timer={24 * 60 * 60 * 1000} />
                 </div>
               </div>
             </div>
@@ -40,7 +54,15 @@ const CardConfirmPayment = () => {
               <h6 className="fw-bold mb-3 ms-4 mt-4">Lakukan Transfer Ke</h6>
               <div className="accountBank d-flex">
                 <div className="logoBank ms-4">
-                  <img src={BCAIcon} alt="account bank" />
+                  {choosePayment === "BCA" ? (
+                    <img src={BCAIcon} alt="account bank BCA" />
+                  ) : null}
+                  {choosePayment === "BNI" ? (
+                    <img src={BNIIcon} alt="account bank BNI" />
+                  ) : null}
+                  {choosePayment === "Mandiri" ? (
+                    <img src={MandiriIcon} alt="account Mandiri" />
+                  ) : null}
                 </div>
                 <div className="accountDetail ms-4">
                   <p>BCA Transfer</p>
@@ -54,11 +76,19 @@ const CardConfirmPayment = () => {
                       className={`text-secondary ${classes.labelSize}`}>
                       Nomor Rekening
                     </Form.Label>
-                    <Form.Control
-                      placeholder="account bank"
-                      disabled
-                      className={classes.formCustomBackground}
-                    />
+                    <InputGroup className="mb-3">
+                      <Form.Control
+                        placeholder="54104257877"
+                        disabled
+                        className={classes.formCustomBackground}
+                      />{" "}
+                      <Button
+                        variant="outline-secondary"
+                        id="button-addon2"
+                        className="disable">
+                        <FaCopy />
+                      </Button>
+                    </InputGroup>
                   </Form.Group>
                 </div>
                 <div className="totalCost ms-4 me-4">
@@ -67,11 +97,21 @@ const CardConfirmPayment = () => {
                       className={`text-secondary ${classes.labelSize}`}>
                       Total Bayar
                     </Form.Label>
-                    <Form.Control
-                      placeholder="account bank"
-                      disabled
-                      className={classes.formCustomBackground}
-                    />
+                    <InputGroup className="mb-3">
+                      <Form.Control
+                        placeholder={`Rp ${updatedOrderedCar.total_price.toLocaleString(
+                          "id-ID"
+                        )}`}
+                        disabled
+                        className={`fw-bold text-dark ${classes.formCustomBackground}`}
+                      />
+                      <Button
+                        variant="outline-secondary"
+                        id="button-addon2"
+                        className="disable">
+                        <FaCopy />
+                      </Button>
+                    </InputGroup>
                   </Form.Group>
                 </div>
               </div>
@@ -130,6 +170,5 @@ const CardConfirmPayment = () => {
     </>
   );
 };
-
 
 export default CardConfirmPayment;

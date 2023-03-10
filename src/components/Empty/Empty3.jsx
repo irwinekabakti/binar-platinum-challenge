@@ -9,6 +9,12 @@ const Empty3 = () => {
   const navigate = useNavigate();
   const selector = useSelector((state) => state.bankStore);
   const updatedOrderedCar = selector.updateCar;
+  const selectedCar = selector.getCarData;
+  // const choosePayment = selector.bankName;
+
+  const orderID = updatedOrderedCar.id;
+  const defaultCarID = selectedCar.id;
+  const conversionOrderID = orderID.toString() + defaultCarID.toString();
 
   const toDetail = () => {
     navigate(`/payment/${updatedOrderedCar.id}`);
@@ -28,9 +34,9 @@ const Empty3 = () => {
                 <p className="my-auto">Pembayaran</p>
               </span>
             </div>
-            <div className={`d-flex justify-content-center ms-5 mt-2 w-50`}>
-              <p>Order ID : disni order id </p>
+            <div className={`d-flex justify-content-center ms-2 mt-2 w-50`}>
               {/* <p>Order ID : {updatedOrderedCar.id} </p> */}
+              <p>Order ID : {conversionOrderID} </p>
             </div>
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12">

@@ -10,10 +10,12 @@ import { updateBankName } from "../../store/action/bank-slice";
 import { useSelector } from "react-redux";
 import moment from "moment";
 import { banks } from "./data";
+import { useNavigate } from "react-router";
 
 const CardPayment = () => {
   const [bankID, setBankID] = useState(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const selector = useSelector((state) => state.bankStore);
   const selectedCar = selector.getCarData;
   const updatedOrderedCar = selector.updateCar;
@@ -23,6 +25,14 @@ const CardPayment = () => {
     dispatch(updateBankName(id));
     setBankID(id);
   };
+
+  const toConfirmPayment = () => {
+    navigate(`/confirmPayment/${selectedCar.id}`);
+  };
+
+  // const toConfirmPayment = (id) => {
+  //   navigate("/confirmPayment");
+  // };
 
   return (
     <Fragment>
@@ -142,6 +152,7 @@ const CardPayment = () => {
                       </div>
                       <Button
                         size="md"
+                        onClick={toConfirmPayment}
                         className={`w-100 ${classes.btnBayar}`}
                         disabled={!choosePayment}>
                         Bayar
