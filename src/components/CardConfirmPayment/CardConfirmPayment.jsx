@@ -1,9 +1,17 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Tab, Tabs } from "react-bootstrap";
 import classes from "./CardConfirmPayment.module.css";
 import BCAIcon from "../Images/bca.svg";
+import "./CardConfirmPayment.css";
 
 const CardConfirmPayment = () => {
+  const infoPayment = [
+    { id: 1, eventKey: "atmBca", title: "ATM BCA" },
+    { id: 2, eventKey: "m-bca", title: "M-BCA" },
+    { id: 3, eventKey: "bcaklik", title: "BCA Klik" },
+    { id: 4, eventKey: "internetBanking", title: "Internet Banking" },
+  ];
+
   return (
     <>
       <section
@@ -64,106 +72,41 @@ const CardConfirmPayment = () => {
                 </div>
               </div>
             </div>
-            <div className="container confirmPayment d-flex flex-column">
-              <div className="card instruction-container d-flex flex-column mt-4 p-3">
-                <div className="d-flex flex-column p-0">
-                  <p className="fw-bold" style={{ fontSize: "14px" }}>
-                    Instruksi Pembayaran
-                  </p>
-                </div>
-                <div class="tabs w-100">
-                  <input
-                    type="radio"
-                    class="tabs__radio"
-                    name="tabs-example"
-                    id="tab1"
-                  />
-                  <label for="tab1" class="tabs__label">
-                    {/* ATM {stateGlobal.BankTransfer} */}
-                  </label>
-                  <div class="tabs__content m-3 mb-0">
+            <div className="card optionPayment mt-4">
+              <h6 className="fw-bold mb-3 ms-4 mt-4">Instruksi Pembayaran</h6>
+              <Tabs
+                defaultActiveKey="atmBca"
+                id="fill-tab-example"
+                className="mb-3 mx-4"
+                fill>
+                {infoPayment.map((item) => (
+                  <Tab
+                    key={item.id}
+                    eventKey={item.eventKey}
+                    title={item.title}
+                    className="mx-4 mb-4">
                     <li>Masukkan kartu ATM, lalu PIN</li>
                     <li>
-                      {/* Pilih menu “Transaksi Lainnya” – ‘Transfer” – “Ke Rek{" "}
-                      {stateGlobal.BankTransfer} Virtual Account” */}
+                      Pilih menu “Transaksi Lainnya” – ‘Transfer” – “Ke Rek BCA
+                      Virtual Account”
                     </li>
                     <li>
-                      {/* Masukkan nomor {stateGlobal.BankTransfer} Virtual Account:
-                      70020+Order ID */}
+                      Masukkan nomor BCA Virtual Account: 70020+Order ID
+                      <br />
+                      <span className="ms-4">Contoh:</span>
+                      <br />
+                      <span className="ms-4">
+                        No. Peserta: 12345678, maka ditulis 7002012345678
+                      </span>
                     </li>
-                    <p
-                      className="mb-0"
-                      style={{ marginLeft: "19px", color: "#8A8A8A" }}>
-                      Contoh
-                    </p>
-                    <p
-                      className="mb-0"
-                      style={{ marginLeft: "19px", color: "#8A8A8A" }}>
-                      No. Peserta: 12345678, maka ditulis 7002012345678
-                    </p>
                     <li>
                       Layar ATM akan menampilkan konfirmasi, ikuti instruksi
                       untuk menyelesaikan transaksi
                     </li>
                     <li>Ambil dan simpanlah bukti transaksi tersebut</li>
-                  </div>
-                  <input
-                    type="radio"
-                    class="tabs__radio"
-                    name="tabs-example"
-                    id="tab2"
-                  />
-                  <label for="tab2" class="tabs__label">
-                    {/* disini logic */}
-                  </label>
-                  <div class="tabs__content m-3 mb-0">
-                    <li>Buka Aplikasi, lalu PIN</li>
-                    <li>
-                      Pilih menu “Transaksi Lainnya” – ‘Transfer” – “Ke Rek{" "}
-                      {/* // disini logic Virtual Account” */}
-                    </li>
-                    <li>
-                      {/* Masukkan nomor // disini logic Virtual Account: */}
-                      70020+Order ID
-                    </li>
-                    <p
-                      className="mb-0"
-                      style={{ marginLeft: "19px", color: "#8A8A8A" }}>
-                      Contoh
-                    </p>
-                    <p
-                      className="mb-0"
-                      style={{ marginLeft: "19px", color: "#8A8A8A" }}>
-                      No. Peserta: 12345678, maka ditulis 7002012345678
-                    </p>
-                    <li>
-                      Layar ATM akan menampilkan konfirmasi, ikuti instruksi
-                      untuk menyelesaikan transaksi
-                    </li>
-                    <li>Ambil dan simpanlah bukti transaksi tersebut</li>
-                  </div>
-                  <input
-                    type="radio"
-                    class="tabs__radio"
-                    name="tabs-example"
-                    id="tab3"
-                  />
-                  <label for="tab3" class="tabs__label">
-                    {/* // disni logic Klik */}
-                  </label>
-                  <div class="tabs__content">{/* // disini logic Klik */}</div>
-                  <input
-                    type="radio"
-                    class="tabs__radio"
-                    name="tabs-example"
-                    id="tab4"
-                  />
-                  <label for="tab4" class="tabs__label">
-                    Internet Banking
-                  </label>
-                  <div class="tabs__content">Internet Banking</div>
-                </div>
-              </div>
+                  </Tab>
+                ))}
+              </Tabs>
             </div>
           </div>
           <div className="col-lg-5 g-4">
