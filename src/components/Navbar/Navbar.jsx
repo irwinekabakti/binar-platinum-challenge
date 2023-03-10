@@ -75,27 +75,19 @@ const Navbar = () => {
                     </li>
                   ))}
                   {isTokenExist || isTokenReg ? (
-                    <li
-                      className={`nav-item ${classes.navItemLogout}`}
-                      key="logout">
-                      <button
-                        style={{ border: "none", outline: "none" }}
-                        className={`nav-link me-4 ${classes.navbarLogout}`}
-                        onClick={handleLogout}>
-                        Logout
-                      </button>
-                    </li>
+                    <button
+                      style={{ border: "none", outline: "none" }}
+                      className={`nav-link text-light me-4 mt-1 ${classes.navbarLogout}`}
+                      onClick={handleLogout}>
+                      Logout
+                    </button>
                   ) : (
-                    <li
-                      className={`nav-item ${classes.navItemLogout}`}
-                      key="logout">
-                      <button
-                        style={{ border: "none", outline: "none" }}
-                        className={`nav-link me-4 ${classes.navbarRegister}`}
-                        onClick={handleLogout}>
-                        Register
-                      </button>
-                    </li>
+                    <button
+                      style={{ border: "none", outline: "none" }}
+                      className={`nav-link text-light me-4 mt-1 ${classes.navbarRegister}`}
+                      onClick={handleLogout}>
+                      Register
+                    </button>
                   )}
                 </ul>
               </div>
