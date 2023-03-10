@@ -1,13 +1,22 @@
+<<<<<<< HEAD
 import React from "react";
 import { Form, Button, Tab, Tabs, InputGroup } from "react-bootstrap";
+=======
+import React, { useRef } from "react";
+import { Form, Button, Tab, Tabs } from "react-bootstrap";
+>>>>>>> 71ea4dc7390b572428745600020366e815bdb1df
 import classes from "./CardConfirmPayment.module.css";
 import BCAIcon from "../Images/bca.svg";
 import BNIIcon from "../Images/bni.svg";
 import MandiriIcon from "../Images/mandiri.svg";
 import "./CardConfirmPayment.css";
+<<<<<<< HEAD
 import moment from "moment";
 import { FaCopy } from "react-icons/fa";
 import { useSelector } from "react-redux";
+=======
+import Countdown from "../Countdown/Countdown";
+>>>>>>> 71ea4dc7390b572428745600020366e815bdb1df
 
 const CardConfirmPayment = () => {
   const selector = useSelector((state) => state.bankStore);
@@ -21,6 +30,9 @@ const CardConfirmPayment = () => {
     { id: 3, eventKey: "bcaklik", title: "BCA Klik" },
     { id: 4, eventKey: "internetBanking", title: "Internet Banking" },
   ];
+
+
+
 
   return (
     <>
@@ -45,7 +57,7 @@ const CardConfirmPayment = () => {
                   </p> */}
                 </div>
                 <div className="counterTime my-auto me-3">
-                  <h3>Hitung Mundur</h3>
+                 <Countdown timer={24 * 60 * 60 * 1000}/>
                 </div>
               </div>
             </div>
@@ -169,5 +181,6 @@ const CardConfirmPayment = () => {
     </>
   );
 };
+
 
 export default CardConfirmPayment;
