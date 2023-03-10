@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Form, Button, Tab, Tabs } from "react-bootstrap";
 import classes from "./CardConfirmPayment.module.css";
 import BCAIcon from "../Images/bca.svg";
 import "./CardConfirmPayment.css";
+import Countdown from "../Countdown/Countdown";
 
 const CardConfirmPayment = () => {
   const infoPayment = [
@@ -11,6 +12,9 @@ const CardConfirmPayment = () => {
     { id: 3, eventKey: "bcaklik", title: "BCA Klik" },
     { id: 4, eventKey: "internetBanking", title: "Internet Banking" },
   ];
+
+ 
+
 
   return (
     <>
@@ -28,7 +32,7 @@ const CardConfirmPayment = () => {
                   <p className="ms-4">Tangaal harinya</p>
                 </div>
                 <div className="counterTime my-auto me-3">
-                  <h3>Hitung Mundur</h3>
+                 <Countdown timer={24 * 60 * 60 * 1000}/>
                 </div>
               </div>
             </div>
@@ -126,5 +130,6 @@ const CardConfirmPayment = () => {
     </>
   );
 };
+
 
 export default CardConfirmPayment;
