@@ -4,6 +4,12 @@
   background: #f1f3ff;
 }
 
+.emptySection3 {
+  color: black;
+  height: 200px;
+  background: #f1f3ff;
+}
+
 .contentStep {
   display: flex;
   justify-content: space-between;

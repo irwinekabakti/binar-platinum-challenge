@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form, Button, Tab, Tabs, InputGroup } from "react-bootstrap";
 import classes from "./CardConfirmPayment.module.css";
 import BCAIcon from "../Images/bca.svg";
@@ -12,7 +12,7 @@ import Countdown from "../Countdown/Countdown";
 
 const CardConfirmPayment = () => {
   const selector = useSelector((state) => state.bankStore);
-  const selectedCar = selector.getCarData;
+  // const selectedCar = selector.getCarData;
   const updatedOrderedCar = selector.updateCar;
   const choosePayment = selector.bankName;
 
@@ -22,6 +22,20 @@ const CardConfirmPayment = () => {
     { id: 3, eventKey: "bcaklik", title: "BCA Klik" },
     { id: 4, eventKey: "internetBanking", title: "Internet Banking" },
   ];
+
+  const bankChooseName = () => {
+    if (choosePayment === "BCA") {
+      return <p>BCA Transfer</p>;
+    } else if (choosePayment === "BNI") {
+      return <p>BNI Transfer</p>;
+    } else if (choosePayment === "Mandiri") {
+      return <p>Mandiri Transfer</p>;
+    }
+  };
+
+  // useEffect(() => {
+
+  // }, [])
 
   return (
     <>
@@ -36,14 +50,12 @@ const CardConfirmPayment = () => {
                   <h6 className="fw-bold mb-3 ms-4 mt-4">
                     Selesaikan Pembayaran sebelum
                   </h6>
-                  <p className="ms-4">{updatedOrderedCar.finish_rent_at}</p>
-                  {/* <p className="ms-4">
-                    {moment(updatedOrderedCar.finish_rent_at).diff(
-                      moment(updatedOrderedCar.start_rent_at),
-                      "days"
-                    ) + 1}{" "}
-                    Hari
-                  </p> */}
+                  <p className="ms-4">
+                    {" "}
+                    {moment(updatedOrderedCar.start_rent_at).format(
+                      "YYYY-MM-DD"
+                    )}
+                  </p>
                 </div>
                 <div className="counterTime my-auto me-3">
                   <Countdown timer={24 * 60 * 60 * 1000} />
@@ -65,7 +77,12 @@ const CardConfirmPayment = () => {
                   ) : null}
                 </div>
                 <div className="accountDetail ms-4">
-                  <p>BCA Transfer</p>
+                  {bankChooseName()}
+                  {/* <p>{choosePayment === "BCA" ? "BCA Transfer" : null}</p>
+                  <p>{choosePayment === "BNI" ? "BNI Transfer" : null}</p>
+                  <p>
+                    {choosePayment === "Mandiri" ? "Mandiri Transfer" : null}
+                  </p> */}
                   <p style={{ marginTop: "-12px" }}>a.n Binar Car Rental</p>
                 </div>
               </div>
