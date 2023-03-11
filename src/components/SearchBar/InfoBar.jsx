@@ -10,11 +10,11 @@ const InfoBar = () => {
 
   return (
     <Fragment>
-      <section id="searchBar" className={`searchBar ${classes.main}`}>
+      <section id="searchBar" className={`searchBar ${classes.mainEmpty2}`}>
         <div className="container mt-1 d-flex justify-content-center">
           <div className={`card p-4 ${classes.cardBar}`}>
             <div className="row">
-              <p className="fs-6 fw-bold" style={{ marginTop: "-20px" }}>
+              <p className="fs-6 fw-bold" style={{ marginTop: "-10px" }}>
                 Detail Pesananmu
               </p>
               <div className="col-lg-3 d-flex flex-column justify-content-between">

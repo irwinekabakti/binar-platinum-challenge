@@ -89,7 +89,7 @@ const CardPayment = () => {
                 <Accordion.Item eventKey="0">
                   <Accordion.Header className="fw-bold">
                     <p className="fw-bold">
-                      Total : Rp.{" "}
+                      Total : Rp{" "}
                       {updatedOrderedCar.total_price.toLocaleString("id-ID")}
                     </p>
                   </Accordion.Header>
@@ -109,7 +109,7 @@ const CardPayment = () => {
                           </li>
                           <h6 className="totalSewa fw-bold">
                             {" "}
-                            Rp.{" "}
+                            Rp{" "}
                             {updatedOrderedCar.total_price.toLocaleString(
                               "id-ID"
                             )}
@@ -144,7 +144,7 @@ const CardPayment = () => {
                       <div className="d-flex justify-content-between">
                         <p className="fw-bold totalHarga">Total </p>
                         <p className="fw-bold">
-                          Rp.{" "}
+                          Rp{" "}
                           {updatedOrderedCar.total_price.toLocaleString(
                             "id-ID"
                           )}

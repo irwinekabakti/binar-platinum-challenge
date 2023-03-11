@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./Empty.module.css";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router";
@@ -10,7 +10,7 @@ const Empty3 = () => {
   const selector = useSelector((state) => state.bankStore);
   const updatedOrderedCar = selector.updateCar;
   const selectedCar = selector.getCarData;
-  // const choosePayment = selector.bankName;
+  const choosePayment = selector.bankName;
 
   const orderID = updatedOrderedCar.id;
   const defaultCarID = selectedCar.id;
@@ -20,8 +20,22 @@ const Empty3 = () => {
     navigate(`/payment/${updatedOrderedCar.id}`);
   };
 
+  const bankChooseName = () => {
+    if (choosePayment === "BCA") {
+      return <p>BCA Transfer</p>;
+    } else if (choosePayment === "BNI") {
+      return <p>BNI Transfer</p>;
+    } else if (choosePayment === "Mandiri") {
+      return <p>Mandiri Transfer</p>;
+    }
+  };
+
+  // useEffect(() => {
+  //   Empty3();
+  // }, []);
+
   return (
-    <section className={classes.emptySection} id="empty-section">
+    <section className={classes.emptySection3} id="empty-section">
       <div className="container">
         <div className={classes.contentStep}>
           <div className="col-lg-6 col-md-6 col-sm-12">
@@ -30,12 +44,14 @@ const Empty3 = () => {
               <span
                 className={`d-flex ${classes.spanToDetail}`}
                 onClick={toDetail}>
-                <FaArrowLeft className="my-auto me-3" />
-                <p className="my-auto">Pembayaran</p>
+                <FaArrowLeft className="me-3 mt-2" />
+                <p className="mt-1">{bankChooseName()}</p>
+                {/* <p className="my-auto">{bankChooseName()}</p> */}
               </span>
             </div>
-            <div className={`d-flex justify-content-center ms-2 mt-2 w-50`}>
-              {/* <p>Order ID : {updatedOrderedCar.id} </p> */}
+            <div
+              className={`d-flex justify-content-center ms-2 w-50`}
+              style={{ marginTop: "-30px" }}>
               <p>Order ID : {conversionOrderID} </p>
             </div>
           </div>
