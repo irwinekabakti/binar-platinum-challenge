@@ -22,6 +22,7 @@ import Toast from "../pages/Toast";
 import Cars from "../Admin/pages/Cars";
 import CarFormPage from "../Admin/pages/CarFormPage";
 import ConfirmPayment from "../pages/ConfirmPayment";
+import UploadPayment from "../pages/UploadPayment";
 
 const Routes = () => {
   const { isAuthenticated } = useSelector((state) => state.authStore);
@@ -52,7 +53,9 @@ const Routes = () => {
     },
     { path: "payment/:id", element: <Payment /> },
     { path: "confirmPayment/:id", element: <ConfirmPayment /> },
-    { path: "ETiket", element: <ETiket /> },
+    { path: "uploadPayment", element: <UploadPayment /> },
+    // { path: "eTicket/:id", element: <ETiket /> },
+    { path: "eTicket", element: <ETiket /> },
     { path: "/*", element: <NotFound /> },
     { path: "viewerPdf", element: <ViewerPDF /> },
 
@@ -71,9 +74,7 @@ const Routes = () => {
       element: isAdminAuthenticated ? <Cars /> : <Navigate to="/loginAdmin" />,
     },
     { path: "/cars/edit/:id", element: <CarFormPage currentPage="edit" /> },
-    // {path: '/cars/edit/:id', element:<CarFormPage currentPage='edit' />},
     { path: "/cars/add-new", element: <CarFormPage currentPage="add" /> },
-    // {path:'/cars/add-new', element: <CarFormPage currentPage='add'/>}
   ];
 };
 

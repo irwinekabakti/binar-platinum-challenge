@@ -66,6 +66,10 @@ const CardDetail = () => {
     setLoading(false);
   };
 
+  const setTokenPaymentCar = () => {
+    localStorage.setItem("start_Payment", new Date().toLocaleString());
+  };
+
   const createOrderCar = async () => {
     try {
       dispatch(
@@ -77,6 +81,7 @@ const CardDetail = () => {
       )
         .unwrap()
         .then(() => {
+          setTokenPaymentCar();
           navigate(`/payment/${selectedCar.id}`);
         });
     } catch (error) {

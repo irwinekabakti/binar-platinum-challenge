@@ -4,33 +4,44 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import { FiDownload } from "react-icons/fi";
 import classes from "./Tiket.module.css";
 import { useNavigate } from "react-router";
-import checklist from "../Images/centang.svg";
-import stripPayment from "../Images/strip-pembayaran.svg";
-import threeBlue from "../Images/3-blue.svg";
+// import checklist from "../Images/centang.svg";
+// import stripPayment from "../Images/strip-pembayaran.svg";
+// import threeBlue from "../Images/3-blue.svg";
 import ticketSuccess from "../Images/ticketSuccess.svg";
 import ticketInvoice from "../Images/ticketInvoice.png";
+import { useSelector } from "react-redux";
 
 const Tiket = () => {
+  const selector = useSelector((state) => state.bankStore);
+  const updatedOrderedCar = selector.updateCar;
+  const selectedCar = selector.getCarData;
+  const choosePayment = selector.bankName;
+
+  const orderID = updatedOrderedCar.id;
+  const defaultCarID = selectedCar.id;
+  // const conversionOrderID = orderID.toString() + defaultCarID.toString();
+
   const navigate = useNavigate();
-  const backToPayment = () => {
-    navigate("/pembayaran");
-  };
+
+  // const backToPayment = () => {
+  //   navigate("/pembayaran");
+  // };
 
   return (
     <div>
-      <div className={classes.tiketHeaderContainter}>
+      {/* <div className={classes.tiketHeaderContainter}>
         <Row className={classes.eTiketHeader}>
           <Col className="col-8" id="tiketButton">
             <ul className={`me-5 ${classes.ulTiket}`}>
               <li
                 className={`text-dark fw-bold ${classes.liTiket}`}
-                onClick={backToPayment}>
+              >
                 <span>
                   <AiOutlineArrowLeft className="me-2" /> Tiket
                 </span>
               </li>
             </ul>
-            <p className={classes.orderID}>Order ID: xxxx</p>
+            <p className={classes.orderID}>Order ID: {orderID}</p>
           </Col>
           <Col className="col-4">
             <Row className="progressBar">
@@ -63,7 +74,7 @@ const Tiket = () => {
             </Row>
           </Col>
         </Row>
-      </div>
+      </div> */}
       <Container>
         <Row className={classes.eTiketBody}>
           <div className={classes.Tiket_Success}>

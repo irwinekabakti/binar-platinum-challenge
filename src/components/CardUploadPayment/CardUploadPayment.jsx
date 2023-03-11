@@ -1,22 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button, Tab, Tabs, InputGroup } from "react-bootstrap";
-import classes from "./CardConfirmPayment.module.css";
+import classes from "./CardUploadPayment.module.css";
 import BCAIcon from "../Images/bca.svg";
 import BNIIcon from "../Images/bni.svg";
 import MandiriIcon from "../Images/mandiri.svg";
-import "./CardConfirmPayment.css";
+import axios from "axios";
+import "./CardUploadPayment.css";
 // import moment from "moment";
 import { FaCopy } from "react-icons/fa";
 import { useSelector } from "react-redux";
 // import Countdown from "../Countdown/Countdown";
 import { useNavigate } from "react-router";
 
-const CardConfirmPayment = () => {
+const CardUploadPayment = () => {
+  const navigate = useNavigate();
   const selector = useSelector((state) => state.bankStore);
-  // const selectedCar = selector.getCarData;
+  const selectedCar = selector.getCarData;
   const updatedOrderedCar = selector.updateCar;
   const choosePayment = selector.bankName;
-  const navigate = useNavigate();
+  const [selectImage, setSelectImage] = useState("");
 
   const infoPayment = [
     { id: 1, eventKey: "atmBca", title: "ATM BCA" },
@@ -55,12 +57,31 @@ const CardConfirmPayment = () => {
   const diffTime = timePaymentNow.getTime() - finishPayment.getTime();
   const countdownTime = Math.abs(diffTime);
   const [time, setTime] = useState(countdownTime);
+  // const [timeUpload, setTimeUpload] = useState(10000);
+  const [timeUpload, setTimeUpload] = useState(600000);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeOut = setTimeout(() => {
       setTime(time - 1000);
     }, 1000);
+    if (time < 1) {
+      clearTimeout(timeOut);
+      alert("Waktu Pembayaran Habis !");
+      localStorage.removeItem("start_Payment");
+      navigate("/searchCars");
+    }
   }, [time]);
+
+  useEffect(() => {
+    const timeOut = setTimeout(() => {
+      setTimeUpload(timeUpload - 1000);
+    }, 1000);
+    if (timeUpload < 1) {
+      clearTimeout(timeOut);
+      alert("Waktu Upload Bukti Pembayaran Habis !");
+      navigate(`/confirmPayment/${selectedCar.id}`);
+    }
+  }, [timeUpload]);
 
   const getFormatTime = (miliseconds) => {
     let totalSeconds = Number(Math.floor(miliseconds / 1000));
@@ -74,17 +95,22 @@ const CardConfirmPayment = () => {
     return `${hours} : ${minutes} : ${seconds}`;
   };
 
-  // const setConfirmPayment = () => {
-  //   localStorage.setItem("confirm_Payment", new Date().toLocaleString);
-  // };
+  const getUploadTime = (miliseconds) => {
+    let totalSeconds = Number(Math.floor(miliseconds / 1000));
+    let totalMinutes = Number(Math.floor(totalSeconds / 60));
 
-  const toUploadPayment = () => {
-    // setConfirmPayment();
-    navigate("/uploadPayment");
+    let seconds = Number(totalSeconds % 60);
+    let minutes = Number(totalMinutes % 60);
+
+    return `${minutes} : ${seconds}`;
+  };
+
+  const handleImage = (e) => {
+    setSelectImage(e.target.files[0]);
   };
 
   return (
-    <>
+    <div>
       <section
         id="confirm-payment"
         className={`container ${classes.cardConfirmPayment}`}>
@@ -124,11 +150,6 @@ const CardConfirmPayment = () => {
                 </div>
                 <div className="accountDetail ms-4">
                   {bankChooseName()}
-                  {/* <p>{choosePayment === "BCA" ? "BCA Transfer" : null}</p>
-                  <p>{choosePayment === "BNI" ? "BNI Transfer" : null}</p>
-                  <p>
-                    {choosePayment === "Mandiri" ? "Mandiri Transfer" : null}
-                  </p> */}
                   <p style={{ marginTop: "-12px" }}>a.n Binar Car Rental</p>
                 </div>
               </div>
@@ -218,23 +239,50 @@ const CardConfirmPayment = () => {
           </div>
           <div className="col-lg-5 g-4">
             <div className="card">
-              <p className="mb-3 mx-4 mt-4">
-                Klik Konformasi Pembayaran untuk mempercepat proses pengecekan
-              </p>
+              <div className="Wrapper time d-flex justify-content-between ">
+                <div className="counterTime my-auto me-3">
+                  <h6 className="fw-bold mb-3 ms-4 mt-3">
+                    Konfirmasi Pembayaran
+                  </h6>
+                </div>
+                <div className="counterTime my-auto me-3">
+                  <div className="countDownTimer mt-2">
+                    {getUploadTime(timeUpload)}
+                  </div>
+                </div>
+              </div>
+              <div className="detailUploadPayment mb-3 ms-4 mt-2">
+                <p className="paragraph statement me-5">
+                  Terima kasih telah melakukan konfirmasi pembayaran.
+                  Pembayaranmu akan segera kami cek tunggu kurang lebih 10 menit
+                  untuk mendapatkan konfirmasi.
+                </p>
+                <h6 className="uploadPayment fw-bold mt-4">
+                  Upload Bukti Pembayaran
+                </h6>
+                <p className="proofPayment mt-2 me-5">
+                  Untuk membantu kami lebih cepat melakukan pengecekan. Kamu
+                  bisa upload bukti bayarmu
+                </p>
+              </div>
+              <div className="buttonConfirm mx-4 mb-4">
+                <input type="file" name="file" onChange={handleImage} />
+              </div>
               <div className="buttonConfirm mx-4 mb-4">
                 <Button
                   size="md"
-                  onClick={toUploadPayment}
-                  className={`w-100 ${classes.btnBayar}`}>
-                  Konfirmasi Pembayaran
+                  className={`w-100 ${classes.btnBayar}`}
+                  // onClick='disini logic'
+                >
+                  Upload
                 </Button>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
-export default CardConfirmPayment;
+export default CardUploadPayment;

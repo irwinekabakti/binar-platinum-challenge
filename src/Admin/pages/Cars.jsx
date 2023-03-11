@@ -100,7 +100,7 @@ const Cars = () => {
       <Modal
         size="sm"
         className="w-10"
-        aria-labelledby="contained-modal-title-vcenter"
+        aria-labelledby="container-modal-title-vcenter"
         centered
         {...props}
         backdrop="static"
