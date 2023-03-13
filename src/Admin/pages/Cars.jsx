@@ -3,7 +3,7 @@ import axios from "axios";
 import NavbarAdmin from "../components/Navbar/Navbar";
 import { Button, Card, Col, Container, Modal, Row } from "react-bootstrap";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import Carimg from "../assets/car-box.svg";
+import CarModal from "../assets/car-box.svg";
 import PlaceholderImage from "../assets/no-image.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,12 +13,13 @@ import {
   faTrash,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import classes from "./Cars.module.css";
 
 const Cars = () => {
   const [cars, setCars] = useState([]);
   const [category, setCategory] = useState(null);
-  const [showModal, setShowModal] = useState(false);
   const [id, setId] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const [showHeaderModal, setShowHeaderModal] = useState(false);
   const [showFormModal, setShowFormModal] = useState(false);
   const navigate = useNavigate();
@@ -39,16 +40,42 @@ const Cars = () => {
     setSearchParams({});
   };
 
+  const handlingFilterAllCar = () => {
+    setCategory(null);
+  };
+
+  const handlingFilterSmallCar = () => {
+    setCategory("small");
+  };
+
+  const handlingFilterMediumCar = () => {
+    setCategory("medium");
+  };
+  const handlingFilterLargeCar = () => {
+    setCategory("large");
+  };
+
+  const toAddNewCar = () => {
+    navigate("/cars/add-new");
+  };
+
+  const handleShowFormModal = () => {
+    setShowFormModal(false);
+  };
+
+  const handleShowHeaderModal = () => {
+    setShowHeaderModal(false);
+  };
+
+  const handleShowModal = () => {
+    setShowModal(false);
+  };
+
   const FormSuccessModal = (props) => {
     return (
       <Modal {...props} size="sm" className="special_modal">
         <Modal.Body
-          className=" d-flex justify-content-center align-text-center text-white font-weight-bold"
-          style={{
-            background: "#73CA5C",
-            borderRadius: "2px",
-            fontWeight: 500,
-          }}>
+          className={`${classes.bodyModalSuccess} d-flex justify-content-center align-text-center text-white fw-bold`}>
           Data Berhasil Disimpan
         </Modal.Body>
       </Modal>
@@ -58,8 +85,9 @@ const Cars = () => {
   const OpenHeaderModal = (props) => {
     return (
       <Modal {...props} size="sm" className="special_modal">
-        <Modal.Body className=" d-flex justify-content-center align-text-center">
-          Data Berhasil DiHapus
+        <Modal.Body
+          className={`${classes.bodyModalDelete} d-flex justify-content-center align-text-center text-primary fw-bold`}>
+          Data Berhasil di Hapus
         </Modal.Body>
       </Modal>
     );
@@ -95,6 +123,12 @@ const Cars = () => {
     }
   };
 
+  const isModalOpen = async () => {
+    await deleteCar();
+    setShowModal(false);
+    setShowHeaderModal(true);
+  };
+
   const OpenModal = (props) => {
     return (
       <Modal
@@ -107,7 +141,7 @@ const Cars = () => {
         keyboard={false}>
         <Modal.Body>
           <div className="w-100 d-flex justify-content-center mt-4">
-            <img src={Carimg} alt="mobil" />
+            <img src={CarModal} alt="mobil-infoModal" />
           </div>
           <div className="w-100 d-flex justify-content-center mt-3">
             <p>
@@ -122,11 +156,7 @@ const Cars = () => {
                 <Button
                   style={{ width: "100%" }}
                   variant="primary"
-                  onClick={async () => {
-                    await deleteCar();
-                    setShowModal(false);
-                    setShowHeaderModal(true);
-                  }}>
+                  onClick={isModalOpen}>
                   Ya
                 </Button>
               </Col>
@@ -161,23 +191,22 @@ const Cars = () => {
     return (
       <Row className="g-4 mb-5 mt-0">
         {carsToRender.map((car) => (
-          <Col xs={12} md={6} lg={4} xxl={3} className="" key={car.id}>
-            <Card className="mt-0">
-              <div
-                className="wrapperImage"
-                style={{ margin: "10px auto 0", width: "90%" }}>
+          <Col
+            xs={12}
+            md={6}
+            lg={4}
+            xxl={4}
+            className="containerCardCars"
+            key={car.id}>
+            <Card className="cardCars mt-0">
+              <div className={classes.wrapperImageCars}>
                 <Card.Img src={car.image || PlaceholderImage} />
               </div>
               <Card.Body>
+                <Card.Text className="fw-bold">{car.name}</Card.Text>
                 <Card.Text className="fw-bold">
-                  {car.name || "Name not Exist !"}
+                  Rp {car.price.toLocaleString("id-ID")} / Hari
                 </Card.Text>
-                <Card.Text className="fw-bold">
-                  Rp. {car.price.toLocaleString("id-ID")}/Hari
-                </Card.Text>
-                <h5 className="mt-3">
-                  <strong>{cars.name}</strong>
-                </h5>
                 {car.category === "small" ? (
                   <p>
                     <small>
@@ -212,7 +241,7 @@ const Cars = () => {
                   <Button
                     variant="outline-danger"
                     size="lg"
-                    className="d-flex align-items-center"
+                    className={`d-flex align-items-center ${classes.btnDelete}`}
                     style={{ width: "fit-content" }}
                     onClick={() => {
                       setShowModal(true);
@@ -222,9 +251,9 @@ const Cars = () => {
                     Delete
                   </Button>
                   <Button
-                    variant="outline-success"
+                    variant="outline-none"
                     size="lg"
-                    className="d-flex align-items-center"
+                    className={`d-flex align-items-center text-white ${classes.btnEdit}`}
                     style={{ width: "fit-content" }}
                     onClick={() => navigate(`/cars/edit/${car.id}`)}>
                     <FontAwesomeIcon icon={faEdit} className="me-2" />
@@ -240,20 +269,12 @@ const Cars = () => {
   };
 
   return (
-    <Container
-      fluid
-      className="p-0 m-0"
-      style={{ minHeight: "100vh", background: "#F4F5F7" }}>
+    <Container fluid className={`p-0 m-0 ${classes.containerCarsPage}`}>
       <NavbarAdmin currentPage="cars" />
       <Row className="m-0">
         <Col
           xs="auto"
-          className="d-none d-md-block h-100"
-          style={{
-            width: "20.14%",
-            minWidth: "218px",
-            maxWidth: "290px",
-          }}></Col>
+          className={`d-none d-md-block h-100 ${classes.colCarsPage}`}></Col>
         <Col>
           <p className="mt-4">
             <strong>Cars {">"}</strong> List Car
@@ -263,45 +284,38 @@ const Cars = () => {
           </h5>
           <div className="d-flex justify-content-end">
             <Button
-              variant="primary"
-              className="pe-3 mb-2"
-              onClick={() => navigate("/cars/add-new")}>
-              <FontAwesomeIcon icon={faPlus} className="me-2" />
+              className={`pe-3 mb-2 fw-bold ${classes.btnAddCar}`}
+              onClick={toAddNewCar}>
+              <FontAwesomeIcon icon={faPlus} className="me-2 " />
               Add New Car
             </Button>
           </div>
           <Button
-            variant="outline-secondary me-3 mb-2"
-            onClick={() => setCategory(null)}>
+            className={`me-3 mb-2 ${classes.btnFilterCars}`}
+            onClick={handlingFilterAllCar}>
             All
           </Button>
           <Button
-            variant="outline-secondary me-3 mb-2"
-            onClick={() => setCategory("small")}>
-            2-4 people
+            className={`me-3 mb-2 ${classes.btnFilterCars}`}
+            onClick={handlingFilterSmallCar}>
+            2 - 4 people
           </Button>
           <Button
-            variant="outline-secondary me-3 mb-2"
-            onClick={() => setCategory("medium")}>
-            4-6 people
+            className={`me-3 mb-2 ${classes.btnFilterCars}`}
+            onClick={handlingFilterMediumCar}>
+            4 - 6 people
           </Button>
           <Button
-            variant="outline-secondary me-3 mb-2"
-            onClick={() => setCategory("large")}>
-            6-8 people
+            className={`me-3 mb-2 ${classes.btnFilterCars}`}
+            onClick={handlingFilterLargeCar}>
+            6 - 8 people
           </Button>
           {filterCars()}
         </Col>
       </Row>
-      <FormSuccessModal
-        show={showFormModal}
-        onHide={() => setShowFormModal(false)}
-      />
-      <OpenHeaderModal
-        show={showHeaderModal}
-        onHide={() => setShowHeaderModal(false)}
-      />
-      <OpenModal show={showModal} onHide={() => setShowModal(false)} />
+      <FormSuccessModal show={showFormModal} onHide={handleShowFormModal} />
+      <OpenHeaderModal show={showHeaderModal} onHide={handleShowHeaderModal} />
+      <OpenModal show={showModal} onHide={handleShowModal} />
     </Container>
   );
 };

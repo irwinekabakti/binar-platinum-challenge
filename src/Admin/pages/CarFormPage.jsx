@@ -2,23 +2,16 @@ import React from "react";
 import NavbarAdmin from "../components/Navbar/Navbar";
 import CarForm from "../components/CarForm/CarForm";
 import { Col, Container, Row } from "react-bootstrap";
+import classes from "./CarFormPage.module.css";
 
 const CarFormPage = ({ currentPage }) => {
   return (
-    <Container
-      fluid
-      className="p-0 m-0"
-      style={{ minHeight: "100vh", background: "#F4F5F7" }}>
+    <Container fluid className={`p-0 m-0 ${classes.containerCarFormPage}`}>
       <NavbarAdmin currentPage="cars" />
       <Row className="m-0">
         <Col
           xs="auto"
-          className="d-none d-md-block h-100"
-          style={{
-            width: "20.14%",
-            minWidth: "218px",
-            maxWidth: "290px",
-          }}></Col>
+          className={`d-none d-md-block h-100 ${classes.colCarFormPage}`}></Col>
         <Col className="px-3">
           <p className="mt-4">
             <strong>

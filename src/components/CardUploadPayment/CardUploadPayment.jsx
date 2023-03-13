@@ -51,8 +51,19 @@ const CardUploadPayment = () => {
     });
   };
 
-  const finishPaymentHour = finishPayment.getHours();
-  const finishPaymentMinute = finishPayment.getMinutes();
+  let finishPaymentHour = finishPayment.getHours();
+  let finishPaymentMinute = finishPayment.getMinutes();
+
+  /*
+  if(finishPaymentHour < 10) {
+    finishPaymentHour = '0' + finishPaymentHour
+  }
+
+  if(finishPaymentMinute < 10) {
+    finishPaymentMinute = '0' + finishPaymentMinute
+  }
+*/
+
   const timePaymentNow = new Date();
   const diffTime = timePaymentNow.getTime() - finishPayment.getTime();
   const countdownTime = Math.abs(diffTime);
@@ -92,6 +103,14 @@ const CardUploadPayment = () => {
     let minutes = Number(totalMinutes % 60);
     let hours = Number(totalHours % 24);
 
+    if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
+
     return `${hours} : ${minutes} : ${seconds}`;
   };
 
@@ -101,6 +120,14 @@ const CardUploadPayment = () => {
 
     let seconds = Number(totalSeconds % 60);
     let minutes = Number(totalMinutes % 60);
+
+    if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
 
     return `${minutes} : ${seconds}`;
   };

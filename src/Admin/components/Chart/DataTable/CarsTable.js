@@ -19,22 +19,24 @@ const CarsTable = ({ rowsPerPage }) => {
           },
         }
       );
+      const selectedOrderedCar = response.data;
+      console.log(selectedOrderedCar);
       setCarsData(
-        response.data.orders.map((order) => {
-          const modifyStartRentDate = new Intl.DateTimeFormat("id-ID", {
+        selectedOrderedCar.orders.map((order) => {
+          const conversionStartRentDate = new Intl.DateTimeFormat("id-ID", {
             dateStyle: "full",
             timeStyle: "long",
             timeZone: "Asia/Jakarta",
           }).format(new Date(order.start_rent_at));
-          const modifyFinishRentDate = new Intl.DateTimeFormat("id-ID", {
+          const conversionFinishRentDate = new Intl.DateTimeFormat("id-ID", {
             dateStyle: "full",
             timeStyle: "long",
             timeZone: "Asia/Jakarta",
           }).format(new Date(order.finish_rent_at));
           return {
             ...order,
-            start_rent_at: modifyStartRentDate,
-            finish_rent_at: modifyFinishRentDate,
+            start_rent_at: conversionStartRentDate,
+            finish_rent_at: conversionFinishRentDate,
           };
         })
       );
@@ -42,6 +44,8 @@ const CarsTable = ({ rowsPerPage }) => {
       alert(error.message);
     }
   };
+
+  console.log(carsData);
 
   useEffect(() => {
     fetchData();
@@ -54,31 +58,33 @@ const CarsTable = ({ rowsPerPage }) => {
           <tr>
             <th className={classes.tableHeaderDataChart}>No</th>
             <th className={classes.tableHeaderDataChart}>User Email</th>
-            <th className={classes.tableHeaderDataChart}>Car</th>
+            {/* <th className={classes.tableHeaderDataChart}>Car</th> */}
+            <th className={classes.tableHeaderDataChart}>Car ID</th>
             <th className={classes.tableHeaderDataChart}>Start Rent</th>
             <th className={classes.tableHeaderDataChart}>Finish Rent</th>
             <th className={classes.tableHeaderDataChart}>Price</th>
-            <th className={classes.tableHeaderDataChart}>Category</th>
+            {/* <th className={classes.tableHeaderDataChart}>Category</th> */}
+            <th className={classes.tableHeaderDataChart}>User ID</th>
           </tr>
         </thead>
         <tbody>
-          {slice.map((carData) => (
-            <tr className={classes.tableRowItemsDataChart} key={carData.id}>
-              <td className={classes.tableCellDataChart}>{carData.id}</td>
+          {slice.map((carsData) => (
+            <tr className={classes.tableRowItemsDataChart} key={carsData.id}>
+              <td className={classes.tableCellDataChart}>{carsData.id}</td>
               <td className={classes.tableCellDataChart}>
-                {carData.User.email}
+                {carsData.User.email}
               </td>
-              <td className={classes.tableCellDataChart}>{carData.Car}</td>
+              <td className={classes.tableCellDataChart}>{carsData.CarId}</td>
               <td className={classes.tableCellDataChart}>
-                {carData.start_rent_at}
-              </td>
-              <td className={classes.tableCellDataChart}>
-                {carData.finish_rent_at}
+                {carsData.start_rent_at}
               </td>
               <td className={classes.tableCellDataChart}>
-                {carData.total_price}
+                {carsData.finish_rent_at}
               </td>
-              <td className={classes.tableCellDataChart}>{carData.language}</td>
+              <td className={classes.tableCellDataChart}>
+                Rp {carsData.total_price.toLocaleString("id-ID")}
+              </td>
+              <td className={classes.tableCellDataChart}>{carsData.UserId}</td>
             </tr>
           ))}
         </tbody>

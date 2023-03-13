@@ -8,6 +8,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import axios from "axios";
+import classes from "./GraphicCar.module.css";
 
 ChartJS.register(BarElement, CategoryScale, LinearScale);
 const months = [
@@ -102,13 +103,19 @@ const GrapichCar = () => {
     <>
       <Col className="grafic-title d-flex align-items-center">
         <Row>
-          <Col>Rented Car Data Visualization</Col>
+          <p className="mt-2">
+            <strong>Dashboard {" > "} </strong> Dashboard
+          </p>
+          <div className="d-flex">
+            <div className={`me-3 ${classes.barBlue}`}></div>
+            <Col className="fw-bold">Rented Car Data Visualization</Col>
+          </div>
         </Row>
       </Col>
       <br />
       <Col>
-        <Col style={{ marginBottom: 8 }}>Month</Col>
-        <Form className="d-flex">
+        <Col className={classes.detailSelect}>Month</Col>
+        <Form className="d-flex mb-5">
           <Form.Select
             aria-label="Default select example"
             style={{ width: 122, borderRadius: 2, fontSize: 12 }}
@@ -126,15 +133,7 @@ const GrapichCar = () => {
             ))}
           </Form.Select>
           <br />
-          <Button
-            variant="outline-success"
-            style={{
-              backgroundColor: "#0D28A6",
-              color: "#FFF",
-              fontWeight: 700,
-              borderColor: "#0D28A6",
-              borderRadius: 2,
-            }}>
+          <Button variant="outline-none" className={classes.btnGo}>
             Go
           </Button>
         </Form>

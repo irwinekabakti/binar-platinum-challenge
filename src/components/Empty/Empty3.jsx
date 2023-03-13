@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import classes from "./Empty.module.css";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router";
@@ -34,10 +34,6 @@ const Empty3 = () => {
     }
   };
 
-  // useEffect(() => {
-  //   Empty3();
-  // }, []);
-
   return (
     <section className={classes.emptySection3} id="empty-section">
       <div className="container">
@@ -50,7 +46,6 @@ const Empty3 = () => {
                 onClick={toDetail}>
                 <FaArrowLeft className="me-3 mt-2" />
                 {bankChooseName()}
-                {/* <p className="my-auto">{bankChooseName()}</p> */}
               </span>
             </div>
             <div
