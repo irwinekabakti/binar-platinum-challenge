@@ -26,7 +26,6 @@ import UploadPayment from "../pages/UploadPayment";
 
 const Routes = () => {
   const { isAuthenticated } = useSelector((state) => state.authStore);
-  // const { isRegister } = useSelector((state) => state.regStore);
   const { isAdminAuthenticated } = useSelector((state) => state.adminStore);
 
   return [
@@ -73,8 +72,22 @@ const Routes = () => {
       path: "/cars",
       element: isAdminAuthenticated ? <Cars /> : <Navigate to="/loginAdmin" />,
     },
-    { path: "/cars/edit/:id", element: <CarFormPage currentPage="edit" /> },
-    { path: "/cars/add-new", element: <CarFormPage currentPage="add" /> },
+    {
+      path: "/cars/edit/:id",
+      element: isAdminAuthenticated ? (
+        <CarFormPage currentPage="edit" />
+      ) : (
+        <Navigate to="/loginAdmin" />
+      ),
+    },
+    {
+      path: "/cars/add-new",
+      element: isAdminAuthenticated ? (
+        <CarFormPage currentPage="add" />
+      ) : (
+        <Navigate to="/loginAdmin" />
+      ),
+    },
   ];
 };
 

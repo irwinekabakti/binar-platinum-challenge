@@ -5,11 +5,11 @@ import { useParams } from "react-router-dom";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import iconUpload from "../../assets/fi_upload.svg";
+import classes from "./CarForm.module.css";
 
 const CarForm = ({ formFunction }) => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [validated, setValidated] = useState(false);
   const [name, setName] = useState("");
   const [price, setPrice] = useState(null);
   const [image, setImage] = useState(null);
@@ -67,28 +67,27 @@ const CarForm = ({ formFunction }) => {
         uploadAddForm();
       }
     }
-    setValidated(true);
   };
 
-  const formBox = {
-    fontFamily: "Arial",
-    fontWeight: 400,
-    fontSize: "0.875rem",
-    lineHeight: 1.57143,
-    borderRadius: "2px",
+  const handleName = (e) => {
+    setName(e.target.value);
   };
-  const formButton = {
-    padding: "8px 12px",
-    height: "36px",
-    fontFamily: "Arial",
-    fontWeight: 700,
-    fontSize: "0.875rem",
-    lineHeight: 1.57143,
-    borderColor: "#0D28A6",
-    borderRadius: "2px",
+  const handlePrice = (e) => {
+    setPrice(e.target.value);
   };
+  const handleCategory = (e) => {
+    setCategory(e.target.value);
+  };
+  const handleImage = (e) => {
+    setImage(e.target.files[0]);
+  };
+
+  const backToCars = () => {
+    navigate("/cars");
+  };
+
   return (
-    <Form noValidate validated={validated} onSubmit={prepareFormData}>
+    <Form noValidate onSubmit={prepareFormData}>
       <div className="w-100 bg-white p-3">
         <fieldset
           className="w-100"
@@ -111,8 +110,8 @@ const CarForm = ({ formFunction }) => {
                 type="text"
                 placeholder="Input Nama/Tipe Mobil"
                 required={formFunction === "edit" ? false : true}
-                style={formBox}
-                onChange={(e) => setName(e.target.value)}
+                className={classes.formBox}
+                onChange={handleName}
               />
             </Col>
           </Form.Group>
@@ -129,8 +128,8 @@ const CarForm = ({ formFunction }) => {
                 min="9999"
                 placeholder="Input Harga Sewa Mobil"
                 required={formFunction === "edit" ? false : true}
-                style={formBox}
-                onChange={(e) => setPrice(e.target.value)}
+                className={classes.formBox}
+                onChange={handlePrice}
               />
             </Col>
           </Form.Group>
@@ -152,8 +151,8 @@ const CarForm = ({ formFunction }) => {
                 type="file"
                 accept="image/png, image/gif, image/jpeg"
                 required={formFunction === "edit" ? false : true}
-                style={formBox}
-                onChange={(e) => setImage(e.target.files[0])}
+                className={classes.formBox}
+                onChange={handleImage}
               />
               <p
                 className="mb-0"
@@ -176,9 +175,9 @@ const CarForm = ({ formFunction }) => {
             </Form.Label>
             <Col sm="8">
               <Form.Select
-                style={formBox}
-                onChange={(e) => setCategory(e.target.value)}>
-                <option disabled>Pilih Kategori Mobil</option>
+                className={classes.formBox}
+                onChange={handleCategory}>
+                <option hidden>Pilih Kategori Mobil</option>
                 <option value="small">2 - 4 orang</option>
                 <option value="medium">4 - 6 orang</option>
                 <option value="large">6 - 8 orang</option>
@@ -201,15 +200,13 @@ const CarForm = ({ formFunction }) => {
       </div>
       <div className="d-flex" style={{ marginTop: "40px" }}>
         <Button
-          className="bg-white d-flex align-items-center me-3"
-          style={{ color: "#0D28A6", ...formButton }}
-          onClick={() => navigate("/cars")}>
+          className={`d-flex align-items-center me-3 ${classes.formButtonCancel}`}
+          onClick={backToCars}>
           Cancel
         </Button>
         <Button
           type="submit"
-          className="d-flex align-items-center"
-          style={{ background: "#0D28A6", ...formButton }}>
+          className={`d-flex align-items-center text-white ${classes.formButtonSave}`}>
           Save
         </Button>
       </div>
