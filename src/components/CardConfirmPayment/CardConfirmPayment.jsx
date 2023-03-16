@@ -8,12 +8,11 @@ import "./CardConfirmPayment.css";
 // import moment from "moment";
 import { FaCopy } from "react-icons/fa";
 import { useSelector } from "react-redux";
-// import Countdown from "../Countdown/Countdown";
 import { useNavigate } from "react-router";
 
 const CardConfirmPayment = () => {
   const selector = useSelector((state) => state.bankStore);
-  // const selectedCar = selector.getCarData;
+  const selectedCar = selector.getCarData;
   const updatedOrderedCar = selector.updateCar;
   const choosePayment = selector.bankName;
   const navigate = useNavigate();
@@ -42,7 +41,7 @@ const CardConfirmPayment = () => {
   finishPayment.setDate(startPayment.getDate() + 1);
   const finishPaymentDate = (finishPayment) => {
     const date = new Date(finishPayment);
-    return date.toLocaleString("id", {
+    return date.toLocaleString("en-GB", {
       year: "numeric",
       month: "long",
       day: "numeric",
@@ -52,15 +51,13 @@ const CardConfirmPayment = () => {
   let finishPaymentHour = finishPayment.getHours();
   let finishPaymentMinute = finishPayment.getMinutes();
 
-  /*
-  if(finishPaymentHour < 10) {
-    finishPaymentHour = '0' + finishPaymentHour
+  if (finishPaymentHour < 10) {
+    finishPaymentHour = "0" + finishPaymentHour;
   }
 
-  if(finishPaymentMinute < 10) {
-    finishPaymentMinute = '0' + finishPaymentMinute
+  if (finishPaymentMinute < 10) {
+    finishPaymentMinute = "0" + finishPaymentMinute;
   }
-*/
 
   const timePaymentNow = new Date();
   const diffTime = timePaymentNow.getTime() - finishPayment.getTime();
@@ -99,7 +96,7 @@ const CardConfirmPayment = () => {
 
   const toUploadPayment = () => {
     // setConfirmPayment();
-    navigate("/uploadPayment");
+    navigate(`/uploadPayment/${selectedCar.id}`);
   };
 
   return (
@@ -143,11 +140,6 @@ const CardConfirmPayment = () => {
                 </div>
                 <div className="accountDetail ms-4">
                   {bankChooseName()}
-                  {/* <p>{choosePayment === "BCA" ? "BCA Transfer" : null}</p>
-                  <p>{choosePayment === "BNI" ? "BNI Transfer" : null}</p>
-                  <p>
-                    {choosePayment === "Mandiri" ? "Mandiri Transfer" : null}
-                  </p> */}
                   <p style={{ marginTop: "-12px" }}>a.n Binar Car Rental</p>
                 </div>
               </div>

@@ -44,7 +44,9 @@ const InfoBar = () => {
                   Tanggal Mulai Sewa
                 </label>
                 <p className={`p-1 text-secondary ${classes.sizeTag}`}>
-                  {moment(updatedOrderedCar.start_rent_at).format("YYYY-MM-DD")}
+                  {moment(updatedOrderedCar.start_rent_at).format(
+                    "DD MMMM YYYY"
+                  )}
                 </p>
               </div>
               <div className="col-lg-3 d-flex flex-column justify-content-between">
@@ -53,7 +55,7 @@ const InfoBar = () => {
                 </label>
                 <p className={`p-1 text-secondary ${classes.sizeTag}`}>
                   {moment(updatedOrderedCar.finish_rent_at).format(
-                    "YYYY-MM-DD"
+                    "DD MMMM YYYY"
                   )}
                 </p>
               </div>

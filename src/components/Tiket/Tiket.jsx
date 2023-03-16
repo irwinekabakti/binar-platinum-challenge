@@ -1,81 +1,23 @@
 import React from "react";
 import { Row, Col, Container, Card } from "react-bootstrap";
-import { AiOutlineArrowLeft } from "react-icons/ai";
 import { FiDownload } from "react-icons/fi";
 import classes from "./Tiket.module.css";
-import { useNavigate } from "react-router";
-// import checklist from "../Images/centang.svg";
-// import stripPayment from "../Images/strip-pembayaran.svg";
-// import threeBlue from "../Images/3-blue.svg";
+// import { useNavigate } from "react-router";
 import ticketSuccess from "../Images/ticketSuccess.svg";
 import ticketInvoice from "../Images/ticketInvoice.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Tiket = () => {
   const selector = useSelector((state) => state.bankStore);
   const updatedOrderedCar = selector.updateCar;
-  const selectedCar = selector.getCarData;
-  const choosePayment = selector.bankName;
+  const getSlip = updatedOrderedCar.slip;
 
-  const orderID = updatedOrderedCar.id;
-  const defaultCarID = selectedCar.id;
-  // const conversionOrderID = orderID.toString() + defaultCarID.toString();
-
-  const navigate = useNavigate();
-
-  // const backToPayment = () => {
-  //   navigate("/pembayaran");
-  // };
+  const getToken = localStorage.getItem("token");
 
   return (
     <div>
-      {/* <div className={classes.tiketHeaderContainter}>
-        <Row className={classes.eTiketHeader}>
-          <Col className="col-8" id="tiketButton">
-            <ul className={`me-5 ${classes.ulTiket}`}>
-              <li
-                className={`text-dark fw-bold ${classes.liTiket}`}
-              >
-                <span>
-                  <AiOutlineArrowLeft className="me-2" /> Tiket
-                </span>
-              </li>
-            </ul>
-            <p className={classes.orderID}>Order ID: {orderID}</p>
-          </Col>
-          <Col className="col-4">
-            <Row className="progressBar">
-              <ul className={classes.ulProgressBar}>
-                <li className={classes.liProgressBar}>
-                  <img src={checklist} alt="checklist1-img" />
-                </li>
-                <li className={classes.liProgressBar}>
-                  <p>Pilih Metode</p>
-                </li>
-                <li className={classes.liProgressBarStrip}>
-                  <img src={stripPayment} alt="strip-img" />
-                </li>
-                <li className={classes.liProgressBar}>
-                  <img src={checklist} alt="checklist2-img" />
-                </li>
-                <li className={classes.liProgressBar}>
-                  <p>Bayar</p>
-                </li>
-                <li className={classes.liProgressBarStrip}>
-                  <img src={stripPayment} alt="strip-img" />
-                </li>
-                <li className={classes.liProgressBar}>
-                  <img src={threeBlue} alt="checklist3-img" />
-                </li>
-                <li className={classes.liProgressBar}>
-                  <p>Tiket</p>
-                </li>
-              </ul>
-            </Row>
-          </Col>
-        </Row>
-      </div> */}
       <Container>
+        {/* {getToken ? ( */}
         <Row className={classes.eTiketBody}>
           <div className={classes.Tiket_Success}>
             <img
@@ -97,12 +39,14 @@ const Tiket = () => {
                     <p className={classes.tiketCardParagraph}>*no invoice</p>
                   </Col>
                   <Col className="col-6">
-                    <button
-                      type="button"
-                      className={`btn btn-outline-primary ${classes.btnEtiket}`}>
-                      <FiDownload />
-                      Unduh
-                    </button>
+                    <a href={getSlip}>
+                      <button
+                        type="button"
+                        className={`btn btn-outline-primary ${classes.btnEtiket}`}>
+                        <FiDownload />
+                        Unduh
+                      </button>
+                    </a>
                   </Col>
                 </Row>
                 <Row>
@@ -112,6 +56,7 @@ const Tiket = () => {
             </Card>
           </div>
         </Row>
+        {/* ) : null} */}
       </Container>
     </div>
   );

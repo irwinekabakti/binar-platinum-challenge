@@ -48,7 +48,7 @@ const CardDetail = () => {
     }
   }, [startDate, endDate]);
 
-  console.log(dateRange);
+  // console.log(dateRange);
   // const mDate1 = moment(dateRange[0]).format("YYYY-MM-DD");
   // const mDate2 = moment(dateRange[1]).format("YYYY-MM-DD");
   // console.log(mDate1, "to", mDate2);

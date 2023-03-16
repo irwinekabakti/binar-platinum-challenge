@@ -15,8 +15,16 @@ const SearchBar = () => {
   const [loading, setLoading] = useState();
   const navigate = useNavigate();
 
-  const handleInput = (e) => {
+  const handleInputName = (e) => {
     setValues({ ...values, name: e.target.value });
+  };
+
+  const handleInputPrice = (e) => {
+    setValues({ ...values, price: e.target.value });
+  };
+
+  const handleInputCategory = (e) => {
+    setValues({ ...values, category: e.target.value });
   };
 
   const handleSubmit = (e) => {
@@ -57,7 +65,7 @@ const SearchBar = () => {
                       Nama Mobil
                     </label>
                     <input
-                      onChange={handleInput}
+                      onChange={handleInputName}
                       defaultValue={values.name}
                       className={`p-1 ${classes.sizeTag}`}
                       type="text"
@@ -73,7 +81,7 @@ const SearchBar = () => {
                       Kategori
                     </label>
                     <select
-                      onChange={handleInput}
+                      onChange={handleInputCategory}
                       defaultValue={values.category}
                       className={classes.sizeTag}
                       id="category"
@@ -94,7 +102,7 @@ const SearchBar = () => {
                       Harga
                     </label>
                     <select
-                      onChange={handleInput}
+                      onChange={handleInputPrice}
                       defaultValue={values.price}
                       className={classes.sizeTag}
                       id="price"

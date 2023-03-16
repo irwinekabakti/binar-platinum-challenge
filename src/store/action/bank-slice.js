@@ -67,6 +67,32 @@ const getOrderCar = createAsyncThunk(
   }
 );
 
+const uploadSlip = createAsyncThunk(
+  "upload/slipOrder",
+  async (payload, thunkAPI) => {
+    try {
+      const config = {
+        headers: {
+          access_token: localStorage.getItem("token"),
+        },
+      };
+      const state = thunkAPI.getState();
+      let formData = new FormData();
+      formData.append("slip", payload);
+      const slipPayment = await axios.put(
+        `${BASE_API}/customer/order/${state.bankStore.updateCar.id}/slip`,
+        formData,
+        config
+      );
+
+      return slipPayment.data;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+);
+
 const bankSlice = createSlice({
   name: "bank",
   initialState,
@@ -95,6 +121,9 @@ const bankSlice = createSlice({
     builder.addCase(getOrderCar.fulfilled, (state, action) => {
       bankSlice.caseReducers.updateCar(state, action);
     });
+    builder.addCase(uploadSlip.fulfilled, (state, action) => {
+      bankSlice.caseReducers.updateCar(state, action);
+    });
   },
 });
 
@@ -102,4 +131,4 @@ export default bankSlice;
 
 export const { updateCar, getCarData, setBankTransfer, updateBankName } =
   bankSlice.actions;
-export { bankPayment, createOrder, getOrderCar };
+export { bankPayment, createOrder, getOrderCar, uploadSlip };
