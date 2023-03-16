@@ -52,9 +52,9 @@ const Routes = () => {
     },
     { path: "payment/:id", element: <Payment /> },
     { path: "confirmPayment/:id", element: <ConfirmPayment /> },
-    { path: "uploadPayment", element: <UploadPayment /> },
-    // { path: "eTicket/:id", element: <ETiket /> },
-    { path: "eTicket", element: <ETiket /> },
+    { path: "uploadPayment/:id", element: <UploadPayment /> },
+    { path: "eTicket/:id", element: <ETiket /> },
+    // { path: "eTicket", element: <ETiket /> },
     { path: "/*", element: <NotFound /> },
     { path: "viewerPdf", element: <ViewerPDF /> },
 

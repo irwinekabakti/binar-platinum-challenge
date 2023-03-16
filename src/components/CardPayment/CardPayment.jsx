@@ -30,10 +30,6 @@ const CardPayment = () => {
     navigate(`/confirmPayment/${selectedCar.id}`);
   };
 
-  // const toConfirmPayment = (id) => {
-  //   navigate("/confirmPayment");
-  // };
-
   return (
     <Fragment>
       <section id="card-payment" className={`container ${classes.cardPayment}`}>

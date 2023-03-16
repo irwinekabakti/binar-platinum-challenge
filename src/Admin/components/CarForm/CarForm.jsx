@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import iconUpload from "../../assets/fi_upload.svg";
+// import { carListDashboard } from "../../../store/action/dashboard-slice";
+// import { useDispatch, useSelector } from "react-redux";
 import classes from "./CarForm.module.css";
 
 const CarForm = ({ formFunction }) => {
@@ -14,7 +16,11 @@ const CarForm = ({ formFunction }) => {
   const [price, setPrice] = useState(null);
   const [image, setImage] = useState(null);
   const [category, setCategory] = useState("");
-  const formHeader = {
+  // const dispatch = useDispatch();
+  // const selector = useSelector((state) => state.dashboardStore);
+  // const postedCar = selector.updateCarList;
+
+  const config = {
     headers: {
       access_token: localStorage.getItem("token_Admin"),
       "Content-Type": "multipart/form-data",
@@ -27,7 +33,7 @@ const CarForm = ({ formFunction }) => {
       const response = await axios.put(
         `https://bootcamp-rent-cars.herokuapp.com/admin/car/${id}`,
         formData,
-        formHeader
+        config
       );
       if (response.status === 200) navigate("/cars?formSuccess=true");
     } catch (err) {
@@ -40,9 +46,26 @@ const CarForm = ({ formFunction }) => {
       const response = await axios.post(
         `https://bootcamp-rent-cars.herokuapp.com/admin/car`,
         formData,
-        formHeader
+        config
       );
-      if (response.status === 201) navigate("/cars?formSuccess=true");
+
+      /*
+      dispatch(
+        carListDashboard({
+          carName: name,
+          carPrice: price,
+          carCategory: category,
+        })
+      );
+
+
+      // dispatch(carListDashboard({ formData }));
+      // console.log(postedCar);
+      */
+
+      if (response.status === 201) {
+        navigate("/cars?formSuccess=true");
+      }
     } catch (err) {
       console.log(err);
     }

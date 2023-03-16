@@ -4,7 +4,7 @@ import NavbarAdmin from "../components/Navbar/Navbar";
 import { Button, Card, Col, Container, Modal, Row } from "react-bootstrap";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import CarModal from "../assets/car-box.svg";
-import PlaceholderImage from "../assets/no-image.png";
+import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faClock,
@@ -14,28 +14,27 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import classes from "./Cars.module.css";
+import { carsDashboard } from "../../store/action/dashboard-slice";
+import { useDispatch, useSelector } from "react-redux";
+import { deletedCarDashboard } from "../../store/action/dashboard-slice";
 
 const Cars = () => {
-  const [cars, setCars] = useState([]);
   const [category, setCategory] = useState(null);
   const [id, setId] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [showHeaderModal, setShowHeaderModal] = useState(false);
   const [showFormModal, setShowFormModal] = useState(false);
   const navigate = useNavigate();
-
-  let options = {
-    year: "numeric",
-    month: "numeric",
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    hour12: false,
-    timeZone: "Asia/Jakarta",
-  };
+  const dispatch = useDispatch();
+  const selector = useSelector((state) => state.dashboardStore);
+  const displayedCars = selector.dataCars;
+  // console.log(displayedCars);
+  // const idCar = displayedCars.map((car) => car);
+  // console.log(idCar);
+  // console.log(id);
 
   let [searchParams, setSearchParams] = useSearchParams();
-  const checkFormSuccessQuery = () => {
+  const checkFormSuccess = () => {
     searchParams.get("formSuccess") && setShowFormModal(true);
     setSearchParams({});
   };
@@ -95,36 +94,45 @@ const Cars = () => {
 
   const deleteCar = async () => {
     try {
+      const config = {
+        headers: {
+          access_token: localStorage.getItem("token_Admin"),
+        },
+      };
       const response = await axios.delete(
         `https://bootcamp-rent-cars.herokuapp.com/admin/car/${id}`,
-        {
-          headers: {
-            access_token: localStorage.getItem("token_Admin"),
-          },
-        }
+        config
       );
       const data = response.data;
-      await getCars(data);
-    } catch (err) {
-      console.log(err);
+      // console.log(data);
+      getCars(data);
+
+      /*
+      dispatch(deletedCarDashboard(displayedCars.id))
+        .unwrap()
+        .then(() => {
+          navigate("/cars");
+        });
+        */
+    } catch (error) {
+      console.log(error);
+      alert(error);
     }
   };
 
-  const getCars = async () => {
-    try {
-      const response = await axios.get(
-        "https://bootcamp-rent-cars.herokuapp.com/customer/v2/car?pageSize=100"
-      );
-      const data = response.data;
-      setCars(data.cars);
-      checkFormSuccessQuery();
-    } catch (err) {
-      console.log(err);
-    }
+  const getCars = () => {
+    dispatch(carsDashboard())
+      .then(() => {
+        checkFormSuccess();
+      })
+      .catch((error) => {
+        console.log(error);
+        alert(error);
+      });
   };
 
-  const isModalOpen = async () => {
-    await deleteCar();
+  const isModalOpen = () => {
+    deleteCar();
     setShowModal(false);
     setShowHeaderModal(true);
   };
@@ -180,7 +188,7 @@ const Cars = () => {
   }, []);
 
   const filterCars = () => {
-    let carsToRender = [...cars];
+    let carsToRender = displayedCars;
 
     if (category) {
       carsToRender = carsToRender.filter((car) => {
@@ -200,7 +208,7 @@ const Cars = () => {
             key={car.id}>
             <Card className="cardCars mt-0">
               <div className={classes.wrapperImageCars}>
-                <Card.Img src={car.image || PlaceholderImage} />
+                <Card.Img src={car.image} />
               </div>
               <Card.Body>
                 <Card.Text className="fw-bold">{car.name}</Card.Text>
@@ -210,21 +218,21 @@ const Cars = () => {
                 {car.category === "small" ? (
                   <p>
                     <small>
-                      <FontAwesomeIcon icon={faUser} /> 2-4 People
+                      <FontAwesomeIcon icon={faUser} /> 2 - 4 People
                     </small>
                   </p>
                 ) : null}
                 {car.category === "medium" ? (
                   <p>
                     <small>
-                      <FontAwesomeIcon icon={faUser} /> 4-6 People
+                      <FontAwesomeIcon icon={faUser} /> 4 - 6 People
                     </small>
                   </p>
                 ) : null}
                 {car.category === "large" ? (
                   <p>
                     <small>
-                      <FontAwesomeIcon icon={faUser} /> 6-8 People
+                      <FontAwesomeIcon icon={faUser} /> 6 - 8 People
                     </small>
                   </p>
                 ) : null}
@@ -232,8 +240,8 @@ const Cars = () => {
                 <p>
                   <small>
                     <FontAwesomeIcon icon={faClock} /> Updated at{" "}
-                    {new Intl.DateTimeFormat("en-US", options).format(
-                      cars.updateAt
+                    {moment(displayedCars.updateAt).format(
+                      "DD MMMM YYYY, h:mm A"
                     )}
                   </small>
                 </p>

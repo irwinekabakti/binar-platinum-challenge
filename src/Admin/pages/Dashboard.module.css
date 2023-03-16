@@ -24,4 +24,7 @@
   .dataGraphTable {
     margin-left: 0;
   }
+  .containerDashboard {
+    min-height: 10vh;
+  }
 }

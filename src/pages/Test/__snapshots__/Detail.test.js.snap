@@ -104,22 +104,18 @@ exports[`UI detail test UI detail should match snapshot 1`] = `
                   FAQ
                 </a>
               </li>
-              <li
-                className="nav-item navItemLogout"
-              >
-                <button
-                  className="nav-link me-4 navbarRegister"
-                  onClick={[Function]}
-                  style={
-                    Object {
-                      "border": "none",
-                      "outline": "none",
-                    }
+              <button
+                className="nav-link text-light me-4 mt-1 navbarRegister"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "border": "none",
+                    "outline": "none",
                   }
-                >
-                  Register
-                </button>
-              </li>
+                }
+              >
+                Register
+              </button>
             </ul>
           </div>
         </div>
