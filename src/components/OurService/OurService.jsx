@@ -19,7 +19,9 @@ const OurService = () => {
             </div>
             <div className="col-12 col-lg col-md-12">
               <div className={classes.servicesBody}>
-                <h2 className="fw-bold mb-3">
+                <h2
+                  className="fw-bold mb-3"
+                  data-testid="test-title-OurService">
                   Best Car Rental for any kind of trip in (Lokasimu)!
                 </h2>
                 <p className="fw-bold">

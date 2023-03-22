@@ -54,9 +54,8 @@ const Routes = () => {
     { path: "confirmPayment/:id", element: <ConfirmPayment /> },
     { path: "uploadPayment/:id", element: <UploadPayment /> },
     { path: "eTicket/:id", element: <ETiket /> },
-    // { path: "eTicket", element: <ETiket /> },
-    { path: "/*", element: <NotFound /> },
     { path: "viewerPdf", element: <ViewerPDF /> },
+    { path: "/*", element: <NotFound /> },
 
     // ======= ADMIN PAGE ======= //
     { path: "loginAdmin", element: <LoginAdmin /> },

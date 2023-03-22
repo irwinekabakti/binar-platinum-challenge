@@ -3,14 +3,14 @@ import { useNavigate } from "react-router";
 import classes from "./SearchBar.module.css";
 import Loading from "../Loading/Loading";
 
-const params = {
-  name: "",
-  category: "",
-  price: "",
-  isRented: false,
-};
-
 const SearchBar = () => {
+  const params = {
+    name: "",
+    category: "",
+    price: "",
+    isRented: false,
+  };
+
   const [values, setValues] = useState(params);
   const [loading, setLoading] = useState();
   const navigate = useNavigate();
@@ -29,24 +29,15 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     setLoading(true);
-
     e.preventDefault();
-    values.isRented = values.status === "true" ? true : false;
-    navigate("/resultCar", {
-      state: {
-        name: values.name,
-        category: values.category,
-        price: values.price,
-        isRented: values.isRented,
-      },
-    });
+    navigate("/resultCar", { state: values });
 
     setLoading(false);
   };
 
   useEffect(() => {
     setValues(values);
-  }, [values]);
+  }, []);
 
   return (
     <Fragment>
@@ -90,9 +81,9 @@ const SearchBar = () => {
                         {" "}
                         Masukkan Kapasitas Mobil
                       </option>
-                      <option value="2 - 4 orang"> 2 - 4 orang</option>
-                      <option value="4 - 6 orang"> 4 - 6 orang</option>
-                      <option value="6 - 8 orang"> 6 - 8 orang</option>
+                      <option value="small"> 2 - 4 orang</option>
+                      <option value="medium"> 4 - 6 orang</option>
+                      <option value="large"> 6 - 8 orang</option>
                     </select>
                   </div>
                   <div className="col-lg-3 d-flex flex-column justify-content-between">
@@ -110,11 +101,11 @@ const SearchBar = () => {
                       <option value="" hidden>
                         Masukkan Harga Sewa /Hari
                       </option>
-                      <option value="400000"> &#60; Rp. 400.000</option>
+                      <option value="0-400000"> &#60; Rp 400.000</option>
                       <option value="400000-600000">
-                        Rp. 400.000 - Rp.600.000
+                        Rp 400.000 - Rp 600.000
                       </option>
-                      <option value="600000"> &#62; Rp. 600.000 </option>
+                      <option value="600000"> &#62; Rp 600.000 </option>
                     </select>
                   </div>
 

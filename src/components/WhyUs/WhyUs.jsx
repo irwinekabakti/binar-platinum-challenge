@@ -9,7 +9,9 @@ const WhyUs = () => {
       <section className="whyUs mt-5" id="WhyUs">
         <div className="container">
           <div className={classes.whyHeader}>
-            <h2 className={classes.h2Title}>Why Us?</h2>
+            <h2 className={classes.h2Title} data-testid="title-WhyUs">
+              Why Us?
+            </h2>
             <p className="fw-bold">Mengapa harus pilih Binar Car Rental ?</p>
           </div>
           <div className="row g-4 why-body">

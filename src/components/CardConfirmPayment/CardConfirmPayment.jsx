@@ -34,7 +34,10 @@ const CardConfirmPayment = () => {
     }
   };
 
-  const getTokenPaymentCar = localStorage.getItem("start_Payment", "");
+  const getTokenPaymentCar = localStorage.getItem(
+    "start_Payment",
+    new Date().toLocaleString()
+  );
 
   const startPayment = new Date(getTokenPaymentCar);
   const finishPayment = new Date(startPayment);

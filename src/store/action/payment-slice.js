@@ -1,3 +1,4 @@
+/*
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import BASE_API from "../../api/BASE_API";
@@ -76,3 +77,4 @@ export const { isPaymentUploaded, getPaymentSlip } = uploadSlice.actions;
 export { uploadPayment, getSlip };
 
 export default uploadSlice;
+*/

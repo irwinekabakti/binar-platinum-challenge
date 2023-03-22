@@ -3,9 +3,12 @@ import axios from "axios";
 import BASE_API from "../../api/BASE_API";
 
 const initialState = {
-  updateCar: [],
-  getCarData: [],
-  bankTransfer: "",
+  updateCar: localStorage.getItem("updateCar")
+    ? JSON.parse(localStorage.getItem("updateCar"))
+    : [],
+  getCarData: localStorage.getItem("getCarData")
+    ? JSON.parse(localStorage.getItem("getCarData"))
+    : [],
   bankName: null,
 };
 
@@ -98,13 +101,12 @@ const bankSlice = createSlice({
   initialState,
   reducers: {
     updateCar(state, action) {
+      localStorage.setItem("updateCar", JSON.stringify(action.payload));
       state.updateCar = action.payload;
     },
     getCarData(state, action) {
+      localStorage.setItem("getCarData", JSON.stringify(action.payload));
       state.getCarData = action.payload;
-    },
-    setBankTransfer(state, action) {
-      state.bankTransfer = action.payload;
     },
     updateBankName(state, action) {
       state.bankName = action.payload;
@@ -115,7 +117,6 @@ const bankSlice = createSlice({
       bankSlice.caseReducers.getCarData(state, action);
     });
     builder.addCase(createOrder.fulfilled, (state, action) => {
-      console.log(action.payload);
       bankSlice.caseReducers.updateCar(state, action);
     });
     builder.addCase(getOrderCar.fulfilled, (state, action) => {

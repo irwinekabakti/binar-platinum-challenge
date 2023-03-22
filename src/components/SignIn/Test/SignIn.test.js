@@ -39,7 +39,6 @@ describe("Test Input label in Sign In", () => {
     expect(labelEmail).not.toBeDisabled();
   });
 
-  /*
   test("change input password ", () => {
     render(
       <Provider store={store}>
@@ -49,10 +48,13 @@ describe("Test Input label in Sign In", () => {
       </Provider>
     );
 
-    const labelEmail = screen.getByLabelText("Password");
-    fireEvent.change(labelEmail);
+    const passwordButtonIconEye = screen.getByTestId("change-password-button");
+    const passwordButtonFormControl = screen.getByTestId(
+      "change-password-button-control"
+    );
+    fireEvent.click(passwordButtonIconEye);
 
-    expect(labelEmail).not.toBeDisabled();
+    // expect(passwordButtonIconEye).not.toBeDisabled();
+    expect(passwordButtonFormControl).toHaveAttribute("type", "text");
   });
-  */
 });

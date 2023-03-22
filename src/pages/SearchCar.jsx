@@ -14,7 +14,6 @@ const SearchCar = () => {
       <main>
         <Hero isButtonShow={false} />
         <SearchBar />
-        {/* <CardCar /> */}
       </main>
       <Footer />
     </div>

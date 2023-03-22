@@ -66,7 +66,9 @@ const SignIn = () => {
   return (
     <Fragment>
       {loading ? (
-        <Loading />
+        <div style={{ margin: "25% auto" }}>
+          <Loading />
+        </div>
       ) : (
         <div className="d-flex bg-light">
           <div className="col-lg-6 col-md-6">
@@ -116,11 +118,13 @@ const SignIn = () => {
                   <Form.Label>Password</Form.Label>
                   <InputGroup className="mb-3">
                     <Form.Control
+                      data-testid="change-password-button-control"
                       type={passwordShown ? "text" : "password"}
                       placeholder="6+ character"
                       onChange={handlingPassword}
                     />
                     <Button
+                      data-testid="change-password-button"
                       variant="outline-primary"
                       id="button-addon2"
                       type="button"

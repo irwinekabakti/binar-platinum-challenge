@@ -4,11 +4,13 @@ import Loading from "../Loading/Loading";
 import axios from "axios";
 import BASE_API from "../../api/BASE_API";
 
-const CardCar = () => {
+const CardCar = (props) => {
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState();
   const BASE_URL = `${BASE_API}/admin/v2/car`;
-  // const BASE_URL = `${process.env.REACT_APP_BASE_URL}/admin/v2/car`;
+  const { name, category, price, isRented } = props;
+
+  const SplitPrice = price.split("-");
 
   const handlerFilterCar = async () => {
     try {
@@ -18,8 +20,15 @@ const CardCar = () => {
           access_token:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY3NTUxNjE1MH0.GWyuCrZVA5HuA3ODVAvgXj5GxoP82BnkUM_rJSuMi5A",
         },
+        params: {
+          name,
+          category,
+          minPrice: SplitPrice[0],
+          maxPrice: SplitPrice[1],
+          isRented,
+        },
       };
-      const { data } = await axios.get(BASE_URL, config);
+      const { data } = await axios.get(`${BASE_URL}`, config);
 
       setCars(data.cars);
     } catch (error) {

@@ -1,7 +1,5 @@
 import React, { Fragment } from "react";
 import OwlCarousel from "react-owl-carousel";
-import "owl.carousel/dist/assets/owl.carousel.min.css";
-import "owl.carousel/dist/assets/owl.theme.default.min.css";
 import classes from "./Testimonial.module.css";
 import data_Testimonials from "./data";
 
@@ -42,7 +40,7 @@ const Testimonial = () => {
         <div className="container-fluid">
           <div className={classes.testimonialHeader}>
             <h2 className="fw-bold">Testimonial</h2>
-            <p className="fw-bold">
+            <p className="fw-bold" data-testid="text-paragraph-Testimonial">
               Berbagai review positif dari para pelanggan kami
             </p>
           </div>

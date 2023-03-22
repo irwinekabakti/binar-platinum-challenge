@@ -53,7 +53,9 @@ const LogInPage = () => {
     <div
       className={`container-fluid d-flex bg-light ${classes.containerLoginAdmin}`}>
       {loading ? (
-        <Loading />
+        <div style={{ margin: "25% auto" }}>
+          <Loading />
+        </div>
       ) : (
         <Fragment>
           <div className="col-lg-8">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import NavbarAdmin from "../components/Navbar/Navbar";
 import { Button, Card, Col, Container, Modal, Row } from "react-bootstrap";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -29,7 +29,7 @@ const Cars = () => {
   const selector = useSelector((state) => state.dashboardStore);
   const displayedCars = selector.dataCars;
   // console.log(displayedCars);
-  // const idCar = displayedCars.map((car) => car);
+  // const idCar = displayedCars.map((car) => car.id);
   // console.log(idCar);
   // console.log(id);
 
@@ -92,8 +92,15 @@ const Cars = () => {
     );
   };
 
+  useEffect(() => {
+    if (id !== null) {
+      setShowModal(true);
+    }
+  }, [id]);
+
   const deleteCar = async () => {
     try {
+      /*
       const config = {
         headers: {
           access_token: localStorage.getItem("token_Admin"),
@@ -106,14 +113,13 @@ const Cars = () => {
       const data = response.data;
       // console.log(data);
       getCars(data);
+      */
 
-      /*
-      dispatch(deletedCarDashboard(displayedCars.id))
+      dispatch(deletedCarDashboard(id))
         .unwrap()
         .then(() => {
           navigate("/cars");
         });
-        */
     } catch (error) {
       console.log(error);
       alert(error);
@@ -135,6 +141,7 @@ const Cars = () => {
     deleteCar();
     setShowModal(false);
     setShowHeaderModal(true);
+    getCars();
   };
 
   const OpenModal = (props) => {
@@ -215,21 +222,21 @@ const Cars = () => {
                 <Card.Text className="fw-bold">
                   Rp {car.price.toLocaleString("id-ID")} / Hari
                 </Card.Text>
-                {car.category === "small" ? (
+                {car.category.toLowerCase() === "small" ? (
                   <p>
                     <small>
                       <FontAwesomeIcon icon={faUser} /> 2 - 4 People
                     </small>
                   </p>
                 ) : null}
-                {car.category === "medium" ? (
+                {car.category.toLowerCase() === "medium" ? (
                   <p>
                     <small>
                       <FontAwesomeIcon icon={faUser} /> 4 - 6 People
                     </small>
                   </p>
                 ) : null}
-                {car.category === "large" ? (
+                {car.category.toLowerCase() === "large" ? (
                   <p>
                     <small>
                       <FontAwesomeIcon icon={faUser} /> 6 - 8 People
@@ -252,7 +259,7 @@ const Cars = () => {
                     className={`d-flex align-items-center ${classes.btnDelete}`}
                     style={{ width: "fit-content" }}
                     onClick={() => {
-                      setShowModal(true);
+                      // setShowModal(true);
                       setId(car.id);
                     }}>
                     <FontAwesomeIcon icon={faTrash} className="me-2 " />
