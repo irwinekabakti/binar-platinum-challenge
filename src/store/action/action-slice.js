@@ -13,7 +13,7 @@ const loginCustomer = createAsyncThunk(
       return get.data.access_token;
     } catch (error) {
       console.log(error);
-      throw error
+      throw error;
     }
   }
 );
@@ -27,6 +27,9 @@ const authSlice = createSlice({
     },
     logout(state, action) {
       localStorage.removeItem("token");
+      localStorage.removeItem("updateCar");
+      localStorage.removeItem("getCarData");
+      localStorage.removeItem("start_Payment", new Date().toLocaleString());
       state.isAuthenticated = action.payload;
     },
   },
@@ -37,12 +40,12 @@ const authSlice = createSlice({
         payload: !!action.payload,
         type: loginCustomer.typePrefix,
       });
-    })
+    });
     builder.addCase(loginCustomer.rejected, (state) => {
       authSlice.caseReducers.login(state, {
-        payload: false ,
+        payload: false,
         type: loginCustomer.typePrefix,
-      })
+      });
     });
   },
 });

@@ -25,6 +25,7 @@ exports[`UI detail test UI detail should match snapshot 1`] = `
           className="navbar-toggler navTog"
           data-bs-target="#offcanvasNavbar"
           data-bs-toggle="offcanvas"
+          data-testid="btn-navbar-1"
           type="button"
         >
           <span

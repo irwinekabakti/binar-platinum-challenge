@@ -4,14 +4,11 @@ import classes from "./CardUploadPayment.module.css";
 import BCAIcon from "../Images/bca.svg";
 import BNIIcon from "../Images/bni.svg";
 import MandiriIcon from "../Images/mandiri.svg";
-// import axios from "axios";
 import "./CardUploadPayment.css";
-// import moment from "moment";
 import { FaCopy } from "react-icons/fa";
 import Loading from "../Loading/Loading";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-// import { uploadPayment } from "../../store/action/payment-slice";
 import { uploadSlip } from "../../store/action/bank-slice";
 
 const CardUploadPayment = () => {
@@ -145,15 +142,6 @@ const CardUploadPayment = () => {
         console.log(error);
         alert(error);
       });
-    /*
-    try {
-      dispatch(uploadSlip(selectImage));
-      setLoading(false);
-      navigate(`/eTicket/${selectedCar.id}`);
-    } catch (error) {
-      console.log(error);
-    }
-    */
   };
 
   const handleImage = (e) => {
@@ -166,7 +154,9 @@ const CardUploadPayment = () => {
         id="confirm-payment"
         className={`container ${classes.cardConfirmPayment}`}>
         {loading ? (
-          <Loading />
+          <div style={{ margin: "10% 0" }}>
+            <Loading />
+          </div>
         ) : (
           <div className="row justify-content-center">
             <div className="col-lg-7 g-4">

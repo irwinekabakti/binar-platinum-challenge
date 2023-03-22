@@ -6,9 +6,8 @@ import classes from "./CardDetail.module.css";
 import { text_Include, text_Exclude, text_Details } from "./data";
 import DatePicker from "react-datepicker";
 import moment from "moment";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { bankPayment, createOrder } from "../../store/action/bank-slice";
-import { useSelector } from "react-redux";
 
 const CardDetail = () => {
   const [loading, setLoading] = useState();

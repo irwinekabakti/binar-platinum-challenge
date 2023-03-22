@@ -1,23 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Row, Col, Container, Card } from "react-bootstrap";
 import { FiDownload } from "react-icons/fi";
 import classes from "./Tiket.module.css";
 // import { useNavigate } from "react-router";
 import ticketSuccess from "../Images/ticketSuccess.svg";
 import ticketInvoice from "../Images/ticketInvoice.png";
+import ContohTiket from "../Images/contoh-tiket.webp";
 import { useDispatch, useSelector } from "react-redux";
+// import { Document, Page } from "react-pdf";
 
 const Tiket = () => {
+  // const [numPages, setNumPages] = useState(null);
+  // const [pageNumber, setPageNumber] = useState(1);
   const selector = useSelector((state) => state.bankStore);
   const updatedOrderedCar = selector.updateCar;
   const getSlip = updatedOrderedCar.slip;
 
-  const getToken = localStorage.getItem("token");
+  /*
+  const onDocumentLoadedSuccess = ({ numPages }) => {
+    setNumPages(numPages);
+  };
+  */
 
   return (
     <div>
       <Container>
-        {/* {getToken ? ( */}
         <Row className={classes.eTiketBody}>
           <div className={classes.Tiket_Success}>
             <img
@@ -39,7 +46,12 @@ const Tiket = () => {
                     <p className={classes.tiketCardParagraph}>*no invoice</p>
                   </Col>
                   <Col className="col-6">
-                    <a href={getSlip}>
+                    <a href={ContohTiket} download>
+                      {/* <Document
+                        file={getSlip}
+                        onLoadSuccess={onDocumentLoadedSuccess}>
+                        <Page pageNumber={pageNumber}></Page>
+                      </Document> */}
                       <button
                         type="button"
                         className={`btn btn-outline-primary ${classes.btnEtiket}`}>
@@ -56,7 +68,6 @@ const Tiket = () => {
             </Card>
           </div>
         </Row>
-        {/* ) : null} */}
       </Container>
     </div>
   );

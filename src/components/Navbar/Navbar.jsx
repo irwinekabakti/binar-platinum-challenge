@@ -40,6 +40,7 @@ const Navbar = () => {
             <button
               className={`navbar-toggler ${classes.navTog}`}
               type="button"
+              data-testid="btn-navbar-1"
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasNavbar"
               aria-controls="offcanvasNavbar">
@@ -77,6 +78,7 @@ const Navbar = () => {
                   {isTokenExist || isTokenReg ? (
                     <button
                       style={{ border: "none", outline: "none" }}
+                      data-testid="test-btnLogout"
                       className={`nav-link text-light me-4 mt-1 ${classes.navbarLogout}`}
                       onClick={handleLogout}>
                       Logout
@@ -84,6 +86,7 @@ const Navbar = () => {
                   ) : (
                     <button
                       style={{ border: "none", outline: "none" }}
+                      data-testid="test-btnRegister"
                       className={`nav-link text-light me-4 mt-1 ${classes.navbarRegister}`}
                       onClick={handleLogout}>
                       Register

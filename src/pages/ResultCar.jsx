@@ -4,8 +4,12 @@ import CardCar from "../components/CardCar/CardCar";
 import Footer from "../components/Footer/Footer";
 import Empty from "../components/Empty/Empty";
 import LockSearchBar from "../components/SearchBar/LockSearchBar";
+import { useLocation } from "react-router";
 
 const ResultCar = () => {
+  const { state } = useLocation();
+  console.log(state);
+
   return (
     <div>
       <header>
@@ -14,7 +18,7 @@ const ResultCar = () => {
       </header>
       <main>
         <LockSearchBar />
-        <CardCar />
+        <CardCar {...state} />
       </main>
       <Footer />
     </div>

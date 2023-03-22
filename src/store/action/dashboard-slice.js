@@ -4,7 +4,7 @@ import BASE_API from "../../api/BASE_API";
 
 const initialState = {
   dashboardData: [],
-  updateCarList: [],
+  // updateCarList: [],
   dataCars: [],
 };
 
@@ -26,6 +26,7 @@ const tableDashboard = createAsyncThunk("dataTable/dashboard", async () => {
   }
 });
 
+/*
 const carListDashboard = createAsyncThunk(
   "carList/dashboard",
   async (payload) => {
@@ -49,6 +50,7 @@ const carListDashboard = createAsyncThunk(
     }
   }
 );
+*/
 
 const carsDashboard = createAsyncThunk("get/Cars", async () => {
   try {
@@ -96,9 +98,11 @@ const dashboardSlice = createSlice({
     getTableDashboard(action, state) {
       state.dashboardData = action.payload;
     },
+    /*
     getUpdateCar(state, action) {
       state.updateCarList = action.payload;
     },
+    */
     getCarsDashboard(state, action) {
       state.dataCars = action.payload;
     },
@@ -110,15 +114,17 @@ const dashboardSlice = createSlice({
     builder.addCase(tableDashboard.fulfilled, (state, action) => {
       state.dashboardData = action.payload;
     });
+    /*
     builder.addCase(carListDashboard.fulfilled, (state, action) => {
       // dashboardSlice.caseReducers(state, action);
       state.updateCarList = action.payload;
     });
+    */
     builder.addCase(carsDashboard.fulfilled, (state, action) => {
       state.dataCars = action.payload;
     });
     builder.addCase(deletedCarDashboard.fulfilled, (state, action) => {
-      state.dataCars = action.payload;
+      // state.dataCars = action.payload;
     });
   },
 });
@@ -126,6 +132,7 @@ const dashboardSlice = createSlice({
 export const { getTableDashboard, getUpdateCar, getCarsDashboard } =
   dashboardSlice.actions;
 
-export { tableDashboard, carListDashboard, carsDashboard, deletedCarDashboard };
+export { tableDashboard, carsDashboard, deletedCarDashboard };
+// export { carListDashboard }
 
 export default dashboardSlice;
