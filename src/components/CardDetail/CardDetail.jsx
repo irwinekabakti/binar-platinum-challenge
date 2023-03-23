@@ -192,13 +192,13 @@ const CardDetail = () => {
                       <i className="bi bi-people"></i>
                       <span className="text-secondary ms-2">
                         <small>
-                          {selectedCar.category === "small"
+                          {selectedCar.category.toLowerCase() === "small"
                             ? "2-4 orang"
                             : null}
-                          {selectedCar.category === "medium"
+                          {selectedCar.category.toLowerCase() === "medium"
                             ? "4-6 orang"
                             : null}
-                          {selectedCar.category === "large"
+                          {selectedCar.category.toLowerCase() === "large"
                             ? "6-8 orang"
                             : null}
                         </small>

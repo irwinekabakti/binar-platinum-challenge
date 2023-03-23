@@ -34,9 +34,15 @@ const InfoBar = () => {
                   Kategori
                 </label>
                 <p className={`p-1 text-secondary ${classes.sizeTag}`}>
-                  {selectedCar.category === "small" ? "2 - 4 orang" : null}
-                  {selectedCar.category === "medium" ? "4 - 6 orang" : null}
-                  {selectedCar.category === "large" ? "6 - 8 orang" : null}
+                  {selectedCar.category.toLowerCase() === "small"
+                    ? "2 - 4 orang"
+                    : null}
+                  {selectedCar.category.toLowerCase() === "medium"
+                    ? "4 - 6 orang"
+                    : null}
+                  {selectedCar.category.toLowerCase() === "large"
+                    ? "6 - 8 orang"
+                    : null}
                 </p>
               </div>
               <div className="col-lg-3 d-flex flex-column justify-content-between">
