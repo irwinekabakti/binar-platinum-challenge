@@ -192,6 +192,7 @@ const Cars = () => {
 
   useEffect(() => {
     getCars();
+    filterCars();
   }, []);
 
   const filterCars = () => {

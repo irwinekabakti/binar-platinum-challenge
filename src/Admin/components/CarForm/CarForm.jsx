@@ -5,8 +5,6 @@ import { useParams } from "react-router-dom";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import iconUpload from "../../assets/fi_upload.svg";
-// import { carListDashboard } from "../../../store/action/dashboard-slice";
-// import { useDispatch, useSelector } from "react-redux";
 import classes from "./CarForm.module.css";
 
 const CarForm = ({ formFunction }) => {
@@ -16,14 +14,10 @@ const CarForm = ({ formFunction }) => {
   const [price, setPrice] = useState(null);
   const [image, setImage] = useState(null);
   const [category, setCategory] = useState("");
-  // const dispatch = useDispatch();
-  // const selector = useSelector((state) => state.dashboardStore);
-  // const postedCar = selector.updateCarList;
 
   const config = {
     headers: {
       access_token: localStorage.getItem("token_Admin"),
-      "Content-Type": "multipart/form-data",
     },
   };
   let formData = new FormData();
@@ -48,20 +42,6 @@ const CarForm = ({ formFunction }) => {
         formData,
         config
       );
-
-      /*
-      dispatch(
-        carListDashboard({
-          carName: name,
-          carPrice: price,
-          carCategory: category,
-        })
-      );
-
-
-      // dispatch(carListDashboard({ formData }));
-      // console.log(postedCar);
-      */
 
       if (response.status === 201) {
         navigate("/cars?formSuccess=true");
