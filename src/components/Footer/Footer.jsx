@@ -50,8 +50,10 @@ const Footer = () => {
               ))}
             </div>
           </div>
-          <div className="col-lg-3 mb-3">
-            <p className="fw-bold mb-2">Copyright Binar 2022</p>
+          <div className="col-lg-3 mb-3" data-testid="contain-LogoFooter">
+            <p className="fw-bold mb-2" data-testid="paragraph-Footer">
+              Copyright Binar 2022
+            </p>
             <a className="navbar-brand" href="/">
               <img src={logoHome} alt="Home BCR" />
             </a>

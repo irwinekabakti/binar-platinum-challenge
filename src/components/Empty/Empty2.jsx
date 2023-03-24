@@ -20,12 +20,15 @@ const Empty2 = () => {
         <div className={classes.contentStep}>
           <div className="col-lg-6 col-md-6 col-sm-12">
             <div
-              className={`d-flex justify-content-center w-50 ${classes.spaceStepMain}`}>
+              className={`d-flex justify-content-center w-50 ${classes.spaceStepMain}`}
+              data-testid="content-text">
               <span
                 className={`d-flex ${classes.spanToDetail}`}
                 onClick={toDetail}>
                 <FaArrowLeft className="my-auto me-3" />
-                <p className="my-auto">Pembayaran</p>
+                <p className="my-auto" data-testid="test-paragraph">
+                  Pembayaran
+                </p>
               </span>
             </div>
           </div>

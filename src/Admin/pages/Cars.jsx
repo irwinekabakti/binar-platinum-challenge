@@ -44,14 +44,14 @@ const Cars = () => {
   };
 
   const handlingFilterSmallCar = () => {
-    setCategory("small");
+    setCategory("small".toLocaleLowerCase());
   };
 
   const handlingFilterMediumCar = () => {
-    setCategory("medium");
+    setCategory("medium".toLocaleLowerCase());
   };
   const handlingFilterLargeCar = () => {
-    setCategory("large");
+    setCategory("large".toLocaleLowerCase());
   };
 
   const toAddNewCar = () => {

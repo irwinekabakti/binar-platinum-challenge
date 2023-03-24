@@ -7,9 +7,13 @@ const FAQ = () => {
     <section className={classes.FaqMod} id="faq">
       <div className="container">
         <div className="row">
-          <div className={`col-lg-5 ${classes.faqHeader}`}>
-            <h2 className="fw-bold">Frequently Asked Question</h2>
-            <p className="fw-bold mb-3 mt-2">
+          <div
+            className={`col-lg-5 ${classes.faqHeader}`}
+            data-testid="content-FAQ">
+            <h2 className="fw-bold" data-testid="title-FAQ">
+              Frequently Asked Question
+            </h2>
+            <p className="fw-bold mb-3 mt-2" data-testid="description-FAQ">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </p>
           </div>

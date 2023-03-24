@@ -9,11 +9,13 @@ const Hero = (props) => {
     <Fragment>
       <section className={classes.heroSection} id="hero-section">
         <div className={`${classes.heroFlex} ${classes.heroContent} mt-4`}>
-          <div className="hero-title mt-4">
-            <h1 className={classes.heroContentH1}>
+          <div className="hero-title mt-4" data-testid="container-Hero">
+            <h1 className={classes.heroContentH1} data-testid="title-Hero">
               Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)
             </h1>
-            <p className={`mt-3 ${classes.heroContentP}`}>
+            <p
+              className={`mt-3 ${classes.heroContentP}`}
+              data-testid="description-Hero">
               Selamat datang di Binar Car Rental. Kami menyediakan mobil
               kualitas terbaik dengan harga terjangkau. Selalu siap melayani
               kebutuhanmu untuk sewa mobil selama 24 jam.
@@ -22,6 +24,7 @@ const Hero = (props) => {
               <div className="hero-button mt-4">
                 <a
                   href="/searchCars"
+                  data-testid="btnHero-Cars"
                   className={`text-white fw-bold justify-content-center ${classes.navItemBtn}`}>
                   Mulai Sewa Mobil
                 </a>

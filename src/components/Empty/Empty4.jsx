@@ -37,8 +37,9 @@ const Empty4 = () => {
             </div>
             <div
               className={`d-flex justify-content-center ms-2 w-50`}
-              style={{ marginTop: "-15px" }}>
-              <p className="mt-3">
+              style={{ marginTop: "-15px" }}
+              data-testid="content-order">
+              <p className="mt-3" data-testid="order-test">
                 Order ID : {orderID.toString() + defaultCarID.toString()}{" "}
                 {/* Order ID : {orderID}{" "} */}
               </p>

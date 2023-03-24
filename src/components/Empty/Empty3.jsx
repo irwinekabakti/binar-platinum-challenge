@@ -16,10 +16,6 @@ const Empty3 = () => {
   const defaultCarID = selectedCar.id;
   const conversionOrderID = orderID.toString() + defaultCarID.toString();
 
-  // const toDetail = () => {
-  //   navigate(`/payment/${updatedOrderedCar.id}`);
-  // };
-
   const toDetail = () => {
     navigate(`/payment/${selectedCar.id}`);
   };
@@ -40,18 +36,21 @@ const Empty3 = () => {
         <div className={classes.contentStep}>
           <div className="col-lg-6 col-md-6 col-sm-12">
             <div
-              className={`d-flex justify-content-center w-50 ${classes.spaceStepMain}`}>
+              className={`d-flex justify-content-center w-50 ${classes.spaceStepMain}`}
+              data-testid="content-infoBank">
               <span
                 className={`d-flex ${classes.spanToDetail}`}
-                onClick={toDetail}>
+                onClick={toDetail}
+                data-testid="info-bankName">
                 <FaArrowLeft className="me-3 mt-2" />
                 {bankChooseName()}
               </span>
             </div>
             <div
               className={`d-flex justify-content-center ms-2 w-50`}
-              style={{ marginTop: "-15px" }}>
-              <p>Order ID : {conversionOrderID} </p>
+              style={{ marginTop: "-15px" }}
+              data-testid="content-order">
+              <p data-testid="order-test">Order ID : {conversionOrderID} </p>
             </div>
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12">

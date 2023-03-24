@@ -10,11 +10,6 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store/index";
-import BASE_API from "./api/BASE_API";
-
-if (BASE_API === "development") {
-  require("./mocks/browser");
-}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
