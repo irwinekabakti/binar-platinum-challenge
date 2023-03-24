@@ -63,8 +63,6 @@ const carsDashboard = createAsyncThunk("get/Cars", async () => {
       `${BASE_API}/customer/v2/car?pageSize=10`,
       config
     );
-
-    // console.log(getResponse.data.cars);
     return getResponse.data.cars;
   } catch (error) {
     console.log(error);
@@ -83,7 +81,6 @@ const deletedCarDashboard = createAsyncThunk("delete/cars", async (payload) => {
       `https://bootcamp-rent-cars.herokuapp.com/admin/car/${payload}`,
       config
     );
-    // console.log(response.data);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -121,7 +118,12 @@ const dashboardSlice = createSlice({
     });
     */
     builder.addCase(carsDashboard.fulfilled, (state, action) => {
-      state.dataCars = action.payload;
+      state.dataCars = action.payload.map((item) => {
+        return {
+          ...item,
+          category: item.category.toLowerCase(),
+        };
+      });
     });
     builder.addCase(deletedCarDashboard.fulfilled, (state, action) => {
       // state.dataCars = action.payload;

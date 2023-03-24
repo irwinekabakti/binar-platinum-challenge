@@ -18,6 +18,14 @@
   color: #0d28a6;
 }
 
+.fieldFormSet {
+  max-width: 494px;
+  font-family: Arial;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
 .formButtonCancel {
   padding: 8px 12px;
   height: 36px;

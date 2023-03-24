@@ -90,17 +90,9 @@ const CarForm = ({ formFunction }) => {
   };
 
   return (
-    <Form noValidate onSubmit={prepareFormData}>
+    <Form onSubmit={prepareFormData}>
       <div className="w-100 bg-white p-3">
-        <fieldset
-          className="w-100"
-          style={{
-            maxWidth: "494px",
-            fontFamily: "Arial",
-            fontWeight: 400,
-            fontSize: "0.75rem",
-            lineHeight: 1.5,
-          }}>
+        <fieldset className={`${classes.fieldFormSet} w-100`}>
           <Form.Group as={Row} className="mb-3" controlId="name">
             <Form.Label
               column

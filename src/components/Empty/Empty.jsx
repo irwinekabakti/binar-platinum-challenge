@@ -3,7 +3,10 @@ import classes from "./Empty.module.css";
 
 const Empty = () => {
   return (
-    <section className={classes.emptySection} id="empty-section"></section>
+    <section
+      className={classes.emptySection}
+      id="empty-section"
+      data-testid="empty-Test"></section>
   );
 };
 

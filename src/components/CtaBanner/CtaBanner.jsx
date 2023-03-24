@@ -8,12 +8,15 @@ const CtaBanner = () => {
     <section className={classes.CtaBanner} id="cta-banner">
       <div className="container">
         <div className={`text-center ${classes.cardBanner}`}>
-          <div className="card-body">
+          <div className="card-body" data-testid="content-CTABanner">
             <h1
-              className={`card-title justify-content-center align-self-center ${classes.cardTitleBanner}`}>
+              className={`card-title justify-content-center align-self-center ${classes.cardTitleBanner}`}
+              data-testid="title-CTABanner">
               Sewa Mobil di (Lokasimu) Sekarang
             </h1>
-            <p className={`fw-bold card-text ${classes.cardParagraph}`}>
+            <p
+              className={`fw-bold card-text ${classes.cardParagraph}`}
+              data-testid="description-CTABanner">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod
               <br></br>
