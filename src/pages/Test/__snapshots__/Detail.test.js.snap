@@ -475,7 +475,7 @@ exports[`UI detail test UI detail should match snapshot 1`] = `
                     role="alert"
                   />
                   <input
-                    className="w-100"
+                    className="w-100 red-border"
                     disabled={false}
                     onBlur={[Function]}
                     onChange={[Function]}
