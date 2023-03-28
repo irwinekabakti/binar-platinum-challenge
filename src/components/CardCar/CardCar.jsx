@@ -65,7 +65,7 @@ const CardCar = (props) => {
                     <div className="card-body align-self-center mt-2 mb-2">
                       <h5 className="card-title ">{item.name}</h5>
                       <h5 className="card-title fw-bold">
-                        Rp {item.price.toLocaleString("id-ID")}/Hari
+                        Rp {item.price.toLocaleString("id-ID")} / Hari
                       </h5>
                       <p className="card-text">
                         Some quick example text to build on the card title and

@@ -22,38 +22,16 @@ const CardDetail = () => {
 
   useEffect(() => {
     let day = 0;
-    let startingDate = new Date(startDate).getDate();
-    let endingDate = new Date(endDate).getDate();
-    let bookingMonth = new Date(startDate).getMonth();
 
     if (startDate && endDate) {
-      day = endingDate - startingDate;
-      // console.log(day);
-      if (day < 0) {
-        if (bookingMonth % 2 === 1) {
-          day += 31;
-        } else {
-          if (bookingMonth !== 2) {
-            day += 30;
-          } else {
-            day += 28;
-          }
-        }
-      }
-      setRentDay(day + 1);
-      // setRentDay(day);
+      day = moment(endDate).diff(moment(startDate), "days") + 1;
+      setRentDay(day);
     } else {
       setRentDay(0);
     }
   }, [startDate, endDate]);
 
-  // console.log(dateRange);
-  // const mDate1 = moment(dateRange[0]).format("YYYY-MM-DD");
-  // const mDate2 = moment(dateRange[1]).format("YYYY-MM-DD");
-  // console.log(mDate1, "to", mDate2);
-
-  const totalPrice = selectedCar.price * rentDay;
-  // console.log(totalPrice);
+  // const totalPrice = selectedCar.price * rentDay;
 
   const cardCarDetail = async () => {
     try {
@@ -193,13 +171,13 @@ const CardDetail = () => {
                       <span className="text-secondary ms-2">
                         <small>
                           {selectedCar.category.toLowerCase() === "small"
-                            ? "2-4 orang"
+                            ? "2 - 4 orang"
                             : null}
                           {selectedCar.category.toLowerCase() === "medium"
-                            ? "4-6 orang"
+                            ? "4 - 6 orang"
                             : null}
                           {selectedCar.category.toLowerCase() === "large"
-                            ? "6-8 orang"
+                            ? "6 - 8 orang"
                             : null}
                         </small>
                       </span>
@@ -214,6 +192,7 @@ const CardDetail = () => {
                   <h6>Tentukan lama sewa mobil (max. 7 hari)</h6>
                   <DatePicker
                     dateFormat="dd MMM yyyy"
+                    showIcon
                     selectsRange={true}
                     startDate={startDate}
                     endDate={endDate}
@@ -230,17 +209,18 @@ const CardDetail = () => {
                           )
                         : null
                     }
-                    isClearable={true}
+                    isClearable
                     placeholderText="Pilih tanggal mulai dan tanggal akhir sewa"
-                    className="w-100"></DatePicker>
+                    className="w-100 red-border"
+                  />
                 </div>
 
                 {selectedCar.price ? (
                   <div className="card-body d-flex justify-content-between">
                     <p className="fw-bold text-uppercase">Total :&nbsp;</p>
                     <p id="totalPrice" className="fw-bold totalPrice">
-                      {/* Rp {selectedCar.price * rentDay.toLocaleString("id-ID")} */}
-                      Rp {totalPrice.toLocaleString("id-ID")}
+                      Rp {(selectedCar.price * rentDay).toLocaleString("id-ID")}
+                      {/* Rp {totalPrice.toLocaleString("id-ID")} */}
                     </p>
                   </div>
                 ) : (

@@ -9,8 +9,6 @@ import { loginCustomer } from "../../store/action/action-slice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Loading from "../Loading/Loading";
-import { FaArrowLeft } from "react-icons/fa";
-// import ExampleModal from "../Modal/Modal";
 
 const SignIn = () => {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -18,9 +16,6 @@ const SignIn = () => {
   const [inputEmail, setInputEmail] = useState();
   const [inputPassword, setInputPassword] = useState();
   const [loading, setLoading] = useState();
-  // const [checkEmail, setCheckEmail] = useState();
-  // const [checkPassword, setCheckPassword] = useState();
-  // const [isValidate, setIsValidate] = useState();
   const [isError, setIsError] = useState(false);
 
   const handlingEmail = (e) => {
@@ -41,10 +36,6 @@ const SignIn = () => {
   };
 
   const navigate = useNavigate();
-
-  const toLoginAdmin = () => {
-    navigate("/loginAdmin");
-  };
 
   const handleLogin = (e) => {
     setLoading(true);
@@ -81,12 +72,6 @@ const SignIn = () => {
                     className={`mb-5 w-25 Sign-In-brand`}>
                     <img src={logoLogin} alt="Sign In BCR" />
                   </Nav.Link>
-                  <span
-                    className={`toLoginAdmin mt-2 ${classes.toLoginAdmin}`}
-                    onClick={toLoginAdmin}>
-                    <FaArrowLeft className="me-3" />
-                    Admin
-                  </span>
                 </div>
                 <h1 className="mb-5 fw-bold text-black">Welcome Back!</h1>
                 {isError ? (

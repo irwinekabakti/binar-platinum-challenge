@@ -5,9 +5,8 @@ import stripPembayaran from "../Images/strip-total-pembayaran.svg";
 import "../../Accordion.css";
 import { Button } from "react-bootstrap";
 import { FaCheck } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateBankName } from "../../store/action/bank-slice";
-import { useSelector } from "react-redux";
 import moment from "moment";
 import { banks } from "./data";
 import { useNavigate } from "react-router";
@@ -75,9 +74,15 @@ const CardPayment = () => {
                   style={{ fontStyle: "none" }}></i>
                 <span className="ms-2 text-secondary">
                   <small>
-                    {selectedCar.category === "small" ? "2 - 4 orang" : null}{" "}
-                    {selectedCar.category === "medium" ? "4 - 6 orang" : null}{" "}
-                    {selectedCar.category === "large" ? "6 - 8 orang" : null}
+                    {selectedCar.category.toLowerCase() === "small"
+                      ? "2 - 4 orang"
+                      : null}{" "}
+                    {selectedCar.category.toLowerCase() === "medium"
+                      ? "4 - 6 orang"
+                      : null}{" "}
+                    {selectedCar.category.toLowerCase() === "large"
+                      ? "6 - 8 orang"
+                      : null}
                   </small>
                 </span>
               </div>
