@@ -1,59 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, Fragment } from "react";
 import { Row, Col, Container, Card } from "react-bootstrap";
 import { FiDownload } from "react-icons/fi";
 import classes from "./Tiket.module.css";
-import BASE_API from "../../api/BASE_API";
-// import { useNavigate } from "react-router";
 import ticketSuccess from "../Images/ticketSuccess.svg";
-import ticketInvoice from "../Images/ticketInvoice.png";
-import ContohTiket from "../Images/contoh-tiket.webp";
-import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
-// import { Document, Page } from "react-pdf";
+import TiketPdf from "../Images/binarTiket.pdf";
+import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
 
 const Tiket = () => {
-  // const [numPages, setNumPages] = useState(null);
-  // const [pageNumber, setPageNumber] = useState(1);
-  const selector = useSelector((state) => state.bankStore);
-  const updatedOrderedCar = selector.updateCar;
-
-  /*
-  const onDocumentLoadedSuccess = ({ numPages }) => {
-    setNumPages(numPages);
+  const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
+  const onDocumentLoadedSuccess = ({ pages }) => {
+    setNumPages(pages);
+    setPageNumber(1);
   };
-  */
-
-  /*
-  const getTicket = async () => {
-    try {
-      const config = {
-        headers: {
-          access_token: localStorage.getItem("token"),
-        },
-        params: {
-          page: 1,
-          pageSize: 10,
-        },
-      };
-      const getTicket = await axios.get(
-        `${BASE_API}/customer/v2/order`,
-        config
-      );
-      console.log(getTicket);
-      return getTicket;
-    } catch (error) {
-      console.log(error);
-      alert(error);
-    }
-  };
-
-  useEffect(() => {
-    getTicket();
-  }, []);
-  */
 
   return (
-    <div>
+    <Fragment>
       <Container>
         <Row className={classes.eTiketBody}>
           <div className={classes.Tiket_Success}>
@@ -69,22 +31,23 @@ const Tiket = () => {
             <Card className={classes.tiketCard}>
               <Container>
                 <Row>
-                  <Col className="col-6">
-                    <p className={`fw-bold ${classes.tiketCardParagraph}`}>
+                  <Col className="col-6 mt-3" data-testid="wrapper-Card">
+                    <p
+                      className={`fw-bold ${classes.tiketCardParagraph}`}
+                      data-testid="tiket-Invoice">
                       Invoice
                     </p>
-                    <p className={classes.tiketCardParagraph}>*no invoice</p>
+                    <p
+                      className={classes.tiketCardParagraph}
+                      data-testid="tiket-NoInvoice">
+                      *no invoice
+                    </p>
                   </Col>
-                  <Col className="col-6">
-                    <a href={ContohTiket} download>
-                      {/* <Document
-                        file={getSlip}
-                        onLoadSuccess={onDocumentLoadedSuccess}>
-                        <Page pageNumber={pageNumber}></Page>
-                      </Document> */}
+                  <Col className="col-6 mt-3">
+                    <a href={TiketPdf} download>
                       <button
                         type="button"
-                        className={`btn btn-outline-primary ${classes.btnEtiket}`}>
+                        className={`btn btn-outline-primary mt-3 ${classes.btnEtiket}`}>
                         <FiDownload />
                         Unduh
                       </button>
@@ -92,14 +55,22 @@ const Tiket = () => {
                   </Col>
                 </Row>
                 <Row>
-                  <img src={ticketInvoice} alt="tiket-invoice" />
+                  <Document
+                    className="w-50"
+                    file={TiketPdf}
+                    onLoadSuccess={onDocumentLoadedSuccess}>
+                    <Page pageNumber={pageNumber} />
+                  </Document>
+                  <p>
+                    Page {pageNumber} of {pageNumber}
+                  </p>
                 </Row>
               </Container>
             </Card>
           </div>
         </Row>
       </Container>
-    </div>
+    </Fragment>
   );
 };
 

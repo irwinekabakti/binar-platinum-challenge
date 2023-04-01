@@ -18,8 +18,7 @@ const Gallery = () => {
                 <img
                   data-zoombox
                   data-caption={data.caption}
-                  key={data.src}
-                  // key={data.id}
+                  key={data.id}
                   src={data.src}
                   alt={data.caption}
                   height={200}

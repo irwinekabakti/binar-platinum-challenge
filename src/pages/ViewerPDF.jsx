@@ -1,15 +1,12 @@
-import React from 'react'
-import Pdfviewer from '../components/PDFViewer/Pdfviewer'
+import React from "react";
+import Pdfviewer from "../components/PDFViewer/Pdfviewer";
 
 const ViewerPDF = () => {
-    return (
-        <div>
-            <Pdfviewer/>
-        </div>
-    )
-    
-  
-}
+  return (
+    <div>
+      <Pdfviewer />
+    </div>
+  );
+};
 
-
-export default ViewerPDF
+export default ViewerPDF;

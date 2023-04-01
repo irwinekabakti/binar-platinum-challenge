@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import BASE_API from "../../api/BASE_API";
 
-const initialState = { isRegister: !!localStorage.getItem("custom_token") };
+const initialState = { isRegister: !!localStorage.getItem("role") };
 
 const registerCustomer = createAsyncThunk(
   "authentication/register",
@@ -12,10 +12,12 @@ const registerCustomer = createAsyncThunk(
         `${BASE_API}/customer/auth/register`,
         payload
       );
-      // console.log(get.data.role);
+      // console.log(get.data);
       return get.data.role;
+      // return get.data;
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      throw error;
     }
   }
 );
@@ -30,7 +32,7 @@ const registerSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(registerCustomer.fulfilled, (state, action) => {
-      localStorage.setItem("custom_token", action.payload);
+      localStorage.setItem("role", action.payload);
       registerSlice.caseReducers.register(state, {
         payload: !!action.payload,
         type: registerCustomer.typePrefix,

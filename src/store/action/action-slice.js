@@ -12,7 +12,7 @@ const loginCustomer = createAsyncThunk(
 
       return get.data.access_token;
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       throw error;
     }
   }

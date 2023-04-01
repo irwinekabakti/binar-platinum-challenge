@@ -132,7 +132,7 @@ const CardUploadPayment = () => {
         navigate(`/eTicket/${selectedCar.id}`);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         alert(error);
       });
   };
