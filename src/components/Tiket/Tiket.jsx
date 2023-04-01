@@ -1,19 +1,12 @@
-import React, { useState, Fragment } from "react";
+import React, { Fragment } from "react";
 import { Row, Col, Container, Card } from "react-bootstrap";
 import { FiDownload } from "react-icons/fi";
 import classes from "./Tiket.module.css";
 import ticketSuccess from "../Images/ticketSuccess.svg";
 import TiketPdf from "../Images/binarTiket.pdf";
-import { Document, Page } from "react-pdf/dist/esm/entry.webpack5";
+import { Viewer, Worker } from "@react-pdf-viewer/core";
 
 const Tiket = () => {
-  const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
-  const onDocumentLoadedSuccess = ({ pages }) => {
-    setNumPages(pages);
-    setPageNumber(1);
-  };
-
   return (
     <Fragment>
       <Container>
@@ -55,15 +48,11 @@ const Tiket = () => {
                   </Col>
                 </Row>
                 <Row>
-                  <Document
-                    className="w-50"
-                    file={TiketPdf}
-                    onLoadSuccess={onDocumentLoadedSuccess}>
-                    <Page pageNumber={pageNumber} />
-                  </Document>
-                  <p>
-                    Page {pageNumber} of {pageNumber}
-                  </p>
+                  <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.js">
+                    <div style={{ height: "500px" }}>
+                      <Viewer fileUrl={TiketPdf} />
+                    </div>
+                  </Worker>
                 </Row>
               </Container>
             </Card>
