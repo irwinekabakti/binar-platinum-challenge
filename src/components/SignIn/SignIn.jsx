@@ -40,7 +40,7 @@ const SignIn = () => {
   const handleLogin = (e) => {
     setLoading(true);
     e.preventDefault();
-    console.log(`login is here`);
+    // console.log(`login is here`);
     dispatch(loginCustomer({ email: inputEmail, password: inputPassword }))
       .unwrap()
       .then(() => {
@@ -50,7 +50,7 @@ const SignIn = () => {
       .catch((error) => {
         setIsError(true);
         setLoading(false);
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -64,7 +64,8 @@ const SignIn = () => {
         <div className="d-flex bg-light">
           <div className="col-lg-6 col-md-6">
             <div className="container justify-content-center align-self-center">
-              <div className={`d-block ${classes.formControl}`}>
+              <div
+                className={`d-block ${classes.formControl} justify-content-center`}>
                 <div className="d-flex justify-content-between">
                   <Nav.Link
                     as={Link}
@@ -90,6 +91,7 @@ const SignIn = () => {
                     penggunaan huruf kapital.
                   </div>
                 ) : null}
+
                 <Form onSubmit={handleLogin}>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>

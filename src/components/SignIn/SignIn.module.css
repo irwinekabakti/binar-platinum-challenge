@@ -33,7 +33,6 @@
 }
 
 .buttonSignUp:hover {
-  /* background: #0d1a8d; */
   color: rgb(244, 243, 241);
 }
 
@@ -47,34 +46,76 @@
   }
   .formControl {
     width: 100%;
-    margin-left: 5%;
+    margin: 10% 50%;
   }
 }
 
-@media (min-width: 577px) and (max-width: 991px) {
+@media (min-width: 767px) and (max-width: 992px) {
+  .background2 {
+    display: none;
+  }
   .formControl {
     width: 100%;
-    margin-left: 55%;
+    margin: 10% 50%;
   }
 }
 
-@media (max-width: 360px) {
+@media (min-width: 500px) and (max-width: 576px) {
+  .background2 {
+    display: none;
+  }
   .formControl {
     width: 100%;
-    margin-left: 0;
+    margin: 10% 25%;
   }
 }
 
-@media (min-width: 366px) and (max-width: 376px) {
+@media (min-width: 400px) and (max-width: 450px) {
+  .background2 {
+    display: none;
+  }
   .formControl {
     width: 100%;
-    margin-left: 2%;
+    margin: 10% 8%;
   }
 }
 
-@media (min-width: 490px) and (max-width: 540px) {
+@media (min-width: 380px) and (max-width: 399px) {
+  .background2 {
+    display: none;
+  }
   .formControl {
     width: 100%;
-    margin-left: 25%;
+    margin: 10% 4%;
+  }
+}
+
+@media (min-width: 362px) and (max-width: 379px) {
+  .background2 {
+    display: none;
+  }
+  .formControl {
+    width: 100%;
+    margin: 10% 2%;
+  }
+}
+
+@media (min-width: 350px) and (max-width: 361px) {
+  .background2 {
+    display: none;
+  }
+  .formControl {
+    width: 100%;
+    margin: 10% auto;
+  }
+}
+
+@media (min-width: 250px) and (max-width: 349px) {
+  .background2 {
+    display: none;
+  }
+  .formControl {
+    width: 100%;
+    margin: 10% auto;
   }
 }

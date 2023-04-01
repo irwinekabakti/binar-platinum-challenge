@@ -17,6 +17,8 @@ const SignUp = () => {
   const [inputPassword, setInputPassword] = useState();
   const [loading, setLoading] = useState();
   const [confirmPassword, setConfirmPassword] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setPasswordShown(!passwordShown);
@@ -43,13 +45,10 @@ const SignUp = () => {
     setInputPassword(e.target.value);
   };
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
   const handleRegister = (e) => {
     setLoading(true);
     e.preventDefault();
-    console.log(`register is here`);
+    // console.log(`register is here`);
     dispatch(
       registerCustomer({
         name: inputName,

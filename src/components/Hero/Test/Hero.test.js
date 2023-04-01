@@ -57,21 +57,4 @@ describe("Test component Hero", () => {
     );
     expect(descriptionHero).toBeDefined();
   });
-
-  /*
-  test("test per component button", () => {
-    render(
-      <Provider store={store}>
-        <BrowserRouter>
-          <Hero />
-        </BrowserRouter>
-      </Provider>
-    );
-
-    const buttonHero = screen.getByTestId("btnHero-Cars");
-
-    expect(buttonHero).toBeEnabled();
-    // expect(buttonHero).toHaveTextContent("Mulai Sewa Mobil");
-  });
-  */
 });

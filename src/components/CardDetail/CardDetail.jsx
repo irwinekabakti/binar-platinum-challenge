@@ -38,7 +38,8 @@ const CardDetail = () => {
       setLoading(true);
       dispatch(bankPayment(carId.id));
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      alert(error);
     }
     setLoading(false);
   };
@@ -62,7 +63,8 @@ const CardDetail = () => {
           navigate(`/payment/${selectedCar.id}`);
         });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      alert(error);
     }
   };
 

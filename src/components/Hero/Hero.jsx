@@ -24,7 +24,6 @@ const Hero = (props) => {
               <div className="hero-button mt-4">
                 <a
                   href="/searchCars"
-                  data-testid="btnHero-Cars"
                   className={`text-white fw-bold justify-content-center ${classes.navItemBtn}`}>
                   Mulai Sewa Mobil
                 </a>

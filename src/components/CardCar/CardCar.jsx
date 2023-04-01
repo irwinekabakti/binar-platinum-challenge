@@ -32,13 +32,14 @@ const CardCar = (props) => {
 
       setCars(data.cars);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
+      alert(error);
     }
     setLoading(false);
   };
 
   useEffect(() => {
-    console.log("run");
+    // console.log("run");
     // setCars(cars);
     handlerFilterCar();
   }, []);

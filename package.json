@@ -48,7 +48,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "no-console": "error"
+    }
   },
   "browserslist": {
     "production": [
@@ -73,7 +76,8 @@
     ],
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/index.js",
-      "<rootDir>/src/reportWebVitals.js"
+      "<rootDir>/src/reportWebVitals.js",
+      "<rootDir>/src/mocks/browser.js"
     ],
     "coverageThreshold": {
       "global": {

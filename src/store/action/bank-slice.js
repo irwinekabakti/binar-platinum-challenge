@@ -25,7 +25,7 @@ const bankPayment = createAsyncThunk("option/payment", async (payload) => {
     );
     return getCar.data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     throw error;
   }
 });
@@ -44,7 +44,7 @@ const createOrder = createAsyncThunk("order/rentCar", async (payload) => {
     );
     return getOrderCar.data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     throw error;
   }
 });
@@ -64,7 +64,7 @@ const getOrderCar = createAsyncThunk(
       );
       return getOrderCar.data;
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       throw error;
     }
   }
@@ -90,7 +90,7 @@ const uploadSlip = createAsyncThunk(
 
       return slipPayment.data;
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       throw error;
     }
   }

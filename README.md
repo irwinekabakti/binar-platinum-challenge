@@ -1,3 +1,39 @@
+# MEMBER :
+
+- Irwin Ekabakti (Team Leader)
+- Yusril Amri (Scrum Master)
+- Moch Azharu Zainunniam
+- Novrianggi
+
+# Assignment
+
+# Irwin Ekabakti :
+
+- Register Page
+- Login Page
+- Landing Page (add video player)
+- Search Cars Page
+- Detail Car page
+- Payment Page
+- Confirm Payment Page
+- Upload Payment Page
+- Tiket Page
+
+# Moch Azharu Zainunniam :
+
+-
+
+# Novrianggi :
+
+-
+
+# Yusril Amri :
+
+- Register Page
+- Landing Page (add PDF viewer & Gallery Photo)
+- Detail Car Page
+- Tiket Page
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
