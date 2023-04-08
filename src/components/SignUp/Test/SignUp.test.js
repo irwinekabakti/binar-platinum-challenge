@@ -15,7 +15,7 @@ describe("Test handle register", () => {
       </Provider>
     );
 
-    const buttonSignUp = screen.getAllByRole("button")[2];
+    const buttonSignUp = screen.getByTestId("button-SignUp");
     fireEvent.click(buttonSignUp);
 
     expect(buttonSignUp).not.toBeDisabled();

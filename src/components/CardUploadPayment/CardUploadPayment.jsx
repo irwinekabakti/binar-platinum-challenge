@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Form, Button, Tab, Tabs, InputGroup } from "react-bootstrap";
 import classes from "./CardUploadPayment.module.css";
 import BCAIcon from "../Images/bca.svg";
@@ -142,7 +142,7 @@ const CardUploadPayment = () => {
   };
 
   return (
-    <div>
+    <Fragment>
       <section
         id="confirm-payment"
         className={`container ${classes.cardConfirmPayment}`}>
@@ -226,7 +226,7 @@ const CardUploadPayment = () => {
                       </Form.Label>
                       <InputGroup className="mb-3">
                         <Form.Control
-                          placeholder={`Rp ${updatedOrderedCar.total_price.toLocaleString(
+                          placeholder={`Rp ${updatedOrderedCar?.total_price?.toLocaleString(
                             "id-ID"
                           )}`}
                           disabled
@@ -360,6 +360,7 @@ const CardUploadPayment = () => {
                 <div className="buttonConfirm mx-4 mb-4">
                   <Button
                     size="md"
+                    disabled={!selectImage}
                     className={`w-100 ${classes.btnBayar}`}
                     onClick={toEticket}>
                     Upload
@@ -370,7 +371,7 @@ const CardUploadPayment = () => {
           </div>
         )}
       </section>
-    </div>
+    </Fragment>
   );
 };
 

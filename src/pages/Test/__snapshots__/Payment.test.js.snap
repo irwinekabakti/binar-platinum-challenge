@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UI detail test UI detail should match snapshot 1`] = `
+exports[`UI Payment test UI payment should match snapshot 1`] = `
 <div>
   <header>
     <nav
@@ -126,13 +126,73 @@ exports[`UI detail test UI detail should match snapshot 1`] = `
     </nav>
     <section
       className="emptySection"
-      data-testid="empty-Test"
       id="empty-section"
-    />
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="contentStep"
+        >
+          <div
+            className="col-lg-6 col-md-6 col-sm-12"
+          >
+            <div
+              className="d-flex justify-content-center w-50 spaceStepMain"
+              data-testid="content-text"
+            >
+              <span
+                className="d-flex spanToDetail"
+                onClick={[Function]}
+              >
+                <svg
+                  className="my-auto me-3"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 448 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+                  />
+                </svg>
+                <p
+                  className="my-auto"
+                  data-testid="test-paragraph"
+                >
+                  Pembayaran
+                </p>
+              </span>
+            </div>
+          </div>
+          <div
+            className="col-lg-6 col-md-6 col-sm-12"
+          >
+            <div
+              className="d-flex justify-content-center"
+            >
+              <img
+                alt="step-1"
+                className="spaceStepSecond"
+                src="totalStep1.svg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </header>
   <main>
     <section
-      className="searchBar main"
+      className="searchBar mainEmpty2"
       id="searchBar"
     >
       <div
@@ -148,11 +208,11 @@ exports[`UI detail test UI detail should match snapshot 1`] = `
               className="fs-6 fw-bold"
               style={
                 Object {
-                  "marginTop": "-20px",
+                  "marginTop": "-10px",
                 }
               }
             >
-              Pencarianmu
+              Detail Pesananmu
             </p>
             <div
               className="col-lg-3 d-flex flex-column justify-content-between"
@@ -163,12 +223,8 @@ exports[`UI detail test UI detail should match snapshot 1`] = `
               >
                 Nama Mobil
               </label>
-              <input
-                className="p-1 sizeTag"
-                disabled={true}
-                id="carName"
-                name="carName"
-                type="text"
+              <p
+                className="p-1 text-secondary sizeTag"
               />
             </div>
             <div
@@ -180,19 +236,9 @@ exports[`UI detail test UI detail should match snapshot 1`] = `
               >
                 Kategori
               </label>
-              <select
-                className="sizeTag"
-                disabled={true}
-                id="category"
-                name="category"
-              >
-                <option
-                  hidden={true}
-                  value=""
-                >
-                  Masukkan Kapasitas Mobil
-                </option>
-              </select>
+              <p
+                className="p-1 text-secondary sizeTag"
+              />
             </div>
             <div
               className="col-lg-3 d-flex flex-column justify-content-between"
@@ -201,61 +247,36 @@ exports[`UI detail test UI detail should match snapshot 1`] = `
                 className="fw-bold label"
                 htmlFor="price"
               >
-                Harga
+                Tanggal Mulai Sewa
               </label>
-              <select
-                className="sizeTag"
-                disabled={true}
-                id="price"
-                name="price"
+              <p
+                className="p-1 text-secondary sizeTag"
               >
-                <option
-                  hidden={true}
-                  value=""
-                >
-                  Masukkan Harga Sewa per Hari
-                </option>
-              </select>
+                08 April 2023
+              </p>
             </div>
             <div
-              className="col-lg-2 d-flex flex-column justify-content-between"
+              className="col-lg-3 d-flex flex-column justify-content-between"
             >
               <label
                 className="fw-bold label"
                 htmlFor="status"
               >
-                Status
+                Tanggal Akhir Sewa
               </label>
-              <select
-                className="p-1 sizeTag"
-                disabled={true}
-                id="status"
-                name="status"
+              <p
+                className="p-1 text-secondary sizeTag"
               >
-                <option
-                  value="sedia"
-                >
-                  Sedia
-                </option>
-              </select>
-            </div>
-            <div
-              className="col-lg-1 d-flex align-items-end mt-3"
-            >
-              <button
-                className="btn btn-outline-primary w-100 col-sm-12 mt-4"
-                onClick={[Function]}
-              >
-                Edit
-              </button>
+                08 April 2023
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
     <section
-      className="container cardDetail"
-      id="card-detail"
+      className="container cardPayment"
+      id="card-payment"
     >
       <div
         className="row justify-content-center"
@@ -268,245 +289,259 @@ exports[`UI detail test UI detail should match snapshot 1`] = `
           >
             <h6
               className="fw-bold mb-3 ms-4 mt-4"
-              data-testid="heading-Title1"
+              data-testid="heading-Card1"
             >
-              Tentang paket
+              Pilih Bank Transfer
             </h6>
-            <h6
-              className="fw-bold ms-4 mt-4"
+            <p
+              className="ms-4 mt-2"
             >
-              Include
+              Kamu bisa membayar dengan transfer melalui ATM, Internet Banking atau Mobile Banking
+            </p>
+            <form>
               <ul
-                className="mb-2 mt-3"
+                className="list-group list-group-flush mt-4"
               >
                 <li
-                  className="mb-4"
-                  id="include-1"
+                  className="list-group-item mx-3 d-flex justify-content-between bankTransferPoint"
+                  onClick={[Function]}
                 >
-                  Apa saja yang termasuk dalam paket misal durasi max 12 jam
-                </li>
-                <li
-                  className="mb-4"
-                  id="include-2"
-                >
-                  Sudah termasuk bensin selama 12 jam
-                </li>
-                <li
-                  className="mb-4"
-                  id="include-3"
-                >
-                  Sudah termasuk Tiket Wisata
-                </li>
-                <li
-                  className="mb-4"
-                  id="include-4"
-                >
-                  Sudah termasuk pajak
-                </li>
-              </ul>
-            </h6>
-            <h6
-              className="fw-bold ms-4 mt-4"
-            >
-              Exclude
-              <ul
-                className="mb-2 mt-3"
-              >
-                <li
-                  className="mb-4"
-                  id="exclude-1"
-                >
-                  Tidak termasuk biaya makan sopir Rp 75.000/hari
-                </li>
-                <li
-                  className="mb-4"
-                  id="exclude-2"
-                >
-                  Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam
-                </li>
-                <li
-                  className="mb-4"
-                  id="exclude-3"
-                >
-                  Tidak termasuk akomodasi penginapan
-                </li>
-              </ul>
-            </h6>
-            <h6
-              className="fw-bold ms-4 mt-4"
-            >
-              <div
-                className="accordion accordion-flush"
-                id="accordionFlushExample"
-              >
-                <div
-                  className="accordion-item"
-                >
-                  <h2
-                    className="accordion-header"
-                    id="flush-headingOne"
-                  >
-                    <button
-                      aria-controls="flush-collapseOne"
-                      aria-expanded="false"
-                      className="accordion-button collapsed fw-bold"
-                      data-bs-target="#flush-collapseOne"
-                      data-bs-toggle="collapse"
-                      type="button"
-                    >
-                      Refund, Reschedule, Overtime
-                    </button>
-                  </h2>
                   <div
-                    aria-labelledby="flush-headingOne"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionFlushExample"
-                    id="flush-collapseOne"
+                    className="bankName d-flex my-2"
                   >
-                    <div
-                      className="accordion-body"
+                    <img
+                      alt="icon-BCA"
+                      src="bca.svg"
+                    />
+                    <p
+                      className="my-auto bankName"
                     >
-                      <ul
-                        className="mb-2 mt-3"
-                      >
-                        <li
-                          className="mb-4"
-                          id="detail-1"
-                        >
-                          Tidak termasuk biaya makan sopir Rp 75.000/hari
-                        </li>
-                        <li
-                          className="mb-4"
-                          id="detail-2"
-                        >
-                          Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam
-                        </li>
-                        <li
-                          className="mb-4"
-                          id="detail-3"
-                        >
-                          Tidak termasuk akomodasi penginapan
-                        </li>
-                        <li
-                          className="mb-4"
-                          id="detail-4"
-                        >
-                          Tidak termasuk biaya makan sopir Rp 75.000/hari
-                        </li>
-                        <li
-                          className="mb-4"
-                          id="detail-5"
-                        >
-                          Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam
-                        </li>
-                        <li
-                          className="mb-4"
-                          id="detail-6"
-                        >
-                          Tidak termasuk akomodasi penginapan
-                        </li>
-                        <li
-                          className="mb-4"
-                          id="detail-7"
-                        >
-                          Tidak termasuk biaya makan sopir Rp 75.000/hari
-                        </li>
-                        <li
-                          className="mb-4"
-                          id="detail-8"
-                        >
-                          Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam
-                        </li>
-                        <li
-                          className="mb-4"
-                          id="detail-9"
-                        >
-                          Tidak termasuk akomodasi penginapan
-                        </li>
-                      </ul>
-                    </div>
+                      BCA Transfer
+                    </p>
                   </div>
-                </div>
-              </div>
-            </h6>
+                </li>
+                <li
+                  className="list-group-item mx-3 d-flex justify-content-between bankTransferPoint"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="bankName d-flex my-2"
+                  >
+                    <img
+                      alt="icon-BNI"
+                      src="bni.svg"
+                    />
+                    <p
+                      className="my-auto bankName"
+                    >
+                      BNI Transfer
+                    </p>
+                  </div>
+                </li>
+                <li
+                  className="list-group-item mx-3 d-flex justify-content-between bankTransferPoint"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="bankName d-flex my-2"
+                  >
+                    <img
+                      alt="icon-Mandiri"
+                      src="mandiri.svg"
+                    />
+                    <p
+                      className="my-auto bankName"
+                    >
+                      Mandiri Transfer
+                    </p>
+                  </div>
+                </li>
+                <li
+                  className="list-group-item mb-3 d-flex"
+                />
+              </ul>
+            </form>
           </div>
         </div>
         <div
           className="col-lg-5 g-4"
         >
           <div
-            className="card"
+            className="card mt-2 mb-2"
           >
+            <h6
+              className="fw-bold mb-3 ms-4 mt-4"
+            />
             <div
-              className="col-lg wrapperImage"
+              className="carInfo"
             >
-              <h3
-                className="justify-content-center d-flex"
-              >
-                Image Not found !
-              </h3>
-            </div>
-            <div
-              className="card-body mt-2 mb-2"
-            >
-              <h6
-                className="fw-bold"
+              <i
+                className="bi bi-people ms-4"
+                style={
+                  Object {
+                    "fontStyle": "none",
+                  }
+                }
               />
-              <h3
-                className="justify-content-start d-flex"
+              <span
+                className="ms-2 text-secondary"
               >
-                Category Error !
-              </h3>
+                <small>
+                   
+                   
+                </small>
+              </span>
             </div>
             <div
-              className="card-body mt-2 mb-2"
+              className="mt-3 mb-1 accordion accordion-flush"
             >
-              <h6>
-                Tentukan lama sewa mobil (max. 7 hari)
-              </h6>
               <div
-                className="react-datepicker-wrapper"
+                className="accordion-item"
               >
-                <div
-                  className="react-datepicker__input-container"
+                <h2
+                  className="fw-bold accordion-header"
                 >
-                  <span
-                    aria-live="polite"
-                    className="react-datepicker__aria-live"
-                    role="alert"
-                  />
-                  <input
-                    className="w-100 red-border"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onChange={[Function]}
+                  <button
+                    aria-expanded={true}
+                    className="accordion-button"
                     onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    placeholder="Pilih tanggal mulai dan tanggal akhir sewa"
-                    readOnly={false}
-                    type="text"
-                    value=""
-                  />
+                    type="button"
+                  >
+                    <p
+                      className="fw-bold"
+                    >
+                      Total : Rp
+                       
+                    </p>
+                  </button>
+                </h2>
+                <div
+                  aria-expanded={null}
+                  className="accordion-collapse collapse show"
+                >
+                  <div
+                    className="accordion-body"
+                  >
+                    <form>
+                      <h6
+                        className="fw-bold totalHarga"
+                      >
+                        Harga
+                      </h6>
+                      <ul
+                        className="mt-1 mb-3"
+                      >
+                        <div
+                          className="d-flex justify-content-between"
+                        >
+                          <li
+                            className="sewa"
+                          >
+                            Sewa Mobil Rp
+                             
+                             x
+                             
+                            1
+                             
+                            Hari
+                          </li>
+                          <h6
+                            className="totalSewa fw-bold"
+                          >
+                             
+                            Rp
+                             
+                          </h6>
+                        </div>
+                      </ul>
+                      <h6
+                        className="fw-bold mt-3 biayaLainnya"
+                      >
+                        Biaya Lainnya
+                      </h6>
+                      <ul
+                        className="mt-3 mb-3"
+                      >
+                        <div
+                          className="d-flex justify-content-between"
+                        >
+                          <li
+                            className="pajak"
+                          >
+                            Pajak
+                          </li>
+                          <p
+                            className="text-success"
+                          >
+                            Termasuk
+                          </p>
+                        </div>
+                        <div
+                          className="d-flex justify-content-between"
+                        >
+                          <li
+                            className="makanSopir"
+                          >
+                            Biaya makan sopir
+                          </li>
+                          <p
+                            className="text-success"
+                          >
+                            Termasuk
+                          </p>
+                        </div>
+                      </ul>
+                      <h6
+                        className="fw-bold mt-3 belumTermasuk"
+                      >
+                        Belum Termasuk
+                      </h6>
+                      <ul
+                        className="mt-3 mb-3"
+                      >
+                        <li
+                          className="bensin"
+                        >
+                          Bensin
+                        </li>
+                        <li
+                          className="parkir mt-3"
+                        >
+                          Tol dan parkir
+                        </li>
+                      </ul>
+                      <img
+                        alt="strip-pembayaran"
+                        className="w-100"
+                        src="strip-total-pembayaran.svg"
+                      />
+                      <div
+                        className="d-flex justify-content-between"
+                      >
+                        <p
+                          className="fw-bold totalHarga"
+                        >
+                          Total 
+                        </p>
+                        <p
+                          className="fw-bold"
+                        >
+                          Rp
+                           
+                        </p>
+                      </div>
+                      <button
+                        className="w-100 btnBayar btn btn-primary btn-md"
+                        disabled={true}
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        Bayar
+                      </button>
+                    </form>
+                  </div>
                 </div>
               </div>
-            </div>
-            <h3
-              className="justify-content-center"
-            >
-              Price Error !
-            </h3>
-            <div
-              className="card-body mt-2 mb-2"
-            >
-              <button
-                className="buttonToPayment fw-bold w-100 py-2 btn btn-success"
-                disabled={true}
-                onClick={[Function]}
-                type="button"
-              >
-                Lanjutkan ke Pembayaran
-              </button>
             </div>
           </div>
         </div>

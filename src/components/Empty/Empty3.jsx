@@ -14,7 +14,7 @@ const Empty3 = () => {
 
   const orderID = updatedOrderedCar.id;
   const defaultCarID = selectedCar.id;
-  const conversionOrderID = orderID.toString() + defaultCarID.toString();
+  const conversionOrderID = orderID?.toString() + defaultCarID?.toString();
 
   const toDetail = () => {
     navigate(`/payment/${selectedCar.id}`);

@@ -14,7 +14,7 @@ const Empty4 = () => {
   const orderID = updatedOrderedCar.id;
   const defaultCarID = selectedCar.id;
 
-  // const conversionOrderID = orderID.toString() + defaultCarID.toString();
+  const conversionOrderID = orderID?.toString() + defaultCarID?.toString();
 
   // const toUploadPayment = () => {
   //   navigate(`/payment/${selectedCar.id}`);
@@ -27,10 +27,7 @@ const Empty4 = () => {
           <div className="col-lg-6 col-md-6 col-sm-12">
             <div
               className={`d-flex justify-content-center w-50 ${classes.spaceStepMain}`}>
-              <span
-                className={`d-flex ${classes.spanToDetail}`}
-                // onClick={toUploadPayment}
-              >
+              <span className={`d-flex ${classes.spanToDetail}`}>
                 <FaArrowLeft className="me-3 mt-1" />
                 Tiket
               </span>
@@ -40,8 +37,8 @@ const Empty4 = () => {
               style={{ marginTop: "-15px" }}
               data-testid="content-order">
               <p className="mt-3" data-testid="order-test">
-                Order ID : {orderID.toString() + defaultCarID.toString()}{" "}
-                {/* Order ID : {orderID}{" "} */}
+                {/* Order ID : {orderID?.toString() + defaultCarID?.toString()}{" "} */}
+                Order ID : {conversionOrderID}
               </p>
             </div>
           </div>

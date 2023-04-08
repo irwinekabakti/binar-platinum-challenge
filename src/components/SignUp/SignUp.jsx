@@ -2,7 +2,16 @@ import React, { Fragment, useState } from "react";
 import classes from "./SignUp.module.css";
 import logoLogin from "../Images/Logo-login.svg";
 import landingPage from "../Images/Landing-page.svg";
-import { Button, Form, Nav, InputGroup } from "react-bootstrap";
+import {
+  Button,
+  Form,
+  Nav,
+  InputGroup,
+  Toast,
+  ToastContainer,
+  ToastHeader,
+  ToastBody,
+} from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { registerCustomer } from "../../store/action/register-slice";
@@ -11,23 +20,17 @@ import { useDispatch } from "react-redux";
 const SignUp = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const [icon, setIcon] = useState(false);
-  const [icon2, setIcon2] = useState(false);
   const [inputName, setName] = useState();
   const [inputEmail, setInputEmail] = useState();
   const [inputPassword, setInputPassword] = useState();
-  const [loading, setLoading] = useState();
-  const [confirmPassword, setConfirmPassword] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [showToastError, setShowToastError] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setPasswordShown(!passwordShown);
     setIcon(!icon);
-  };
-
-  const toggleConfirmPasswordVisibility = () => {
-    setConfirmPassword(!confirmPassword);
-    setIcon2(!icon2);
   };
 
   const handlingName = (e) => {
@@ -46,9 +49,7 @@ const SignUp = () => {
   };
 
   const handleRegister = (e) => {
-    setLoading(true);
     e.preventDefault();
-    // console.log(`register is here`);
     dispatch(
       registerCustomer({
         name: inputName,
@@ -58,14 +59,59 @@ const SignUp = () => {
     )
       .unwrap()
       .then(() => {
-        setLoading(false);
-        navigate("/signIn");
-        alert("Register success !");
+        setTimeout(() => {
+          setShowToast(true);
+        }, 1000);
+
+        setTimeout(() => {
+          navigate("/signIn");
+        }, 3000);
+      })
+      .catch((error) => {
+        setTimeout(() => {
+          setShowToastError(true);
+        }, 1500);
       });
   };
 
   return (
     <Fragment>
+      {showToast ? (
+        <ToastContainer className="p-3" position="top-center">
+          <Toast
+            className="d-inline-block m-1"
+            bg="success"
+            onClose={() => setShowToast(false)}
+            show={showToast}
+            delay={3000}>
+            <ToastHeader>
+              <strong className="me-auto text-dark">Message</strong>
+              <small className="text-dark">now</small>
+            </ToastHeader>
+            <ToastBody className="text-white fw-bold">
+              Register Successful !
+            </ToastBody>
+          </Toast>
+        </ToastContainer>
+      ) : null}
+      {showToastError ? (
+        <ToastContainer className="p-3" position="top-center">
+          <Toast
+            className="d-inline-block m-1"
+            bg="danger"
+            onClose={() => setShowToastError(false)}
+            show={showToastError}
+            delay={3000}>
+            <ToastHeader>
+              <strong className="me-auto text-dark">Message</strong>
+              <small className="text-dark">now</small>
+            </ToastHeader>
+            <ToastBody className="text-white fw-bold">
+              Register failed ! Please try again
+            </ToastBody>
+          </Toast>
+        </ToastContainer>
+      ) : null}
       <div className="d-flex bg-light">
         <div className="col-lg-6 col-md-6">
           <div className={`container`}>
@@ -108,29 +154,13 @@ const SignUp = () => {
                     {icon ? <FaEye /> : <FaEyeSlash />}
                   </Button>
                 </InputGroup>
-                <Form.Label>Confirm Password*</Form.Label>
-                <InputGroup
-                  className="mb-3 confirm-password"
-                  id="confirm-password">
-                  <Form.Control
-                    type={confirmPassword ? "text" : "password"}
-                    placeholder="6+ character"
-                    onChange={handlingPassword}
-                  />
-                  <Button
-                    variant="outline-primary"
-                    id="button-addon3"
-                    onClick={toggleConfirmPasswordVisibility}>
-                    {icon2 ? <FaEye /> : <FaEyeSlash />}
-                  </Button>
-                </InputGroup>
                 <Button
                   variant="primary"
                   type="submit"
+                  data-testid="button-SignUp"
                   className={`w-100 mt-4 fw-bold ${classes.buttonSignUp}`}>
                   Sign Up
                 </Button>
-
                 <div className="d-flex mt-3 justify-content-center">
                   <p className="text-dark fs-6 me-4">
                     Already have an account ?

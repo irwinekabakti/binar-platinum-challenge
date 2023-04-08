@@ -44,9 +44,11 @@ const CardDetail = () => {
     setLoading(false);
   };
 
+  /*
   const setTokenPaymentCar = () => {
     localStorage.setItem("start_Payment", new Date().toLocaleString());
   };
+  */
 
   const createOrderCar = async () => {
     try {
@@ -59,7 +61,7 @@ const CardDetail = () => {
       )
         .unwrap()
         .then(() => {
-          setTokenPaymentCar();
+          // setTokenPaymentCar();
           navigate(`/payment/${selectedCar.id}`);
         });
     } catch (error) {
@@ -82,7 +84,11 @@ const CardDetail = () => {
           <div className="row justify-content-center">
             <div className="col-lg-7 g-4">
               <div className="card">
-                <h6 className="fw-bold mb-3 ms-4 mt-4">Tentang paket</h6>
+                <h6
+                  className="fw-bold mb-3 ms-4 mt-4"
+                  data-testid="heading-Title1">
+                  Tentang paket
+                </h6>
                 <h6 className="fw-bold ms-4 mt-4">
                   Include
                   <ul className="mb-2 mt-3">
@@ -205,10 +211,10 @@ const CardDetail = () => {
                     maxDate={
                       startDate
                         ? new Date(
-                            new Date(startDate).setDate(
-                              new Date(startDate).getDate() + 6
-                            )
+                          new Date(startDate).setDate(
+                            new Date(startDate).getDate() + 6
                           )
+                        )
                         : null
                     }
                     isClearable
@@ -233,7 +239,7 @@ const CardDetail = () => {
                     variant="success"
                     onClick={createOrderCar}
                     className={`${classes.buttonToPayment} fw-bold w-100 py-2`}
-                    disabled={rentDay > 0 ? false : true}>
+                    disabled={!rentDay}>
                     Lanjutkan ke Pembayaran
                   </Button>
                 </div>
