@@ -21,13 +21,16 @@ const Navbar = () => {
   const isReg = localStorage.getItem("role");
 
   const handleLogout = () => {
-    dispatch(logout());
+    // dispatch(logout());
     setTimeout(() => {
       setShowToast(true);
     }, 1000);
     setTimeout(() => {
+      dispatch(logout());
+    }, 2500);
+    setTimeout(() => {
       navigate("/signIn");
-    }, 2000);
+    }, 3000);
   };
 
   const handleRegister = () => {
