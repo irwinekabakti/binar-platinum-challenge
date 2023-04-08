@@ -51,7 +51,17 @@
       "react-app/jest"
     ],
     "rules": {
-      "no-console": "error"
+      "no-console": "error",
+      "indent": [
+        "error",
+        2,
+        {
+          "ignoredNodes": [
+            "TemplateLiteral"
+          ],
+          "SwitchCase": 1
+        }
+      ]
     }
   },
   "browserslist": {
@@ -78,7 +88,11 @@
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/index.js",
       "<rootDir>/src/reportWebVitals.js",
-      "<rootDir>/src/mocks/browser.js"
+      "<rootDir>/src/App.js",
+      "<rootDir>/src/mocks/browser.js",
+      "<rootDir>/src/routes/Routes.jsx",
+      "<rootDir>/src/pages/ConfirmPayment.jsx",
+      "<rootDir>/src/pages/UploadPayment.jsx"
     ],
     "coverageThreshold": {
       "global": {

@@ -1,0 +1,537 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UI ETicket test UI ETicket should match snapshot 1`] = `
+<div>
+  <header>
+    <nav
+      className="navbar navbar-expand-lg fixed-top navbarColor"
+    >
+      <div
+        className="container-fluid"
+      >
+        <a
+          className="navbar-brand navbarBrand1 nav-link"
+          disabled={false}
+          href="/"
+          onClick={[Function]}
+        >
+          <img
+            alt="Home BCR"
+            src="logo.svg"
+          />
+        </a>
+        <button
+          aria-controls="offcanvasNavbar"
+          className="navbar-toggler navTog"
+          data-bs-target="#offcanvasNavbar"
+          data-bs-toggle="offcanvas"
+          data-testid="btn-navbar-hamburger"
+          type="button"
+        >
+          <span
+            className="navbar-toggler-icon"
+          />
+        </button>
+        <div
+          aria-labelledby="offcanvasNavbarLabel"
+          className="offcanvas offcanvas-end"
+          data-testid="toggle-navbar-hamburger"
+          id="offcanvasNavbar"
+          style={
+            Object {
+              "width": "50%",
+            }
+          }
+          tabIndex="-1"
+        >
+          <div
+            className="offcanvas-header"
+          >
+            <h5
+              className="offcanvas-title fw-bold"
+              id="offcanvasNavbarLabel"
+            >
+              BCR
+            </h5>
+            <button
+              aria-label="Close"
+              className="btn-close"
+              data-bs-dismiss="offcanvas"
+              type="button"
+            />
+          </div>
+          <div
+            className="offcanvas-body"
+          >
+            <ul
+              className="navbar-nav justify-content-end flex-grow-1 pe-3"
+            >
+              <li
+                className="nav-item"
+              >
+                <a
+                  className="nav-link me-4 navbarNavLink"
+                  href="/#our-services"
+                >
+                  Our Services
+                </a>
+              </li>
+              <li
+                className="nav-item"
+              >
+                <a
+                  className="nav-link me-4 navbarNavLink"
+                  href="/#WhyUs"
+                >
+                  Why Us
+                </a>
+              </li>
+              <li
+                className="nav-item"
+              >
+                <a
+                  className="nav-link me-4 navbarNavLink"
+                  href="/#testimonial"
+                >
+                  Testimonial
+                </a>
+              </li>
+              <li
+                className="nav-item"
+              >
+                <a
+                  className="nav-link me-4 navbarNavLink"
+                  href="/#faq"
+                >
+                  FAQ
+                </a>
+              </li>
+              <button
+                className="nav-link text-light me-4 mt-1 navbarRegister"
+                data-testid="test-btnRegister"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "border": "none",
+                    "outline": "none",
+                  }
+                }
+              >
+                Register
+              </button>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section
+      className="emptySection3"
+      id="empty-section"
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="contentStep"
+        >
+          <div
+            className="col-lg-6 col-md-6 col-sm-12"
+          >
+            <div
+              className="d-flex justify-content-center w-50 spaceStepMain"
+            >
+              <span
+                className="d-flex spanToDetail"
+              >
+                <svg
+                  className="me-3 mt-1"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 448 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"
+                  />
+                </svg>
+                Tiket
+              </span>
+            </div>
+            <div
+              className="d-flex justify-content-center ms-2 w-50"
+              data-testid="content-order"
+              style={
+                Object {
+                  "marginTop": "-15px",
+                }
+              }
+            >
+              <p
+                className="mt-3"
+                data-testid="order-test"
+              >
+                Order ID : 
+                NaN
+              </p>
+            </div>
+          </div>
+          <div
+            className="col-lg-6 col-md-6 col-sm-12"
+          >
+            <div
+              className="d-flex justify-content-center"
+            >
+              <img
+                alt="step-1"
+                className="spaceStepSecond"
+                src="totalStep3.svg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+  <main>
+    <div
+      className="container"
+    >
+      <div
+        className="eTiketBody row"
+      >
+        <div
+          className="Tiket_Success"
+        >
+          <img
+            alt="tiket-success"
+            className="tiketSuccesImg"
+            src="ticketSuccess.svg"
+          />
+          <h5
+            className="tiketSuccessH5"
+            data-testid="heading-TitleInfo"
+          >
+            Pembayaran Berhasil !
+          </h5>
+          <p
+            className="tiketSuccessP"
+          >
+            Tunjukan invoice ini ke petugas BCR di titik temu.
+          </p>
+          <div
+            className="tiketCard card"
+          >
+            <div
+              className="container"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col-6 mt-3 col"
+                  data-testid="wrapper-Card"
+                >
+                  <p
+                    className="fw-bold tiketCardParagraph"
+                    data-testid="tiket-Invoice"
+                  >
+                    Invoice
+                  </p>
+                  <p
+                    className="tiketCardParagraph"
+                    data-testid="tiket-NoInvoice"
+                  >
+                    *no invoice
+                  </p>
+                </div>
+                <div
+                  className="col-6 mt-3 col"
+                >
+                  <a
+                    download={true}
+                    href="binarTiket.pdf"
+                  >
+                    <button
+                      className="btn btn-outline-primary mt-3 btnEtiket"
+                      type="button"
+                    >
+                      <svg
+                        fill="none"
+                        height="1em"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                        />
+                        <polyline
+                          points="7 10 12 15 17 10"
+                        />
+                        <line
+                          x1="12"
+                          x2="12"
+                          y1="15"
+                          y2="3"
+                        />
+                      </svg>
+                      Unduh
+                    </button>
+                  </a>
+                </div>
+              </div>
+              <div
+                className="row"
+              >
+                <div
+                  style={
+                    Object {
+                      "height": "500px",
+                    }
+                  }
+                >
+                  <div
+                    className="rpv-core__viewer rpv-core__viewer--light"
+                    data-testid="core__viewer"
+                    style={
+                      Object {
+                        "height": "100%",
+                        "width": "100%",
+                      }
+                    }
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer
+    className="footer"
+  >
+    <div
+      className="container py-5 pt-0"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-lg-3 mb-3"
+        >
+          <ul
+            className="list-unstyled"
+          >
+            <li
+              className="mb-2"
+            >
+              <p
+                className="fw-bold"
+              >
+                Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000
+              </p>
+            </li>
+            <li
+              className="mb-2"
+            >
+              <p
+                className="fw-bold"
+              >
+                binarcarrental@gmail.com
+              </p>
+            </li>
+            <li
+              className="mb-2"
+            >
+              <p
+                className="fw-bold"
+              >
+                081-233-334-808
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="col-lg-2 mb-3"
+        >
+          <ul
+            className="list-unstyled"
+          >
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/#services"
+              >
+                Our services
+              </a>
+            </li>
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/#WhyUs"
+              >
+                Why Us
+              </a>
+            </li>
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/#testimonial"
+              >
+                Testimonial
+              </a>
+            </li>
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/#faq"
+              >
+                FAQ
+              </a>
+            </li>
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/viewerPdf"
+              >
+                Term of Service
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="col-lg-4 mb-3"
+        >
+          <p
+            className="fw-bold mb-2 "
+          >
+            Connect with us
+          </p>
+          <div
+            className="footerSocial"
+          >
+            <a
+              className="text-decoration-none footerSocial"
+              href="https://web.facebook.com/binaracademy/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon-facebook"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_facebook.svg"
+                title="Facebook"
+              />
+            </a>
+            <a
+              className="text-decoration-none footerSocial"
+              href="https://www.instagram.com/academybinar/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon_instagram"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_instagram.svg"
+                title="Instagram"
+              />
+            </a>
+            <a
+              className="text-decoration-none footerSocial"
+              href="https://twitter.com/academybinar"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon_twitter"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_twitter.svg"
+                title="Twitter"
+              />
+            </a>
+            <a
+              className="text-decoration-none footerSocial"
+              href="mailto:service@binar.co.id"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon_gmail"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_mail.svg"
+                title="Gmail"
+              />
+            </a>
+            <a
+              className="text-decoration-none footerSocial"
+              href="https://www.binaracademy.com/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon_twitch"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_twitch.svg"
+                title="Twitch"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          className="col-lg-3 mb-3"
+          data-testid="contain-LogoFooter"
+        >
+          <p
+            className="fw-bold mb-2"
+            data-testid="paragraph-Footer"
+          >
+            Copyright Binar 2022
+          </p>
+          <a
+            className="navbar-brand"
+            href="/"
+          >
+            <img
+              alt="Home BCR"
+              src="logo.svg"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;

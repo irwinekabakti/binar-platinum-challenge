@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UI detail test UI detail should match snapshot 1`] = `
+exports[`UI ResultCar test UI ResultCar should match snapshot 1`] = `
 <div>
   <header>
     <nav
@@ -254,261 +254,30 @@ exports[`UI detail test UI detail should match snapshot 1`] = `
       </div>
     </section>
     <section
-      className="container cardDetail"
-      id="card-detail"
+      className="container containerBottom"
+      id="card-car"
     >
       <div
-        className="row justify-content-center"
+        className="row justify-content-evenly"
+        data-testid="container-Content"
       >
         <div
-          className="col-lg-7 g-4"
+          className="containerEmptyData d-flex justify-content-center mt-3"
         >
-          <div
-            className="card"
+          <h3
+            className="titleEmptyData fw-bold"
           >
-            <h6
-              className="fw-bold mb-3 ms-4 mt-4"
-              data-testid="heading-Title1"
-            >
-              Tentang paket
-            </h6>
-            <h6
-              className="fw-bold ms-4 mt-4"
-            >
-              Include
-              <ul
-                className="mb-2 mt-3"
-              >
-                <li
-                  className="mb-4"
-                  id="include-1"
-                >
-                  Apa saja yang termasuk dalam paket misal durasi max 12 jam
-                </li>
-                <li
-                  className="mb-4"
-                  id="include-2"
-                >
-                  Sudah termasuk bensin selama 12 jam
-                </li>
-                <li
-                  className="mb-4"
-                  id="include-3"
-                >
-                  Sudah termasuk Tiket Wisata
-                </li>
-                <li
-                  className="mb-4"
-                  id="include-4"
-                >
-                  Sudah termasuk pajak
-                </li>
-              </ul>
-            </h6>
-            <h6
-              className="fw-bold ms-4 mt-4"
-            >
-              Exclude
-              <ul
-                className="mb-2 mt-3"
-              >
-                <li
-                  className="mb-4"
-                  id="exclude-1"
-                >
-                  Tidak termasuk biaya makan sopir Rp 75.000/hari
-                </li>
-                <li
-                  className="mb-4"
-                  id="exclude-2"
-                >
-                  Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam
-                </li>
-                <li
-                  className="mb-4"
-                  id="exclude-3"
-                >
-                  Tidak termasuk akomodasi penginapan
-                </li>
-              </ul>
-            </h6>
-            <h6
-              className="fw-bold ms-4 mt-4"
-            >
-              <div
-                className="accordion accordion-flush"
-                id="accordionFlushExample"
-              >
-                <div
-                  className="accordion-item"
-                >
-                  <h2
-                    className="accordion-header"
-                    id="flush-headingOne"
-                  >
-                    <button
-                      aria-controls="flush-collapseOne"
-                      aria-expanded="false"
-                      className="accordion-button collapsed fw-bold"
-                      data-bs-target="#flush-collapseOne"
-                      data-bs-toggle="collapse"
-                      type="button"
-                    >
-                      Refund, Reschedule, Overtime
-                    </button>
-                  </h2>
-                  <div
-                    aria-labelledby="flush-headingOne"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionFlushExample"
-                    id="flush-collapseOne"
-                  >
-                    <div
-                      className="accordion-body"
-                    >
-                      <ul
-                        className="mb-2 mt-3"
-                      >
-                        <li
-                          className="mb-4"
-                          id="detail-1"
-                        >
-                          Tidak termasuk biaya makan sopir Rp 75.000/hari
-                        </li>
-                        <li
-                          className="mb-4"
-                          id="detail-2"
-                        >
-                          Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam
-                        </li>
-                        <li
-                          className="mb-4"
-                          id="detail-3"
-                        >
-                          Tidak termasuk akomodasi penginapan
-                        </li>
-                        <li
-                          className="mb-4"
-                          id="detail-4"
-                        >
-                          Tidak termasuk biaya makan sopir Rp 75.000/hari
-                        </li>
-                        <li
-                          className="mb-4"
-                          id="detail-5"
-                        >
-                          Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam
-                        </li>
-                        <li
-                          className="mb-4"
-                          id="detail-6"
-                        >
-                          Tidak termasuk akomodasi penginapan
-                        </li>
-                        <li
-                          className="mb-4"
-                          id="detail-7"
-                        >
-                          Tidak termasuk biaya makan sopir Rp 75.000/hari
-                        </li>
-                        <li
-                          className="mb-4"
-                          id="detail-8"
-                        >
-                          Jika overtime lebih dari 12 jam akan ada tambahan biaya Rp 20.000/jam
-                        </li>
-                        <li
-                          className="mb-4"
-                          id="detail-9"
-                        >
-                          Tidak termasuk akomodasi penginapan
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </h6>
-          </div>
+            Ups, Sorry ! Data is Empty
+          </h3>
         </div>
         <div
-          className="col-lg-5 g-4"
+          className="containerDescription d-flex justify-content-center"
         >
-          <div
-            className="card"
+          <h6
+            className="titleDescription"
           >
-            <div
-              className="col-lg wrapperImage"
-            >
-              <h3
-                className="justify-content-center d-flex"
-              >
-                Image Not found !
-              </h3>
-            </div>
-            <div
-              className="card-body mt-2 mb-2"
-            >
-              <h6
-                className="fw-bold"
-              />
-              <h3
-                className="justify-content-start d-flex"
-              >
-                Category Error !
-              </h3>
-            </div>
-            <div
-              className="card-body mt-2 mb-2"
-            >
-              <h6>
-                Tentukan lama sewa mobil (max. 7 hari)
-              </h6>
-              <div
-                className="react-datepicker-wrapper"
-              >
-                <div
-                  className="react-datepicker__input-container"
-                >
-                  <span
-                    aria-live="polite"
-                    className="react-datepicker__aria-live"
-                    role="alert"
-                  />
-                  <input
-                    className="w-100 red-border"
-                    disabled={false}
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onKeyDown={[Function]}
-                    placeholder="Pilih tanggal mulai dan tanggal akhir sewa"
-                    readOnly={false}
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-            </div>
-            <h3
-              className="justify-content-center"
-            >
-              Price Error !
-            </h3>
-            <div
-              className="card-body mt-2 mb-2"
-            >
-              <button
-                className="buttonToPayment fw-bold w-100 py-2 btn btn-success"
-                disabled={true}
-                onClick={[Function]}
-                type="button"
-              >
-                Lanjutkan ke Pembayaran
-              </button>
-            </div>
-          </div>
+            Please try again !
+          </h6>
         </div>
       </div>
     </section>

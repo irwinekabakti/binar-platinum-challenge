@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import { Form, Button, Tab, Tabs, InputGroup } from "react-bootstrap";
 import classes from "./CardConfirmPayment.module.css";
 import BCAIcon from "../Images/bca.svg";
 import BNIIcon from "../Images/bni.svg";
 import MandiriIcon from "../Images/mandiri.svg";
 import "./CardConfirmPayment.css";
-// import moment from "moment";
 import { FaCopy } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
@@ -37,7 +36,8 @@ const CardConfirmPayment = () => {
   finishPayment.setDate(startPayment.getDate() + 1);
   const finishPaymentDate = (finishPayment) => {
     const date = new Date(finishPayment);
-    return date.toLocaleString("en-GB", {
+    return date.toLocaleString("id-ID", {
+      weekday: "long",
       year: "numeric",
       month: "long",
       day: "numeric",
@@ -86,16 +86,12 @@ const CardConfirmPayment = () => {
     return `${hours} : ${minutes} : ${seconds}`;
   };
 
-  // const setConfirmPayment = () => {
-  //   localStorage.setItem("confirm_Payment", new Date().toLocaleString);
-  // };
-
   const toUploadPayment = () => {
     navigate(`/uploadPayment/${selectedCar.id}`);
   };
 
   return (
-    <>
+    <Fragment>
       <section
         id="confirm-payment"
         className={`container ${classes.cardConfirmPayment}`}>
@@ -104,7 +100,9 @@ const CardConfirmPayment = () => {
             <div className="card countTime">
               <div className="Wrapper time d-flex justify-content-between ">
                 <div className="timeStamp">
-                  <h6 className="fw-bold mb-3 ms-4 mt-4">
+                  <h6
+                    className="fw-bold mb-3 ms-4 mt-4"
+                    data-testid="heading-Title1">
                     Selesaikan Pembayaran sebelum
                   </h6>
                   <p className="ms-4">
@@ -113,10 +111,7 @@ const CardConfirmPayment = () => {
                   </p>
                 </div>
                 <div className="counterTime my-auto me-3">
-                  <div
-                    className="countDownTimer mt-2 fw-bold"
-                    // style={{ background: "#FA2C5A" }}
-                  >
+                  <div className="countDownTimer mt-2 fw-bold" id="countDown-1">
                     {getFormatTime(time)}
                   </div>
                 </div>
@@ -171,7 +166,7 @@ const CardConfirmPayment = () => {
                     </Form.Label>
                     <InputGroup className="mb-3">
                       <Form.Control
-                        placeholder={`Rp ${updatedOrderedCar.total_price.toLocaleString(
+                        placeholder={`Rp ${updatedOrderedCar?.total_price?.toLocaleString(
                           "id-ID"
                         )}`}
                         disabled
@@ -278,7 +273,7 @@ const CardConfirmPayment = () => {
           </div>
         </div>
       </section>
-    </>
+    </Fragment>
   );
 };
 

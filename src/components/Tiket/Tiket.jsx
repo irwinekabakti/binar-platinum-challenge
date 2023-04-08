@@ -17,7 +17,7 @@ const Tiket = () => {
               className={classes.tiketSuccesImg}
               alt="tiket-success"
             />
-            <h5 className={classes.tiketSuccessH5}>Pembayaran Berhasil !</h5>
+            <h5 className={classes.tiketSuccessH5} data-testid="heading-TitleInfo">Pembayaran Berhasil !</h5>
             <p className={classes.tiketSuccessP}>
               Tunjukan invoice ini ke petugas BCR di titik temu.
             </p>

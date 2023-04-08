@@ -10,7 +10,7 @@ import Empty3 from "../Empty3";
 import Empty4 from "../Empty4";
 
 describe("Test component Empty", () => {
-  test("test per component", () => {
+  test("it should be render empty component", () => {
     render(
       <Provider store={store}>
         <BrowserRouter>
@@ -26,7 +26,7 @@ describe("Test component Empty", () => {
 });
 
 describe("Test component Empty 2", () => {
-  test("test per component", () => {
+  test("it should be render empty 2 component", () => {
     render(
       <Provider store={store}>
         <BrowserRouter>
@@ -44,17 +44,36 @@ describe("Test component Empty 2", () => {
 });
 
 describe("Test component Empty 3", () => {
-  test("test per component", () => {
+  test("it should be render empty 3 component", () => {
     renderWithProviders(<Empty3 />, {
       preloadedState: {
         bankStore: {
           updateCar: {
-            id: "test",
+            id: "4953",
+            start_rent_at: "2023-04-10T00:00:00.000Z",
+            status: false,
+            finish_rent_at: "2023-04-12T00:00:00.000Z",
+            UserId: "4",
+            CarId: "2435",
+            total_price: 15000000,
+            updatedAt: "2023-04-07T18:13:45.699Z",
+            createdAt: "2023-04-07T18:13:45.699Z",
+            slip: null,
           },
           getCarData: {
-            id: "test",
+            id: "2435",
+            name: "AMG G63",
+            category: "small",
+            price: 5000000,
+            status: false,
+            start_rent_at: null,
+            finish_rent_at: null,
+            image:
+              "https://firebasestorage.googleapis.com/v0/b/km-sib-2---secondhand.appspot.com/o/cars%2F1680537990798-brabus-p-900-rocket-edition-one-of-ten-2022.jpg?alt=media",
+            createdAt: "2023-04-03T16:06:30.800Z",
+            updatedAt: "2023-04-03T16:06:30.800Z",
           },
-          bankName: "",
+          bankName: "BCA",
         },
       },
     });
@@ -71,17 +90,36 @@ describe("Test component Empty 3", () => {
 });
 
 describe("Test component Empty 4", () => {
-  test("test per component", () => {
+  test("it should be render empty 4 component", () => {
     renderWithProviders(<Empty4 />, {
       preloadedState: {
         bankStore: {
           updateCar: {
-            id: "test",
+            id: 4953,
+            start_rent_at: "2023-04-10T00:00:00.000Z",
+            status: false,
+            finish_rent_at: "2023-04-12T00:00:00.000Z",
+            UserId: 4,
+            CarId: 2435,
+            total_price: 15000000,
+            updatedAt: "2023-04-07T18:13:45.699Z",
+            createdAt: "2023-04-07T18:13:45.699Z",
+            slip: null,
           },
           getCarData: {
-            id: "test",
+            id: 2435,
+            name: "AMG G63",
+            category: "small",
+            price: 5000000,
+            status: false,
+            start_rent_at: null,
+            finish_rent_at: null,
+            image:
+              "https://firebasestorage.googleapis.com/v0/b/km-sib-2---secondhand.appspot.com/o/cars%2F1680537990798-brabus-p-900-rocket-edition-one-of-ten-2022.jpg?alt=media",
+            createdAt: "2023-04-03T16:06:30.800Z",
+            updatedAt: "2023-04-03T16:06:30.800Z",
           },
-          bankName: "",
+          bankName: "BCA",
         },
       },
     });

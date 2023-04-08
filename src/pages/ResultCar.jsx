@@ -8,7 +8,6 @@ import { useLocation } from "react-router";
 
 const ResultCar = () => {
   const { state } = useLocation();
-  // console.log(state);
 
   return (
     <div>

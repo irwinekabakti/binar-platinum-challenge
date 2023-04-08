@@ -1,0 +1,1036 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UI Homepage test UI Homepage should match snapshot 1`] = `
+<div>
+  <header>
+    <nav
+      className="navbar navbar-expand-lg fixed-top navbarColor"
+    >
+      <div
+        className="container-fluid"
+      >
+        <a
+          className="navbar-brand navbarBrand1 nav-link"
+          disabled={false}
+          href="/"
+          onClick={[Function]}
+        >
+          <img
+            alt="Home BCR"
+            src="logo.svg"
+          />
+        </a>
+        <button
+          aria-controls="offcanvasNavbar"
+          className="navbar-toggler navTog"
+          data-bs-target="#offcanvasNavbar"
+          data-bs-toggle="offcanvas"
+          data-testid="btn-navbar-hamburger"
+          type="button"
+        >
+          <span
+            className="navbar-toggler-icon"
+          />
+        </button>
+        <div
+          aria-labelledby="offcanvasNavbarLabel"
+          className="offcanvas offcanvas-end"
+          data-testid="toggle-navbar-hamburger"
+          id="offcanvasNavbar"
+          style={
+            Object {
+              "width": "50%",
+            }
+          }
+          tabIndex="-1"
+        >
+          <div
+            className="offcanvas-header"
+          >
+            <h5
+              className="offcanvas-title fw-bold"
+              id="offcanvasNavbarLabel"
+            >
+              BCR
+            </h5>
+            <button
+              aria-label="Close"
+              className="btn-close"
+              data-bs-dismiss="offcanvas"
+              type="button"
+            />
+          </div>
+          <div
+            className="offcanvas-body"
+          >
+            <ul
+              className="navbar-nav justify-content-end flex-grow-1 pe-3"
+            >
+              <li
+                className="nav-item"
+              >
+                <a
+                  className="nav-link me-4 navbarNavLink"
+                  href="/#our-services"
+                >
+                  Our Services
+                </a>
+              </li>
+              <li
+                className="nav-item"
+              >
+                <a
+                  className="nav-link me-4 navbarNavLink"
+                  href="/#WhyUs"
+                >
+                  Why Us
+                </a>
+              </li>
+              <li
+                className="nav-item"
+              >
+                <a
+                  className="nav-link me-4 navbarNavLink"
+                  href="/#testimonial"
+                >
+                  Testimonial
+                </a>
+              </li>
+              <li
+                className="nav-item"
+              >
+                <a
+                  className="nav-link me-4 navbarNavLink"
+                  href="/#faq"
+                >
+                  FAQ
+                </a>
+              </li>
+              <button
+                className="nav-link text-light me-4 mt-1 navbarRegister"
+                data-testid="test-btnRegister"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "border": "none",
+                    "outline": "none",
+                  }
+                }
+              >
+                Register
+              </button>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section
+      className="heroSection"
+      id="hero-section"
+    >
+      <div
+        className="heroFlex heroContent mt-4"
+      >
+        <div
+          className="hero-title mt-4"
+          data-testid="container-Hero"
+        >
+          <h1
+            className="heroContentH1"
+            data-testid="title-Hero"
+          >
+            Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)
+          </h1>
+          <p
+            className="mt-3 heroContentP"
+            data-testid="description-Hero"
+          >
+            Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.
+          </p>
+          <div
+            className="hero-button mt-4"
+          >
+            <a
+              className="text-white fw-bold justify-content-center navItemBtn"
+              href="/searchCars"
+            >
+              Mulai Sewa Mobil
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        className="heroFlex heroImage"
+      >
+        <img
+          alt="img-car"
+          height="auto"
+          src="img_car.svg"
+          width="100%"
+        />
+      </div>
+    </section>
+    <section
+      className="ourServices"
+      id="our-services"
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="row"
+        >
+          <div
+            className="col-12 col-lg col-md-12"
+          >
+            <img
+              alt="illustration-services"
+              className="img-fluid illustrationServices"
+              src="img_service.svg"
+            />
+          </div>
+          <div
+            className="col-12 col-lg col-md-12"
+          >
+            <div
+              className="servicesBody"
+            >
+              <h2
+                className="fw-bold mb-3"
+                data-testid="test-title-OurService"
+              >
+                Best Car Rental for any kind of trip in (Lokasimu)!
+              </h2>
+              <p
+                className="fw-bold"
+              >
+                Sewa mobil di (Lokasimu) bersama Binar Car Rental jaminan harga lebih murah dibandingkan yang lain, kondisi mobil baru, serta kualitas pelayanan terbaik untuk perjalanan wisata, bisnis, wedding, meeting, dll.
+              </p>
+            </div>
+            <div
+              className="row"
+            >
+              <div
+                className="col-lg-12 col-12 itemCheck"
+              >
+                <div
+                  className="iconBox"
+                >
+                  <img
+                    alt="icon-check"
+                    className="icon-check-1"
+                    src="fi_check.svg"
+                  />
+                </div>
+                <p
+                  className="fw-bold value"
+                >
+                  Sewa Mobil Dengan Supir di Bali 12 Jam
+                </p>
+              </div>
+              <div
+                className="col-lg-12 col-12 itemCheck"
+              >
+                <div
+                  className="iconBox"
+                >
+                  <img
+                    alt="icon-check"
+                    className="icon-check-2"
+                    src="fi_check.svg"
+                  />
+                </div>
+                <p
+                  className="fw-bold value"
+                >
+                  Sewa Mobil Lepas Kunci di Bali 24 Jam
+                </p>
+              </div>
+              <div
+                className="col-lg-12 col-12 itemCheck"
+              >
+                <div
+                  className="iconBox"
+                >
+                  <img
+                    alt="icon-check"
+                    className="icon-check-3"
+                    src="fi_check.svg"
+                  />
+                </div>
+                <p
+                  className="fw-bold value"
+                >
+                  Sewa Mobil Jangka Panjang Bulanan
+                </p>
+              </div>
+              <div
+                className="col-lg-12 col-12 itemCheck"
+              >
+                <div
+                  className="iconBox"
+                >
+                  <img
+                    alt="icon-check"
+                    className="icon-check-4"
+                    src="fi_check.svg"
+                  />
+                </div>
+                <p
+                  className="fw-bold value"
+                >
+                  Gratis Antar - Jemput Mobil di Bandara
+                </p>
+              </div>
+              <div
+                className="col-lg-12 col-12 itemCheck"
+              >
+                <div
+                  className="iconBox"
+                >
+                  <img
+                    alt="icon-check"
+                    className="icon-check-5"
+                    src="fi_check.svg"
+                  />
+                </div>
+                <p
+                  className="fw-bold value"
+                >
+                  Layanan Airport Transfer / Drop In Out
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      className="whyUs mt-5"
+      id="WhyUs"
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="whyHeader"
+        >
+          <h2
+            className="h2Title"
+            data-testid="title-WhyUs"
+          >
+            Why Us?
+          </h2>
+          <p
+            className="fw-bold"
+          >
+            Mengapa harus pilih Binar Car Rental ?
+          </p>
+        </div>
+        <div
+          className="row g-4 why-body"
+        >
+          <div
+            className="col-lg-3 col-md-6 col-12"
+          >
+            <div
+              className="card cardWhyUs"
+            >
+              <div
+                className="card-body"
+              >
+                <img
+                  alt="icon_complete"
+                  className="img-fluid mb-3"
+                  src="icon_complete.svg"
+                />
+                <h5
+                  className="card-title fw-bold cardTitleWhyUs"
+                >
+                  Mobil Lengkap
+                </h5>
+                <p
+                  className="card-text fw-bold mt-3 cardTextWhyUs"
+                >
+                  Tersedia banyak pilihan mobil, kondisi masih baru, bersih dan terawat
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            className="col-lg-3 col-md-6 col-12"
+          >
+            <div
+              className="card cardWhyUs"
+            >
+              <div
+                className="card-body"
+              >
+                <img
+                  alt="icon_price"
+                  className="img-fluid mb-3"
+                  src="icon_price.svg"
+                />
+                <h5
+                  className="card-title fw-bold cardTitleWhyUs"
+                >
+                  Harga Murah
+                </h5>
+                <p
+                  className="card-text fw-bold mt-3 cardTextWhyUs"
+                >
+                  Harga murah dan bersaing, bisa bandingkan harga kami dengan rental mobil lain
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            className="col-lg-3 col-md-6 col-12"
+          >
+            <div
+              className="card cardWhyUs"
+            >
+              <div
+                className="card-body"
+              >
+                <img
+                  alt="icon_time"
+                  className="img-fluid mb-3"
+                  src="icon_24hrs.svg"
+                />
+                <h5
+                  className="card-title fw-bold cardTitleWhyUs"
+                >
+                  Layanan 24 Jam
+                </h5>
+                <p
+                  className="card-text fw-bold mt-3 cardTextWhyUs"
+                >
+                  Siap melayani kebutuhan Anda selama 24 jam nonstop. Kami juga tersedia di akhir minggu
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            className="col-lg-3 col-md-6 col-12"
+          >
+            <div
+              className="card cardWhyUs"
+            >
+              <div
+                className="card-body"
+              >
+                <img
+                  alt="icon_professional"
+                  className="img-fluid mb-3"
+                  src="icon_professional.svg"
+                />
+                <h5
+                  className="card-title fw-bold cardTitleWhyUs"
+                >
+                  Sopir Profesional
+                </h5>
+                <p
+                  className="card-text fw-bold mt-3 cardTextWhyUs"
+                >
+                  Sopir yang profesional, berpengalaman, jujur, ramah dan selalu tepat waktu
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      className="testimonial"
+      id="testimonial"
+    >
+      <div
+        className="container-fluid"
+      >
+        <div
+          className="testimonialHeader"
+        >
+          <h2
+            className="fw-bold"
+          >
+            Testimonial
+          </h2>
+          <p
+            className="fw-bold"
+            data-testid="text-paragraph-Testimonial"
+          >
+            Berbagai review positif dari para pelanggan kami
+          </p>
+        </div>
+      </div>
+    </section>
+    <section
+      className="galleryPhoto"
+      id="gallery-photo"
+    >
+      <div
+        className="container containerImage"
+      >
+        <div
+          className="row g-4"
+        >
+          <div
+            className="col-lg-3 col-md-6 col-12"
+          >
+            <div
+              className="card cardGallery"
+            >
+              <img
+                alt="Nature Landscape 1"
+                className="cardGalleryImage"
+                data-caption="Nature Landscape 1"
+                data-zoombox={true}
+                height={200}
+                src="img-1.jpg"
+                width={305}
+              />
+            </div>
+          </div>
+          <div
+            className="col-lg-3 col-md-6 col-12"
+          >
+            <div
+              className="card cardGallery"
+            >
+              <img
+                alt="Nature Landscape 2"
+                className="cardGalleryImage"
+                data-caption="Nature Landscape 2"
+                data-zoombox={true}
+                height={200}
+                src="img-2.jpg"
+                width={305}
+              />
+            </div>
+          </div>
+          <div
+            className="col-lg-3 col-md-6 col-12"
+          >
+            <div
+              className="card cardGallery"
+            >
+              <img
+                alt="Nature Landscape 3"
+                className="cardGalleryImage"
+                data-caption="Nature Landscape 3"
+                data-zoombox={true}
+                height={200}
+                src="img-3.jpg"
+                width={305}
+              />
+            </div>
+          </div>
+          <div
+            className="col-lg-3 col-md-6 col-12"
+          >
+            <div
+              className="card cardGallery"
+            >
+              <img
+                alt="Nature Landscape 4"
+                className="cardGalleryImage"
+                data-caption="Nature Landscape 4"
+                data-zoombox={true}
+                height={200}
+                src="img-4.jpg"
+                width={305}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      className="CtaBanner"
+      id="cta-banner"
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="text-center cardBanner"
+        >
+          <div
+            className="card-body"
+            data-testid="content-CTABanner"
+          >
+            <h1
+              className="card-title justify-content-center align-self-center cardTitleBanner"
+              data-testid="title-CTABanner"
+            >
+              Sewa Mobil di (Lokasimu) Sekarang
+            </h1>
+            <p
+              className="fw-bold card-text cardParagraph"
+              data-testid="description-CTABanner"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              <br />
+              tempor incididunt ut labore et dolore magna aliqua.
+               
+            </p>
+            <a
+              className="justify-content-center text-white fw-bold  navItemBtn"
+              href="/SearchCars"
+            >
+              Mulai Sewa Mobil
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      className="FaqMod"
+      id="faq"
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="row"
+        >
+          <div
+            className="col-lg-5 faqHeader"
+            data-testid="content-FAQ"
+          >
+            <h2
+              className="fw-bold"
+              data-testid="title-FAQ"
+            >
+              Frequently Asked Question
+            </h2>
+            <p
+              className="fw-bold mb-3 mt-2"
+              data-testid="description-FAQ"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            </p>
+          </div>
+          <div
+            className="col-lg-7"
+          >
+            <div
+              className="accordion"
+              id="accordionFlushExample1"
+            >
+              <div
+                className="accordion-item accordionItem"
+              >
+                <h2
+                  className="accordion-header"
+                  id="flush-heading1"
+                >
+                  <button
+                    aria-controls="flush-collapse1"
+                    aria-expanded="true"
+                    className="accordion-button fw-bold collapsed buttonAccordion"
+                    data-bs-target="#flush-collapse1"
+                    data-bs-toggle="collapse"
+                    type="button"
+                  >
+                    Apa saja syarat yang dibutuhkan?
+                  </button>
+                </h2>
+                <div
+                  aria-labelledby="flush-heading1"
+                  className="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlushExample1"
+                  id="flush-collapse1"
+                >
+                  <div
+                    className="accordion-body bodyAccordion"
+                  >
+                    Syarat yang dibutuhkan antara lain : 
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="accordion"
+              id="accordionFlushExample2"
+            >
+              <div
+                className="accordion-item accordionItem"
+              >
+                <h2
+                  className="accordion-header"
+                  id="flush-heading2"
+                >
+                  <button
+                    aria-controls="flush-collapse2"
+                    aria-expanded="true"
+                    className="accordion-button fw-bold collapsed buttonAccordion"
+                    data-bs-target="#flush-collapse2"
+                    data-bs-toggle="collapse"
+                    type="button"
+                  >
+                    Berapa hari minimal sewa mobil lepas kunci ?
+                  </button>
+                </h2>
+                <div
+                  aria-labelledby="flush-heading2"
+                  className="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlushExample2"
+                  id="flush-collapse2"
+                >
+                  <div
+                    className="accordion-body bodyAccordion"
+                  >
+                    H-3 sebelum
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="accordion"
+              id="accordionFlushExample3"
+            >
+              <div
+                className="accordion-item accordionItem"
+              >
+                <h2
+                  className="accordion-header"
+                  id="flush-heading3"
+                >
+                  <button
+                    aria-controls="flush-collapse3"
+                    aria-expanded="true"
+                    className="accordion-button fw-bold collapsed buttonAccordion"
+                    data-bs-target="#flush-collapse3"
+                    data-bs-toggle="collapse"
+                    type="button"
+                  >
+                    Berapa hari sebelumnya sebaiknya booking sewa mobil ?
+                  </button>
+                </h2>
+                <div
+                  aria-labelledby="flush-heading3"
+                  className="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlushExample3"
+                  id="flush-collapse3"
+                >
+                  <div
+                    className="accordion-body bodyAccordion"
+                  >
+                    Secepatnya
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="accordion"
+              id="accordionFlushExample4"
+            >
+              <div
+                className="accordion-item accordionItem"
+              >
+                <h2
+                  className="accordion-header"
+                  id="flush-heading4"
+                >
+                  <button
+                    aria-controls="flush-collapse4"
+                    aria-expanded="true"
+                    className="accordion-button fw-bold collapsed buttonAccordion"
+                    data-bs-target="#flush-collapse4"
+                    data-bs-toggle="collapse"
+                    type="button"
+                  >
+                    Apakah Ada biaya antar-jemput ?
+                  </button>
+                </h2>
+                <div
+                  aria-labelledby="flush-heading4"
+                  className="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlushExample4"
+                  id="flush-collapse4"
+                >
+                  <div
+                    className="accordion-body bodyAccordion"
+                  >
+                    Ada 
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="accordion"
+              id="accordionFlushExample5"
+            >
+              <div
+                className="accordion-item accordionItem"
+              >
+                <h2
+                  className="accordion-header"
+                  id="flush-heading5"
+                >
+                  <button
+                    aria-controls="flush-collapse5"
+                    aria-expanded="true"
+                    className="accordion-button fw-bold collapsed buttonAccordion"
+                    data-bs-target="#flush-collapse5"
+                    data-bs-toggle="collapse"
+                    type="button"
+                  >
+                    Bagaimana jika terjadi kecelakaan ?
+                  </button>
+                </h2>
+                <div
+                  aria-labelledby="flush-heading5"
+                  className="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlushExample5"
+                  id="flush-collapse5"
+                >
+                  <div
+                    className="accordion-body bodyAccordion"
+                  >
+                    Based on causes 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      className="videoPlayer"
+      id="video-player"
+    >
+      <div
+        className="contentVideoPlayer"
+      >
+        <div
+          className="player-wrapper playerWrapperVideo"
+        >
+          <div
+            className="react-player reactPlayerVideo"
+            style={
+              Object {
+                "height": "100%",
+                "width": "100%",
+              }
+            }
+          />
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer
+    className="footer"
+  >
+    <div
+      className="container py-5 pt-0"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-lg-3 mb-3"
+        >
+          <ul
+            className="list-unstyled"
+          >
+            <li
+              className="mb-2"
+            >
+              <p
+                className="fw-bold"
+              >
+                Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000
+              </p>
+            </li>
+            <li
+              className="mb-2"
+            >
+              <p
+                className="fw-bold"
+              >
+                binarcarrental@gmail.com
+              </p>
+            </li>
+            <li
+              className="mb-2"
+            >
+              <p
+                className="fw-bold"
+              >
+                081-233-334-808
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="col-lg-2 mb-3"
+        >
+          <ul
+            className="list-unstyled"
+          >
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/#services"
+              >
+                Our services
+              </a>
+            </li>
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/#WhyUs"
+              >
+                Why Us
+              </a>
+            </li>
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/#testimonial"
+              >
+                Testimonial
+              </a>
+            </li>
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/#faq"
+              >
+                FAQ
+              </a>
+            </li>
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/viewerPdf"
+              >
+                Term of Service
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="col-lg-4 mb-3"
+        >
+          <p
+            className="fw-bold mb-2 "
+          >
+            Connect with us
+          </p>
+          <div
+            className="footerSocial"
+          >
+            <a
+              className="text-decoration-none footerSocial"
+              href="https://web.facebook.com/binaracademy/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon-facebook"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_facebook.svg"
+                title="Facebook"
+              />
+            </a>
+            <a
+              className="text-decoration-none footerSocial"
+              href="https://www.instagram.com/academybinar/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon_instagram"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_instagram.svg"
+                title="Instagram"
+              />
+            </a>
+            <a
+              className="text-decoration-none footerSocial"
+              href="https://twitter.com/academybinar"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon_twitter"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_twitter.svg"
+                title="Twitter"
+              />
+            </a>
+            <a
+              className="text-decoration-none footerSocial"
+              href="mailto:service@binar.co.id"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon_gmail"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_mail.svg"
+                title="Gmail"
+              />
+            </a>
+            <a
+              className="text-decoration-none footerSocial"
+              href="https://www.binaracademy.com/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon_twitch"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_twitch.svg"
+                title="Twitch"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          className="col-lg-3 mb-3"
+          data-testid="contain-LogoFooter"
+        >
+          <p
+            className="fw-bold mb-2"
+            data-testid="paragraph-Footer"
+          >
+            Copyright Binar 2022
+          </p>
+          <a
+            className="navbar-brand"
+            href="/"
+          >
+            <img
+              alt="Home BCR"
+              src="logo.svg"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;

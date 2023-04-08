@@ -20,9 +20,14 @@ const CardPayment = () => {
   const updatedOrderedCar = selector.updateCar;
   const choosePayment = selector.bankName;
 
+  const setTokenPaymentCar = () => {
+    localStorage.setItem("start_Payment", new Date().toLocaleString());
+  };
+
   const handleBankClick = (id) => {
     dispatch(updateBankName(id));
     setBankID(id);
+    setTokenPaymentCar();
   };
 
   const toConfirmPayment = () => {
@@ -35,7 +40,11 @@ const CardPayment = () => {
         <div className="row justify-content-center">
           <div className="col-lg-7 g-4">
             <div className="card">
-              <h6 className="fw-bold mb-3 ms-4 mt-4">Pilih Bank Transfer</h6>
+              <h6
+                className="fw-bold mb-3 ms-4 mt-4"
+                data-testid="heading-Card1">
+                Pilih Bank Transfer
+              </h6>
               <p className="ms-4 mt-2">
                 Kamu bisa membayar dengan transfer melalui ATM, Internet Banking
                 atau Mobile Banking
@@ -74,13 +83,13 @@ const CardPayment = () => {
                   style={{ fontStyle: "none" }}></i>
                 <span className="ms-2 text-secondary">
                   <small>
-                    {selectedCar.category.toLowerCase() === "small"
+                    {selectedCar?.category?.toLowerCase() === "small"
                       ? "2 - 4 orang"
                       : null}{" "}
-                    {selectedCar.category.toLowerCase() === "medium"
+                    {selectedCar?.category?.toLowerCase() === "medium"
                       ? "4 - 6 orang"
                       : null}{" "}
-                    {selectedCar.category.toLowerCase() === "large"
+                    {selectedCar?.category?.toLowerCase() === "large"
                       ? "6 - 8 orang"
                       : null}
                   </small>
@@ -91,7 +100,7 @@ const CardPayment = () => {
                   <Accordion.Header className="fw-bold">
                     <p className="fw-bold">
                       Total : Rp{" "}
-                      {updatedOrderedCar.total_price.toLocaleString("id-ID")}
+                      {updatedOrderedCar?.total_price?.toLocaleString("id-ID")}
                     </p>
                   </Accordion.Header>
                   <Accordion.Body>
@@ -101,7 +110,7 @@ const CardPayment = () => {
                         <div className="d-flex justify-content-between">
                           <li className="sewa">
                             Sewa Mobil Rp{" "}
-                            {selectedCar.price.toLocaleString("id-ID")} x{" "}
+                            {selectedCar?.price?.toLocaleString("id-ID")} x{" "}
                             {moment(updatedOrderedCar.finish_rent_at).diff(
                               moment(updatedOrderedCar.start_rent_at),
                               "days"
@@ -111,7 +120,7 @@ const CardPayment = () => {
                           <h6 className="totalSewa fw-bold">
                             {" "}
                             Rp{" "}
-                            {updatedOrderedCar.total_price.toLocaleString(
+                            {updatedOrderedCar?.total_price?.toLocaleString(
                               "id-ID"
                             )}
                           </h6>
@@ -146,7 +155,7 @@ const CardPayment = () => {
                         <p className="fw-bold totalHarga">Total </p>
                         <p className="fw-bold">
                           Rp{" "}
-                          {updatedOrderedCar.total_price.toLocaleString(
+                          {updatedOrderedCar?.total_price?.toLocaleString(
                             "id-ID"
                           )}
                         </p>

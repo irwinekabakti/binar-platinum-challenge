@@ -9,7 +9,9 @@ const initialState = {
   getCarData: localStorage.getItem("getCarData")
     ? JSON.parse(localStorage.getItem("getCarData"))
     : [],
-  bankName: null,
+  bankName: localStorage.getItem("bankName")
+    ? JSON.parse(localStorage.getItem("bankName"))
+    : null,
 };
 
 const bankPayment = createAsyncThunk("option/payment", async (payload) => {
@@ -109,6 +111,7 @@ const bankSlice = createSlice({
       state.getCarData = action.payload;
     },
     updateBankName(state, action) {
+      localStorage.setItem("bankName", JSON.stringify(action.payload));
       state.bankName = action.payload;
     },
   },
@@ -130,6 +133,5 @@ const bankSlice = createSlice({
 
 export default bankSlice;
 
-export const { updateCar, getCarData, setBankTransfer, updateBankName } =
-  bankSlice.actions;
+export const { updateCar, getCarData, updateBankName } = bankSlice.actions;
 export { bankPayment, createOrder, getOrderCar, uploadSlip };

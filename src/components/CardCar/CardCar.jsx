@@ -10,7 +10,7 @@ const CardCar = (props) => {
   const BASE_URL = `${BASE_API}/admin/v2/car`;
   const { name, category, price, isRented } = props;
 
-  const SplitPrice = price.split("-");
+  const SplitPrice = price?.split("-");
 
   const handlerFilterCar = async () => {
     try {
@@ -32,15 +32,12 @@ const CardCar = (props) => {
 
       setCars(data.cars);
     } catch (error) {
-      // console.log(error);
       alert(error);
     }
     setLoading(false);
   };
 
   useEffect(() => {
-    // console.log("run");
-    // setCars(cars);
     handlerFilterCar();
   }, []);
 
@@ -50,9 +47,11 @@ const CardCar = (props) => {
         {loading ? (
           <Loading />
         ) : (
-          <div className="row justify-content-evenly">
-            {cars.length &&
-              cars.map((item) => (
+          <div
+            className="row justify-content-evenly"
+            data-testid="container-Content">
+            {cars.length ? (
+              cars?.map((item) => (
                 <div className="col-lg-4 col-md-6 col-sm-12 g-4" key={item.id}>
                   <div className={`card ${classes.cardBox}`}>
                     <div
@@ -66,7 +65,7 @@ const CardCar = (props) => {
                     <div className="card-body align-self-center mt-2 mb-2">
                       <h5 className="card-title ">{item.name}</h5>
                       <h5 className="card-title fw-bold">
-                        Rp {item.price.toLocaleString("id-ID")} / Hari
+                        Rp {item?.price?.toLocaleString("id-ID")} / Hari
                       </h5>
                       <p className="card-text">
                         Some quick example text to build on the card title and
@@ -82,7 +81,19 @@ const CardCar = (props) => {
                     </div>
                   </div>
                 </div>
-              ))}
+              ))
+            ) : (
+              <Fragment>
+                <div className="containerEmptyData d-flex justify-content-center mt-3">
+                  <h3 className="titleEmptyData fw-bold">
+                    Ups, Sorry ! Data is Empty
+                  </h3>
+                </div>
+                <div className="containerDescription d-flex justify-content-center">
+                  <h6 className="titleDescription">Please try again !</h6>
+                </div>
+              </Fragment>
+            )}
           </div>
         )}
       </section>

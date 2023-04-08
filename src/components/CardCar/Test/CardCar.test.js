@@ -1,14 +1,14 @@
 import { describe, test, expect } from "@jest/globals";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "../../../store";
 import { renderWithProviders } from "../../../utils/test-utils";
-import CardUploadPayment from "../CardUploadPayment";
+import CardCar from "../CardCar";
 
-describe("Test CardUploadPayment", () => {
-  test("it should be render CardUploadPayment", () => {
-    renderWithProviders(<CardUploadPayment />, {
+describe("Test component CardCar", () => {
+  test("it should be render CardCar", async () => {
+    renderWithProviders(<CardCar />, {
       preloadedState: {
         bankStore: {
           updateCar: {
@@ -40,9 +40,8 @@ describe("Test CardUploadPayment", () => {
         },
       },
     });
+    const buttonCard = screen.getByTestId("container-Content");
 
-    const titleCardUpload = screen.getByTestId("title-CardUploadPayment");
-
-    expect(titleCardUpload).toHaveTextContent("Selesaikan Pembayaran sebelum");
+    expect(buttonCard).toBeVisible();
   });
 });

@@ -4,11 +4,11 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "../../../store";
 import { renderWithProviders } from "../../../utils/test-utils";
-import CardUploadPayment from "../CardUploadPayment";
+import CardPayment from "../CardPayment";
 
-describe("Test CardUploadPayment", () => {
-  test("it should be render CardUploadPayment", () => {
-    renderWithProviders(<CardUploadPayment />, {
+describe("Test component CardPayment", () => {
+  test("it should be render CardPayment", () => {
+    renderWithProviders(<CardPayment />, {
       preloadedState: {
         bankStore: {
           updateCar: {
@@ -41,8 +41,7 @@ describe("Test CardUploadPayment", () => {
       },
     });
 
-    const titleCardUpload = screen.getByTestId("title-CardUploadPayment");
-
-    expect(titleCardUpload).toHaveTextContent("Selesaikan Pembayaran sebelum");
+    const headingCard1 = screen.getByTestId("heading-Card1");
+    expect(headingCard1).toHaveTextContent("Pilih Bank Transfer");
   });
 });

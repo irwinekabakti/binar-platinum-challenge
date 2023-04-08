@@ -10,7 +10,7 @@ const loginCustomer = createAsyncThunk(
     try {
       const get = await axios.post(`${BASE_API}/customer/auth/login`, payload);
 
-      return get.data.access_token;
+      return get.data;
     } catch (error) {
       // console.log(error);
       throw error;
@@ -27,15 +27,18 @@ const authSlice = createSlice({
     },
     logout(state, action) {
       localStorage.removeItem("token");
+      localStorage.removeItem("role");
       localStorage.removeItem("updateCar");
       localStorage.removeItem("getCarData");
       localStorage.removeItem("start_Payment", new Date().toLocaleString());
+      localStorage.removeItem("bankName");
       state.isAuthenticated = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder.addCase(loginCustomer.fulfilled, (state, action) => {
-      localStorage.setItem("token", action.payload);
+      localStorage.setItem("token", action.payload.access_token);
+      localStorage.setItem('role', action.payload.role)
       authSlice.caseReducers.login(state, {
         payload: !!action.payload,
         type: loginCustomer.typePrefix,

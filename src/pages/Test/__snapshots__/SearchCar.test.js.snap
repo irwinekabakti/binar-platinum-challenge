@@ -1,0 +1,524 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UI SearchCar test UI SearchCar should match snapshot 1`] = `
+<div>
+  <header>
+    <nav
+      className="navbar navbar-expand-lg fixed-top navbarColor"
+    >
+      <div
+        className="container-fluid"
+      >
+        <a
+          className="navbar-brand navbarBrand1 nav-link"
+          disabled={false}
+          href="/"
+          onClick={[Function]}
+        >
+          <img
+            alt="Home BCR"
+            src="logo.svg"
+          />
+        </a>
+        <button
+          aria-controls="offcanvasNavbar"
+          className="navbar-toggler navTog"
+          data-bs-target="#offcanvasNavbar"
+          data-bs-toggle="offcanvas"
+          data-testid="btn-navbar-hamburger"
+          type="button"
+        >
+          <span
+            className="navbar-toggler-icon"
+          />
+        </button>
+        <div
+          aria-labelledby="offcanvasNavbarLabel"
+          className="offcanvas offcanvas-end"
+          data-testid="toggle-navbar-hamburger"
+          id="offcanvasNavbar"
+          style={
+            Object {
+              "width": "50%",
+            }
+          }
+          tabIndex="-1"
+        >
+          <div
+            className="offcanvas-header"
+          >
+            <h5
+              className="offcanvas-title fw-bold"
+              id="offcanvasNavbarLabel"
+            >
+              BCR
+            </h5>
+            <button
+              aria-label="Close"
+              className="btn-close"
+              data-bs-dismiss="offcanvas"
+              type="button"
+            />
+          </div>
+          <div
+            className="offcanvas-body"
+          >
+            <ul
+              className="navbar-nav justify-content-end flex-grow-1 pe-3"
+            >
+              <li
+                className="nav-item"
+              >
+                <a
+                  className="nav-link me-4 navbarNavLink"
+                  href="/#our-services"
+                >
+                  Our Services
+                </a>
+              </li>
+              <li
+                className="nav-item"
+              >
+                <a
+                  className="nav-link me-4 navbarNavLink"
+                  href="/#WhyUs"
+                >
+                  Why Us
+                </a>
+              </li>
+              <li
+                className="nav-item"
+              >
+                <a
+                  className="nav-link me-4 navbarNavLink"
+                  href="/#testimonial"
+                >
+                  Testimonial
+                </a>
+              </li>
+              <li
+                className="nav-item"
+              >
+                <a
+                  className="nav-link me-4 navbarNavLink"
+                  href="/#faq"
+                >
+                  FAQ
+                </a>
+              </li>
+              <button
+                className="nav-link text-light me-4 mt-1 navbarRegister"
+                data-testid="test-btnRegister"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "border": "none",
+                    "outline": "none",
+                  }
+                }
+              >
+                Register
+              </button>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section
+      className="heroSection"
+      id="hero-section"
+    >
+      <div
+        className="heroFlex heroContent mt-4"
+      >
+        <div
+          className="hero-title mt-4"
+          data-testid="container-Hero"
+        >
+          <h1
+            className="heroContentH1"
+            data-testid="title-Hero"
+          >
+            Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)
+          </h1>
+          <p
+            className="mt-3 heroContentP"
+            data-testid="description-Hero"
+          >
+            Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.
+          </p>
+        </div>
+      </div>
+      <div
+        className="heroFlex heroImage"
+      >
+        <img
+          alt="img-car"
+          height="auto"
+          src="img_car.svg"
+          width="100%"
+        />
+      </div>
+    </section>
+    <section
+      className="searchBar main"
+      id="searchBar"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="container mt-1 d-flex justify-content-center"
+        >
+          <div
+            className="card p-4 cardBar"
+          >
+            <div
+              className="row"
+            >
+              <div
+                className="col-lg-3 d-flex flex-column justify-content-between"
+              >
+                <label
+                  className="fw-bold labelCar"
+                  htmlFor="carName"
+                >
+                  Nama Mobil
+                </label>
+                <input
+                  className="p-1 sizeTag"
+                  defaultValue=""
+                  id="carName"
+                  name="carName"
+                  onChange={[Function]}
+                  placeholder="Ketik nama/type mobil"
+                  type="text"
+                />
+              </div>
+              <div
+                className="col-lg-3 d-flex flex-column justify-content-between"
+              >
+                <label
+                  className="fw-bold label"
+                  htmlFor="category"
+                >
+                  Kategori
+                </label>
+                <select
+                  className="sizeTag"
+                  defaultValue=""
+                  id="category"
+                  name="category"
+                  onChange={[Function]}
+                >
+                  <option
+                    hidden={true}
+                    value=""
+                  >
+                     
+                    Masukkan Kapasitas Mobil
+                  </option>
+                  <option
+                    value="small"
+                  >
+                     2 - 4 orang
+                  </option>
+                  <option
+                    value="medium"
+                  >
+                     4 - 6 orang
+                  </option>
+                  <option
+                    value="large"
+                  >
+                     6 - 8 orang
+                  </option>
+                </select>
+              </div>
+              <div
+                className="col-lg-3 d-flex flex-column justify-content-between"
+              >
+                <label
+                  className="fw-bold label"
+                  htmlFor="price"
+                >
+                  Harga
+                </label>
+                <select
+                  className="sizeTag"
+                  defaultValue=""
+                  id="price"
+                  name="price"
+                  onChange={[Function]}
+                >
+                  <option
+                    hidden={true}
+                    value=""
+                  >
+                    Masukkan Harga Sewa /Hari
+                  </option>
+                  <option
+                    value="0-400000"
+                  >
+                     &lt; Rp 400.000
+                  </option>
+                  <option
+                    value="400000-600000"
+                  >
+                    Rp 400.000 - Rp 600.000
+                  </option>
+                  <option
+                    value="600000"
+                  >
+                     &gt; Rp 600.000 
+                  </option>
+                </select>
+              </div>
+              <div
+                className="col-lg-2 d-flex flex-column justify-content-between"
+              >
+                <label
+                  className="fw-bold label"
+                  htmlFor="status"
+                >
+                  Status
+                </label>
+                <select
+                  className="p-1 sizeTag"
+                  id="status"
+                  name="status"
+                >
+                  <option
+                    value="sedia"
+                  >
+                    Sedia
+                  </option>
+                </select>
+              </div>
+              <div
+                className="col-lg-1 d-flex align-items-end mt-3"
+              >
+                <button
+                  className="p-1 btnSearch"
+                >
+                  Cari Mobil
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+  <footer
+    className="footer"
+  >
+    <div
+      className="container py-5 pt-0"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-lg-3 mb-3"
+        >
+          <ul
+            className="list-unstyled"
+          >
+            <li
+              className="mb-2"
+            >
+              <p
+                className="fw-bold"
+              >
+                Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000
+              </p>
+            </li>
+            <li
+              className="mb-2"
+            >
+              <p
+                className="fw-bold"
+              >
+                binarcarrental@gmail.com
+              </p>
+            </li>
+            <li
+              className="mb-2"
+            >
+              <p
+                className="fw-bold"
+              >
+                081-233-334-808
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="col-lg-2 mb-3"
+        >
+          <ul
+            className="list-unstyled"
+          >
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/#services"
+              >
+                Our services
+              </a>
+            </li>
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/#WhyUs"
+              >
+                Why Us
+              </a>
+            </li>
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/#testimonial"
+              >
+                Testimonial
+              </a>
+            </li>
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/#faq"
+              >
+                FAQ
+              </a>
+            </li>
+            <li
+              className="mb-2 listLink"
+            >
+              <a
+                className="text-decoration-none linkFooter"
+                href="/viewerPdf"
+              >
+                Term of Service
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="col-lg-4 mb-3"
+        >
+          <p
+            className="fw-bold mb-2 "
+          >
+            Connect with us
+          </p>
+          <div
+            className="footerSocial"
+          >
+            <a
+              className="text-decoration-none footerSocial"
+              href="https://web.facebook.com/binaracademy/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon-facebook"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_facebook.svg"
+                title="Facebook"
+              />
+            </a>
+            <a
+              className="text-decoration-none footerSocial"
+              href="https://www.instagram.com/academybinar/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon_instagram"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_instagram.svg"
+                title="Instagram"
+              />
+            </a>
+            <a
+              className="text-decoration-none footerSocial"
+              href="https://twitter.com/academybinar"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon_twitter"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_twitter.svg"
+                title="Twitter"
+              />
+            </a>
+            <a
+              className="text-decoration-none footerSocial"
+              href="mailto:service@binar.co.id"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon_gmail"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_mail.svg"
+                title="Gmail"
+              />
+            </a>
+            <a
+              className="text-decoration-none footerSocial"
+              href="https://www.binaracademy.com/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="icon_twitch"
+                data-bs-placement="top"
+                data-bs-toggle="tooltip"
+                src="icon_twitch.svg"
+                title="Twitch"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          className="col-lg-3 mb-3"
+          data-testid="contain-LogoFooter"
+        >
+          <p
+            className="fw-bold mb-2"
+            data-testid="paragraph-Footer"
+          >
+            Copyright Binar 2022
+          </p>
+          <a
+            className="navbar-brand"
+            href="/"
+          >
+            <img
+              alt="Home BCR"
+              src="logo.svg"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
