@@ -21,7 +21,6 @@ const Navbar = () => {
   const isReg = localStorage.getItem("role");
 
   const handleLogout = () => {
-    // dispatch(logout());
     setTimeout(() => {
       setShowToast(true);
     }, 1000);

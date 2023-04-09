@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { Button } from "react-bootstrap";
+import { Button, Toast, ToastContainer, ToastHeader, ToastBody, Modal,
+} from "react-bootstrap";
 import Loading from "../Loading/Loading";
 import classes from "./CardDetail.module.css";
 import { text_Include, text_Exclude, text_Details } from "./data";
@@ -14,11 +15,14 @@ const CardDetail = () => {
   const carId = useParams();
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
+  const [rentDay, setRentDay] = useState("");
+  const [showToastError, setShowToastError] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const handleCloseModal = () => setShowModal(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const selector = useSelector((state) => state.bankStore);
   const selectedCar = selector.getCarData;
-  const [rentDay, setRentDay] = useState("");
-  const navigate = useNavigate();
 
   useEffect(() => {
     let day = 0;
@@ -31,24 +35,17 @@ const CardDetail = () => {
     }
   }, [startDate, endDate]);
 
-  // const totalPrice = selectedCar.price * rentDay;
-
   const cardCarDetail = async () => {
     try {
       setLoading(true);
       dispatch(bankPayment(carId.id));
     } catch (error) {
-      // console.log(error);
-      alert(error);
+      setTimeout(() => {
+        setShowModal(true);
+      }, 2000);
     }
     setLoading(false);
   };
-
-  /*
-  const setTokenPaymentCar = () => {
-    localStorage.setItem("start_Payment", new Date().toLocaleString());
-  };
-  */
 
   const createOrderCar = async () => {
     try {
@@ -61,12 +58,14 @@ const CardDetail = () => {
       )
         .unwrap()
         .then(() => {
-          // setTokenPaymentCar();
-          navigate(`/payment/${selectedCar.id}`);
+          setTimeout(() => {
+            navigate(`/payment/${selectedCar.id}`);
+          }, 1500)
         });
     } catch (error) {
-      // console.log(error);
-      alert(error);
+      setTimeout(() => {
+        setShowToastError(true)
+      }, 1500)
     }
   };
 
@@ -77,6 +76,40 @@ const CardDetail = () => {
 
   return (
     <Fragment>
+      {showToastError ? (
+        <ToastContainer className="p-3" position="top-center">
+          <Toast
+            className="d-inline-block m-1"
+            bg="danger"
+            onClose={() => setShowToastError(false)}
+            show={showToastError}
+            delay={3000}>
+            <ToastHeader>
+              <strong className="me-auto text-dark">Message</strong>
+              <small className="text-dark">now</small>
+            </ToastHeader>
+            <ToastBody className="text-white fw-bold">
+              Failed to create order car ! Please try again
+            </ToastBody>
+          </Toast>
+        </ToastContainer>
+      ) : null}
+      {showModal ? (
+        <Modal show={showModal} onHide={handleCloseModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Ups, Sorry !</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Failed to fetch Data ! Please try again
+            <strong>ConfirmPayment</strong>
+          </Modal.Body>
+          <Modal.Footer className="bg-light">
+            <Button variant="secondary" className="fw-bold" onClick={handleCloseModal}>
+              Back
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      ) : null}
       {loading ? (
         <Loading />
       ) : selectedCar ? (
@@ -228,7 +261,6 @@ const CardDetail = () => {
                     <p className="fw-bold text-uppercase">Total :&nbsp;</p>
                     <p id="totalPrice" className="fw-bold totalPrice">
                       Rp {(selectedCar.price * rentDay).toLocaleString("id-ID")}
-                      {/* Rp {totalPrice.toLocaleString("id-ID")} */}
                     </p>
                   </div>
                 ) : (

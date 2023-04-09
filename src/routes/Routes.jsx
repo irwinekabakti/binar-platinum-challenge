@@ -42,10 +42,22 @@ const Routes = () => {
       path: "/detailCar/:id",
       element: isAuthenticated ? <Detail /> : <Navigate to="/signIn" />,
     },
-    { path: "payment/:id", element: <Payment /> },
-    { path: "confirmPayment/:id", element: <ConfirmPayment /> },
-    { path: "uploadPayment/:id", element: <UploadPayment /> },
-    { path: "eTicket/:id", element: <ETiket /> },
+    {
+      path: "payment/:id",
+      element: isAuthenticated ? <Payment /> : <Navigate to="signIn" />,
+    },
+    {
+      path: "confirmPayment/:id",
+      element: isAuthenticated ? <ConfirmPayment /> : <Navigate to="signIn" />,
+    },
+    {
+      path: "uploadPayment/:id",
+      element: isAuthenticated ? <UploadPayment /> : <Navigate to="signIn" />,
+    },
+    {
+      path: "eTicket/:id",
+      element: isAuthenticated ? <ETiket /> : <Navigate to="signIn" />,
+    },
     { path: "viewerPdf", element: <ViewerPDF /> },
     { path: "/*", element: <NotFound /> },
   ];

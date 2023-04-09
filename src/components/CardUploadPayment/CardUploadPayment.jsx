@@ -1,5 +1,16 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { Form, Button, Tab, Tabs, InputGroup } from "react-bootstrap";
+import {
+  Form,
+  Button,
+  Tab,
+  Tabs,
+  InputGroup,
+  Modal,
+  Toast,
+  ToastContainer,
+  ToastHeader,
+  ToastBody,
+} from "react-bootstrap";
 import classes from "./CardUploadPayment.module.css";
 import BCAIcon from "../Images/bca.svg";
 import BNIIcon from "../Images/bni.svg";
@@ -15,11 +26,14 @@ const CardUploadPayment = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState();
+  const [selectImage, setSelectImage] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const handleCloseModal = () => setShowModal(false);
+  const [showToastError, setShowToastError] = useState(false);
   const selector = useSelector((state) => state.bankStore);
   const selectedCar = selector.getCarData;
   const updatedOrderedCar = selector.updateCar;
   const choosePayment = selector.bankName;
-  const [selectImage, setSelectImage] = useState("");
 
   const bankChooseName = () => {
     if (choosePayment === "BCA") {
@@ -31,14 +45,18 @@ const CardUploadPayment = () => {
     }
   };
 
-  const getTokenPaymentCar = localStorage.getItem("start_Payment", "");
+  const getTokenPaymentCar = localStorage.getItem(
+    "start_Payment",
+    new Date().toLocaleString()
+  );
 
   const startPayment = new Date(getTokenPaymentCar);
   const finishPayment = new Date(startPayment);
   finishPayment.setDate(startPayment.getDate() + 1);
   const finishPaymentDate = (finishPayment) => {
     const date = new Date(finishPayment);
-    return date.toLocaleString("en-GB", {
+    return date.toLocaleString("id-ID", {
+      weekday: "long",
       day: "numeric",
       year: "numeric",
       month: "long",
@@ -60,7 +78,6 @@ const CardUploadPayment = () => {
   const diffTime = timePaymentNow.getTime() - finishPayment.getTime();
   const countdownTime = Math.abs(diffTime);
   const [time, setTime] = useState(countdownTime);
-  // const [timeUpload, setTimeUpload] = useState(10000);
   const [timeUpload, setTimeUpload] = useState(600000);
 
   useEffect(() => {
@@ -75,14 +92,22 @@ const CardUploadPayment = () => {
     }
   }, [time]);
 
+  const timeIsUp = () => {
+    handleCloseModal();
+    setTimeout(() => {
+      navigate(`/confirmPayment/${selectedCar.id}`);
+    }, 500);
+  };
+
   useEffect(() => {
     const timeOut = setTimeout(() => {
       setTimeUpload(timeUpload - 1000);
     }, 1000);
     if (timeUpload < 1) {
       clearTimeout(timeOut);
-      alert("Waktu Upload Bukti Pembayaran Habis !");
-      navigate(`/confirmPayment/${selectedCar.id}`);
+      setTimeout(() => {
+        setShowModal(true);
+      }, 2000);
     }
   }, [timeUpload]);
 
@@ -132,8 +157,9 @@ const CardUploadPayment = () => {
         navigate(`/eTicket/${selectedCar.id}`);
       })
       .catch((error) => {
-        // console.log(error);
-        alert(error);
+        setTimeout(() => {
+          setShowToastError(true);
+        }, 1500);
       });
   };
 
@@ -143,6 +169,40 @@ const CardUploadPayment = () => {
 
   return (
     <Fragment>
+      {showModal ? (
+        <Modal show={showModal} onHide={timeIsUp}>
+          <Modal.Header closeButton>
+            <Modal.Title>Ups! Sorry, You're time is up</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            But don't worry you can try again and return to{" "}
+            <strong>ConfirmPayment</strong>
+          </Modal.Body>
+          <Modal.Footer className="bg-light">
+            <Button variant="secondary" className="fw-bold" onClick={timeIsUp}>
+              Back
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      ) : null}
+      {showToastError ? (
+        <ToastContainer className="p-3" position="top-center">
+          <Toast
+            className="d-inline-block m-1"
+            bg="danger"
+            onClose={() => setShowToastError(false)}
+            show={showToastError}
+            delay={3000}>
+            <ToastHeader>
+              <strong className="me-auto text-dark">Message</strong>
+              <small className="text-dark">now</small>
+            </ToastHeader>
+            <ToastBody className="text-white fw-bold">
+              Failed to upload payment slip ! Please try again
+            </ToastBody>
+          </Toast>
+        </ToastContainer>
+      ) : null}
       <section
         id="confirm-payment"
         className={`container ${classes.cardConfirmPayment}`}>

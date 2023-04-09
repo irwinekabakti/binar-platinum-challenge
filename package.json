@@ -92,7 +92,11 @@
       "<rootDir>/src/mocks/browser.js",
       "<rootDir>/src/routes/Routes.jsx",
       "<rootDir>/src/pages/ConfirmPayment.jsx",
-      "<rootDir>/src/pages/UploadPayment.jsx"
+      "<rootDir>/src/pages/UploadPayment.jsx",
+      "<rootDir>/src/pages/NotFound.jsx",
+      "<rootDir>/src/pages/ViewerPDF.jsx",
+      "<rootDir>/src/components/Errors/Errors.jsx",
+      "<rootDir>/src/components/PDFViewer/Pdfviewer.jsx"
     ],
     "coverageThreshold": {
       "global": {

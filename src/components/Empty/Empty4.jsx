@@ -16,10 +16,6 @@ const Empty4 = () => {
 
   const conversionOrderID = orderID?.toString() + defaultCarID?.toString();
 
-  // const toUploadPayment = () => {
-  //   navigate(`/payment/${selectedCar.id}`);
-  // };
-
   return (
     <section className={classes.emptySection3} id="empty-section">
       <div className="container">
@@ -37,7 +33,6 @@ const Empty4 = () => {
               style={{ marginTop: "-15px" }}
               data-testid="content-order">
               <p className="mt-3" data-testid="order-test">
-                {/* Order ID : {orderID?.toString() + defaultCarID?.toString()}{" "} */}
                 Order ID : {conversionOrderID}
               </p>
             </div>

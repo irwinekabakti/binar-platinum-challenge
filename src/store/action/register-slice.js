@@ -12,11 +12,9 @@ const registerCustomer = createAsyncThunk(
         `${BASE_API}/customer/auth/register`,
         payload
       );
-      // console.log(get.data);
+
       return get.data.role;
-      // return get.data;
     } catch (error) {
-      // console.log(error);
       throw error;
     }
   }
