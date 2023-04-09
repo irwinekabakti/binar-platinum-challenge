@@ -29,7 +29,7 @@ const Navbar = () => {
     }, 2500);
     setTimeout(() => {
       navigate("/signIn");
-    }, 3000);
+    }, 2500);
   };
 
   const handleRegister = () => {
