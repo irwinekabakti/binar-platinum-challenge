@@ -27,11 +27,11 @@ const CardPayment = () => {
   const handleBankClick = (id) => {
     dispatch(updateBankName(id));
     setBankID(id);
-    setTokenPaymentCar();
   };
 
   const toConfirmPayment = () => {
     navigate(`/confirmPayment/${selectedCar.id}`);
+    setTokenPaymentCar();
   };
 
   return (

@@ -12,7 +12,6 @@ const loginCustomer = createAsyncThunk(
 
       return get.data;
     } catch (error) {
-      // console.log(error);
       throw error;
     }
   }
@@ -38,7 +37,7 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(loginCustomer.fulfilled, (state, action) => {
       localStorage.setItem("token", action.payload.access_token);
-      localStorage.setItem('role', action.payload.role)
+      localStorage.setItem("role", action.payload.role);
       authSlice.caseReducers.login(state, {
         payload: !!action.payload,
         type: loginCustomer.typePrefix,

@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import classes from "./WhyUs.module.css";
 import data_Card from "./data";
-// import iconComplete from "../Images/icon_complete.svg";
 
 const WhyUs = () => {
   return (
