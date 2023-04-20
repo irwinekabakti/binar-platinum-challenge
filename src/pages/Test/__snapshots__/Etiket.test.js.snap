@@ -518,7 +518,8 @@ exports[`UI ETicket test UI ETicket should match snapshot 1`] = `
             className="fw-bold mb-2"
             data-testid="paragraph-Footer"
           >
-            Copyright Binar 2022
+            Copyright Binar 
+            2023
           </p>
           <a
             className="navbar-brand"

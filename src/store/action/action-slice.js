@@ -28,6 +28,7 @@ const authSlice = createSlice({
       localStorage.removeItem("token");
       localStorage.removeItem("role");
       localStorage.removeItem("updateCar");
+      localStorage.removeItem("orderId");
       localStorage.removeItem("getCarData");
       localStorage.removeItem("start_Payment", new Date().toLocaleString());
       localStorage.removeItem("bankName");

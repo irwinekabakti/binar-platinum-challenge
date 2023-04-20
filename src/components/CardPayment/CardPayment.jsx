@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import classes from "./CardPayment.module.css";
 import { Accordion } from "react-bootstrap";
 import stripPembayaran from "../Images/strip-total-pembayaran.svg";
@@ -6,7 +6,7 @@ import "../../Accordion.css";
 import { Button } from "react-bootstrap";
 import { FaCheck } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { updateBankName } from "../../store/action/bank-slice";
+import { updateBankName, getOrderCarId } from "../../store/action/bank-slice";
 import moment from "moment";
 import { banks } from "./data";
 import { useNavigate } from "react-router";
@@ -33,6 +33,14 @@ const CardPayment = () => {
     navigate(`/confirmPayment/${selectedCar.id}`);
     setTokenPaymentCar();
   };
+
+  const orderCarId = () => {
+    dispatch(getOrderCarId(updatedOrderedCar.id));
+  };
+
+  useEffect(() => {
+    orderCarId();
+  }, []);
 
   return (
     <Fragment>

@@ -4,6 +4,9 @@ import { contact_Footer, paths_Footer, social_Media } from "./data";
 import logoHome from "../Images/logo.svg";
 
 const Footer = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+
   return (
     <footer className={`${classes.footer}`}>
       <div className="container py-5 pt-0">
@@ -52,7 +55,7 @@ const Footer = () => {
           </div>
           <div className="col-lg-3 mb-3" data-testid="contain-LogoFooter">
             <p className="fw-bold mb-2" data-testid="paragraph-Footer">
-              Copyright Binar 2022
+              Copyright Binar {year}
             </p>
             <a className="navbar-brand" href="/">
               <img src={logoHome} alt="Home BCR" />
