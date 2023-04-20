@@ -1,6 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { Button, Toast, ToastContainer, ToastHeader, ToastBody, Modal,
+import {
+  Button,
+  Toast,
+  ToastContainer,
+  ToastHeader,
+  ToastBody,
+  Modal,
 } from "react-bootstrap";
 import Loading from "../Loading/Loading";
 import classes from "./CardDetail.module.css";
@@ -60,12 +66,12 @@ const CardDetail = () => {
         .then(() => {
           setTimeout(() => {
             navigate(`/payment/${selectedCar.id}`);
-          }, 1500)
+          }, 1500);
         });
     } catch (error) {
       setTimeout(() => {
-        setShowToastError(true)
-      }, 1500)
+        setShowToastError(true);
+      }, 1500);
     }
   };
 
@@ -104,7 +110,10 @@ const CardDetail = () => {
             <strong>ConfirmPayment</strong>
           </Modal.Body>
           <Modal.Footer className="bg-light">
-            <Button variant="secondary" className="fw-bold" onClick={handleCloseModal}>
+            <Button
+              variant="secondary"
+              className="fw-bold"
+              onClick={handleCloseModal}>
               Back
             </Button>
           </Modal.Footer>

@@ -6,6 +6,9 @@ const initialState = {
   updateCar: localStorage.getItem("updateCar")
     ? JSON.parse(localStorage.getItem("updateCar"))
     : [],
+  detailOrderCar: localStorage.getItem("orderId")
+    ? JSON.parse(localStorage.getItem("orderId"))
+    : [],
   getCarData: localStorage.getItem("getCarData")
     ? JSON.parse(localStorage.getItem("getCarData"))
     : [],
@@ -49,7 +52,7 @@ const createOrder = createAsyncThunk("order/rentCar", async (payload) => {
   }
 });
 
-const getOrderCar = createAsyncThunk(
+const getOrderCarId = createAsyncThunk(
   "getUpdateCar/orderCar",
   async (payload) => {
     try {
@@ -110,6 +113,10 @@ const bankSlice = createSlice({
       localStorage.setItem("bankName", JSON.stringify(action.payload));
       state.bankName = action.payload;
     },
+    detailOrderCar(state, action) {
+      localStorage.setItem("orderId", JSON.stringify(action.payload));
+      state.detailOrderCar = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(bankPayment.fulfilled, (state, action) => {
@@ -118,11 +125,12 @@ const bankSlice = createSlice({
     builder.addCase(createOrder.fulfilled, (state, action) => {
       bankSlice.caseReducers.updateCar(state, action);
     });
-    builder.addCase(getOrderCar.fulfilled, (state, action) => {
-      bankSlice.caseReducers.updateCar(state, action);
+    builder.addCase(getOrderCarId.fulfilled, (state, action) => {
+      bankSlice.caseReducers.detailOrderCar(state, action);
     });
     builder.addCase(uploadSlip.fulfilled, (state, action) => {
       bankSlice.caseReducers.updateCar(state, action);
+      bankSlice.caseReducers.detailOrderCar(state, action);
     });
   },
 });
@@ -131,4 +139,4 @@ export default bankSlice;
 
 export const { updateCar, getCarData, updateBankName } = bankSlice.actions;
 
-export { bankPayment, createOrder, getOrderCar, uploadSlip };
+export { bankPayment, createOrder, getOrderCarId, uploadSlip };

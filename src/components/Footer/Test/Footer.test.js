@@ -22,6 +22,6 @@ describe("Test component Footer", () => {
     expect(paragraphFooter).toBeVisible();
 
     expect(containerLogoFooter).toContainElement(paragraphFooter);
-    expect(paragraphFooter).toHaveTextContent("Copyright Binar 2022");
+    expect(paragraphFooter).toHaveTextContent("Copyright Binar 2023");
   });
 });
