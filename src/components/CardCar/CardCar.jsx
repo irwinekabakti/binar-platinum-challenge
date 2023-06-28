@@ -26,6 +26,7 @@ const CardCar = (props) => {
           minPrice: SplitPrice[0],
           maxPrice: SplitPrice[1],
           isRented,
+          pageSize: 100,
         },
       };
       const { data } = await axios.get(`${BASE_URL}`, config);
