@@ -252,7 +252,7 @@ exports[`UI Payment test UI payment should match snapshot 1`] = `
               <p
                 className="p-1 text-secondary sizeTag"
               >
-                20 April 2023
+                28 September 2023
               </p>
             </div>
             <div
@@ -267,7 +267,7 @@ exports[`UI Payment test UI payment should match snapshot 1`] = `
               <p
                 className="p-1 text-secondary sizeTag"
               >
-                20 April 2023
+                28 September 2023
               </p>
             </div>
           </div>
